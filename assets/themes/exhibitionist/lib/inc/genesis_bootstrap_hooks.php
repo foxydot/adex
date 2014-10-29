@@ -10,7 +10,7 @@ add_filter( 'genesis_attr_sidebar-primary', 'msdlab_bootstrap_sidebar', 10);
  /*** Bootstrappin **/
 
 function msdlab_bootstrap_site_inner( $attributes ){
-    $attributes['class'] .= ' container';
+    //$attributes['class'] .= ' container';
     return $attributes;
 }
 

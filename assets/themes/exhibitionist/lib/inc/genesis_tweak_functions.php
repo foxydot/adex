@@ -11,6 +11,7 @@ function msdlab_add_apple_touch_icons(){
     <link href="'.get_stylesheet_directory_uri().'/lib/img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
     <link rel="shortcut icon" href="'.get_stylesheet_directory_uri().'/lib/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="'.get_stylesheet_directory_uri().'/lib/img/favicon.ico" type="image/x-icon">
+    <meta name="format-detection" content="telephone=no">
     ';
     print $ret;
 }
@@ -53,7 +54,7 @@ function msdlab_search_text($text) {
  * Customize search button text
  */
 function msdlab_search_button($text) {
-    $text = "&#xF002;";
+    $text = "&#xF105;";
     return $text;
 }
 
@@ -91,12 +92,25 @@ function msdlab_page_banner(){
 
 /*** SIDEBARS ***/
 function msdlab_add_extra_theme_sidebars(){
+    //* Remove the header right widget area
+    unregister_sidebar( 'header-right' );
+    genesis_register_sidebar(array(
+    'name' => 'Pre-header Sidebar',
+    'description' => 'Widget above the logo/nav header',
+    'id' => 'pre-header'
+            ));
+   /* genesis_register_sidebar(array(
+    'name' => 'Page Topper Sidebar',
+    'description' => 'Widget next to featured image',
+    'id' => 'msdlab_page_topper_right'
+            ));*/
     genesis_register_sidebar(array(
     'name' => 'Blog Sidebar',
     'description' => 'Widgets on the Blog Pages',
     'id' => 'blog'
             ));
 }
+
 function msdlab_do_blog_sidebar(){
     if(is_active_sidebar('blog')){
         dynamic_sidebar('blog');
@@ -121,12 +135,44 @@ function msdlab_ro_layout_logic() {
 /*** CONTENT ***/
 
 /**
+ * Move titles
+ */
+function msdlab_do_title_area(){
+    print '<div id="page-title-area" class="page-title-area">';
+    print '<div class="wrap">';
+    do_action('msdlab_title_area');
+    print '</div>';
+    print '</div>';
+}
+
+function msdlab_do_section_title(){
+    if(is_page()){
+        global $post;
+        if(get_section_title()!=$post->post_title){
+            add_action('genesis_before_entry','genesis_do_post_title');
+        }
+        print '<h2 class="section-title">';
+        print get_section_title();
+        print '</h2>';
+    } elseif(is_single()) {
+        genesis_do_post_title();
+    }
+}
+
+/**
  * Customize Breadcrumb output
  */
 function msdlab_breadcrumb_args($args) {
     $args['labels']['prefix'] = ''; //marks the spot
     $args['sep'] = ' > ';
     return $args;
+}
+function sp_post_info_filter($post_info) {
+    $post_info = 'Posted [post_date]';
+    return $post_info;
+}
+function sp_read_more_link() {
+    return '&hellip;&nbsp;<a class="more-link" href="' . get_permalink() . '">Read More <i class="fa fa-angle-right"></i></a>';
 }
 function msdlab_older_link_text() {
         $olderlink = 'Older Posts &raquo;';
@@ -153,8 +199,7 @@ function msdlab_do_social_footer(){
         $copyright .= '&copy; Copyright '.date('Y').' '.get_bloginfo('name').' &middot; All Rights Reserved ';
     }
     
-    print '<div id="footer-left" class="footer-left social">'.$address.'</div>';
-    print '<div id="footer-right" class="footer-right menu">'.$footer_menu.'</div>';
+    print '<div id="footer-info">'.$copyright.$footer_menu.'</div>';
 }
 
 
@@ -165,95 +210,11 @@ register_nav_menus( array(
     'footer_menu' => 'Footer Menu'
 ) );
 /*** SITEMAP ***/
-/**
- * Retrieve or display list of pages in list (li) format.
- *
- * @since 1.5.0
- *
- * @param array|string $args Optional. Override default arguments.
- * @return string HTML content, if not displaying.
- */
-function msdlab_list_pages_for_sitemap($args = '') {
-    $defaults = array(
-        'depth' => 0, 'show_date' => '',
-        'date_format' => get_option('date_format'),
-        'child_of' => 0, 'exclude' => '',
-        'title_li' => __('Pages'), 'echo' => 1,
-        'authors' => '', 'sort_column' => 'menu_order, post_title',
-        'link_before' => '', 'link_after' => '', 'walker' => '',
-    );
-
-    $r = wp_parse_args( $args, $defaults );
-    extract( $r, EXTR_SKIP );
-
-    $output = '';
-    $current_page = 0;
-    
-    /*$r['meta_query'] = array(
-        array(
-            'key'     => '_yoast_wpseo_meta-robots-noindex',
-            'value'   => 1,
-            'compare' => '!=',
-        ),
-    );*/
-
-    // sanitize, mostly to keep spaces out
-    $r['exclude'] = preg_replace('/[^0-9,]/', '', $r['exclude']);
-
-    // Allow plugins to filter an array of excluded pages (but don't put a nullstring into the array)
-    $exclude_array = ( $r['exclude'] ) ? explode(',', $r['exclude']) : array();
-    $r['exclude'] = implode( ',', apply_filters('wp_list_pages_excludes', $exclude_array) );
-
-    // Query pages.
-    $r['hierarchical'] = 0;
-    $pages = get_pages($r);
-    if ( !empty($pages) ) {
-        if ( $r['title_li'] )
-            $output .= '<li class="pagenav">' . $r['title_li'] . '<ul>';
-
-        global $wp_query;
-        if ( is_page() || is_attachment() || $wp_query->is_posts_page )
-            $current_page = $wp_query->get_queried_object_id();
-        $output .= msdlab_walk_page_tree($pages, $r['depth'], $current_page, $r);
-
-        if ( $r['title_li'] )
-            $output .= '</ul></li>';
-    }
-
-    $output = apply_filters('wp_list_pages', $output, $r);
-
-    if ( $r['echo'] )
-        echo $output;
-    else
-        return $output;
-}
-
-function msdlab_walk_page_tree($pages, $depth, $current_page, $r) {
-    if ( empty($r['walker']) )
-        $walker = new Walker_Page;
-    else
-        $walker = $r['walker'];
-
-    foreach ( (array) $pages as $k=>$page ) {
-        if($x = get_metadata('post',$page->ID,'_yoast_wpseo_meta-robots-noindex')){
-            if($x = 1){
-                unset($pages[$k]);
-                continue;
-            }
-        }
-        if ( $page->post_parent )
-            $r['pages_with_children'][ $page->post_parent ] = true;
-    }
-
-    $args = array($pages, $depth, $r, $current_page);
-    return call_user_func_array(array($walker, 'walk'), $args);
-}
-
 function msdlab_sitemap(){
     $col1 = '
             <h4>'. __( 'Pages:', 'genesis' ) .'</h4>
             <ul>
-                '. msdlab_list_pages_for_sitemap( 'echo=0&title_li=' ) .'
+                '. wp_list_pages( 'echo=0&title_li=' ) .'
             </ul>
 
             <h4>'. __( 'Categories:', 'genesis' ) .'</h4>

@@ -5,6 +5,12 @@ function msdlab_button_function($atts, $content = null){
       'url' => null,
 	  'target' => '_self'
       ), $atts ) );
+      if(strstr($url,'mailto:',0)){
+          $parts = explode(':',$url);
+          if(is_email($parts[1])){
+              $url = $parts[0].':'.antispambot($parts[1]);
+          }
+      }
 	$ret = '<div class="button-wrapper">
 <a class="button" href="'.$url.'" target="'.$target.'">'.remove_wpautop($content).'</a>
 </div>';
@@ -60,6 +66,7 @@ function msdlab_mailto_function($atts, $content){
     $email = antispambot($email);
     return '<a href="mailto:'.$email.'">'.$content.'</a>';
 }
+
 add_shortcode('columns','column_shortcode');
 
 add_shortcode('sitemap','msdlab_sitemap');

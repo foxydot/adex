@@ -4,38 +4,31 @@ Site Navigation
 
 .genesis-nav-menu {
   clear: both;
-  color: #999;
-  font-family: Lato, sans-serif;
+  color: @blue;
+  .customheader();
   line-height: 1.5;
   width: 100%;
-}
-
-.genesis-nav-menu .menu-item {
-  display: inline-block;
-  text-align: left;
-}
-
-.genesis-nav-menu a {
-  border: none;
-  color: #999;
-  display: block;
-  padding: 28px 24px;
-  padding: 2.8rem 2.4rem;
-  position: relative;
-}
-
-.genesis-nav-menu a:hover,
-.genesis-nav-menu .current-menu-item > a,
-.genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-  color: #333;
-}
-
-.genesis-nav-menu .sub-menu .current-menu-item > a {
-  color: #999;
+  .menu-item,.separator {
+    display: inline-block;
+    text-align: left;
+    a {
+      border: none;
+      color: @blue;
+      display: block;
+      padding: 20px;
+      padding: 2rem;
+      position: relative;
+    }
+    a:hover{
+     color: @orange;
+    }
+   }
+   .current-menu-item>a{
+     color: @orange;
+   }
 }
 
 .genesis-nav-menu > .menu-item > a {
-  text-transform: uppercase;
 }
 
 .genesis-nav-menu .sub-menu {
@@ -49,22 +42,21 @@ Site Navigation
   transition:         opacity .4s ease-in-out;
   width: 200px;
   z-index: 99;
-}
-
-.genesis-nav-menu .sub-menu a {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-top: none;
-  font-size: 14px;
-  font-size: 1.4rem;
-  padding: 16px 20px;
-  padding: 1.6rem 2rem;
-  position: relative;
-  width: 200px;
+  a {
+    background: @white;
+    border: 1px solid #eee;
+    border-top: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 16px 20px;
+    padding: 1.6rem 2rem;
+    position: relative;
+    width: 196px;
+  }
 }
 
 .genesis-nav-menu .sub-menu .sub-menu {
-  margin: -54px 0 0 199px;
+  margin: -54px 0 0 190px;
 }
 
 .genesis-nav-menu .menu-item:hover {
@@ -76,11 +68,11 @@ Site Navigation
   opacity: 1;
 }
 
-.genesis-nav-menu > .first > a {
+.genesis-nav-menu > .first-child > a {
   padding-left: 0;
 }
 
-.genesis-nav-menu > .last > a {
+.genesis-nav-menu > .last-child > a {
   padding-right: 0;
 }
 
@@ -123,21 +115,112 @@ Site Navigation
 --------------------------------------------- */
 
 .nav-primary {
-  background-color: @white;
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+  font-size: 18px;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  li.menu-item{
+    font-size: 18px;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    a{
+      color: @blue;
+      text-transform: uppercase;
+      border-bottom: 3px solid @white;
+      padding: 0;
+    }
+    .sub-menu{
+      border-top: 3px solid @orange;
+      background-color: @blue;
+      margin-top: -3px;
+      li.menu-item{
+        background-color: @blue;
+        padding: 0 2rem;
+        width: 100%;
+        a{
+          background-color: transparent;
+          border: 0;
+          border-bottom: 1px solid @orange;
+          color: @white;
+          padding: 1rem 0;
+          width: 100%;
+        }
+      }
+      li.last-child>a{
+        border: 0;
+      }
+      li:hover>a{
+        color: @ltgrey;
+        text-decoration: none;
+      }
+    }
+  }
+  li.separator {
+    color: @orange;
+  }
+  li:hover, li.current-menu-item, li.current-menu-ancestor{
+    a, a:hover{
+      text-decoration: none;
+      border-bottom: 3px solid @orange;
+      }
+  }
+  li.last-child{
+  }
 }
-
-.nav-primary a:hover,
-.nav-primary .current-menu-item > a {
-  color: @orange;
-}
-
-.nav-primary .sub-menu a:hover {
-  color: @orange;
+.mainNav>ul>li.first>ul>li.title>ul>li>ul>li {
+  padding: 3px 0;
 }
 
 /* Secondary Navigation
 --------------------------------------------- */
 
 .nav-secondary {
-  background-color: #fff;
+  padding: 0.5rem 0;
+  .wrap{
+    li.menu-item{
+      width:auto;
+      position: relative;
+      >a{
+        font-size: 16px;
+        font-size: 1.6rem;
+        line-height: 18px;
+        line-height: 1.8rem;
+        padding: 0.5rem 1rem;
+        color: @mdgrey;
+      }
+      >a:hover{
+        color:@orange;
+      }
+      ul{
+        display: none;
+        position:absolute;
+        background:@ltgrey;
+        text-align: center;
+        left: 20px;
+        z-index: 500;
+        li{
+          border: 0;
+          display: block;
+          width: auto;
+          a{
+            border: 0;
+            color: @dkgrey;
+            width: auto;
+            padding: 0 0 0 20px;
+            background-position: left center;
+          }
+        }
+      }
+    }
+    li.menu-item.last-child{
+      border: 0;
+    }
+    li:hover{
+      ul{
+        display: block;
+      }
+    }
+  }
 }

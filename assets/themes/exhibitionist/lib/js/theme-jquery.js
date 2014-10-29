@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 	// add target="_blank" to all *external* 
-    var internal_urls = Array('erisiantrubble.cmos.msd');
+    var internal_urls = Array('adex.adv','adex.msdlab2.com','adex.com');
     $('a').attr('target',function(){
         var url = $(this).attr('href');
         var target = $(this).attr('target');

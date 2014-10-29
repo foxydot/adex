@@ -26,7 +26,7 @@ function msdlab_add_styles() {
             wp_enqueue_style('ie-style',get_stylesheet_directory_uri().'/lib/css/ie.css',$queue);
             $queue[] = 'ie-style';
             
-            wp_enqueue_style('ie8-style',get_stylesheet_directory_uri() . '/lib/css/ie8.css');
+            wp_enqueue_style('ie8-style',get_template_directory_uri() . '/lib/css/ie8.css');
             global $wp_styles;
             $wp_styles->add_data( 'ie8-style', 'conditional', 'lte IE 8' );
         }    
@@ -41,6 +41,7 @@ function msdlab_add_scripts() {
         //use local
             //wp_enqueue_script('bootstrap-jquery',get_stylesheet_directory_uri().'/lib/bootstrap/js/bootstrap.min.js',array('jquery'));
         wp_enqueue_script('msd-jquery',get_stylesheet_directory_uri().'/lib/js/theme-jquery.js',array('jquery','bootstrap-jquery'));
+        wp_enqueue_script('nav-scripts',get_stylesheet_directory_uri().'/lib/js/nav-scripts.js',array('jquery','bootstrap-jquery'));
         wp_enqueue_script('equalHeights',get_stylesheet_directory_uri().'/lib/js/jquery.equal-height-columns.js',array('jquery'));
         if($is_IE){
             wp_enqueue_script('columnizr',get_stylesheet_directory_uri().'/lib/js/jquery.columnizer.js',array('jquery'));

@@ -2,7 +2,7 @@
 /**
  * Add new image sizes
  */
-add_image_size('post-thumb', 225, 160, TRUE);
+add_image_size('tiny-post-thumb', 45, 45, TRUE);
 add_image_size( 'post-image', 540, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.
 
 /* Display a custom favicon */

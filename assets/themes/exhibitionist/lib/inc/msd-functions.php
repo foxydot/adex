@@ -104,6 +104,13 @@ function get_section(){
     return $section;
 }
 
+function get_section_title(){
+    global $post;
+    $post_data = get_post(get_topmost_parent($post->ID));
+    $section = $post_data->post_title;
+    return $section;
+}
+
 function get_topmost_parent($post_id){
 	$parent_id = get_post($post_id)->post_parent;
 	if($parent_id == 0){
@@ -116,14 +123,6 @@ function get_topmost_parent($post_id){
 add_filter( 'the_content', 'msd_remove_msword_formatting' );
 function msd_remove_msword_formatting($content){
 	global $allowedposttags;
-    $allowedposttags["input"] = array(
-            "name" => array(),
-            "id" => array(),
-            "type" => array(),
-            "size" => array(),
-            "style" => array(),
-            "class" => array(),
-    );
 	$allowedposttags['span']['style'] = false;
 	$content = wp_kses($content,$allowedposttags);
 	return $content;
