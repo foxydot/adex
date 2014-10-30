@@ -93,7 +93,7 @@ function msdlab_page_banner(){
 /*** SIDEBARS ***/
 function msdlab_add_extra_theme_sidebars(){
     //* Remove the header right widget area
-    unregister_sidebar( 'header-right' );
+    //unregister_sidebar( 'header-right' );
     genesis_register_sidebar(array(
     'name' => 'Pre-header Sidebar',
     'description' => 'Widget above the logo/nav header',
@@ -186,29 +186,32 @@ function msdlab_newer_link_text() {
 /*** FOOTER ***/
 
 /**
- * Footer replacement with MSDSocial support
- */
-function msdlab_do_social_footer(){
-    global $msd_social;
-    if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE ) );}
-    
-    if($msd_social){
-        $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
-        $copyright .= '&copy; Copyright '.date('Y').' '.$msd_social->get_bizname().' &middot; All Rights Reserved';
-    } else {
-        $copyright .= '&copy; Copyright '.date('Y').' '.get_bloginfo('name').' &middot; All Rights Reserved ';
-    }
-    
-    print '<div id="footer-info">'.$copyright.$footer_menu.'</div>';
-}
-
-
-/**
- * Menu area for above footer treatment
+ * Menu area for footer menus
  */
 register_nav_menus( array(
     'footer_menu' => 'Footer Menu'
 ) );
+function msdlab_do_footer_menu(){
+    if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE ) );}
+    print '<div id="footer_menu" class="footer_menu row"><div class="wrap">'.$footer_menu.'</div></div>';
+}
+/**
+ * Footer replacement with MSDSocial support
+ */
+function msdlab_do_social_footer(){
+    global $msd_social;
+    
+    if($msd_social){
+        $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
+        $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';
+    } else {
+        $copyright .= '&copy; '.date('Y').' '.get_bloginfo('name').' | An Equal Opportunity Employer | All Rights Reserved';
+    }
+    
+    print '<div id="footer-info">'.$copyright.'</div>';
+}
+
+
 /*** SITEMAP ***/
 function msdlab_sitemap(){
     $col1 = '
