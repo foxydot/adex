@@ -54,7 +54,7 @@ function msdlab_search_text($text) {
  * Customize search button text
  */
 function msdlab_search_button($text) {
-    $text = "&#xF105;";
+    $text = "&#xF002;";
     return $text;
 }
 
