@@ -53,6 +53,9 @@ a img {
 a:hover {
   color: @dkgrey;
 }
+a:focus {
+    outline: 0;
+}
 
 p {
   margin: 0 0 24px;
@@ -72,12 +75,16 @@ ul {
 
 blockquote,
 blockquote::before {
-  color: #999;
+  color: @medgrey;
 }
 
 blockquote {
   margin: 40px 40px 24px;
   margin: 4rem 4rem 2.4rem;
+  border: none;
+  p{
+    .customsanserif;
+  }
 }
 
 blockquote::before {
@@ -93,7 +100,7 @@ blockquote::before {
 
 .entry-content code {
   background-color: @dkgrey;
-  color: #ddd;
+  color: lighten(@ltgrey,20%);
 }
 
 cite {
@@ -171,10 +178,10 @@ input,
 select,
 textarea {
   background-color: @white;
-  border: 1px solid #ddd;
+  border: 1px solid @medgrey;
   border-radius: 3px;
-  box-shadow: 1px 1px 3px #eee inset;
-  color: #999;
+  box-shadow: 1px 1px 3px @medgrey inset;
+  color: @dkgrey;
   font-size: 14px;
   font-size: 1.4rem;
   padding: 16px;
@@ -184,7 +191,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border: 1px solid #999;
+  border: 1px solid @ltgrey;
   outline: none;
 }
 
@@ -208,10 +215,11 @@ input[type="submit"],
   box-shadow: none;
   color: @white;
   cursor: pointer;
-  padding: 16px 24px;
-  padding: 1.6rem 2.4rem;
+  padding: 6px 10px;
+  padding: 0.6rem 1rem;
   text-transform: uppercase;
   width: auto;
+  line-height: 1;
 }
 
 button:hover,
@@ -220,7 +228,7 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover,
 .entry-content .button:hover {
-  background-color: #f15123;
+  background-color: darken(@orange, 10%);
 }
 
 .entry-content .button:hover {

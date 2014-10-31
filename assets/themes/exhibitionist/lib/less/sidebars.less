@@ -3,7 +3,7 @@ Sidebars
 ---------------------------------------------------------------------------------------------------- */
 
 .sidebar {
-  color: #999;
+  color: @ltgrey;
 }
 
 .sidebar a {
@@ -26,14 +26,50 @@ Sidebars
 }
 
 .sidebar .widget {
-  background-color: @white;
-  border-radius: 3px;
-  margin-bottom: 40px;
-  margin-bottom: 4rem;
-  padding: 40px;
-  padding: 4rem;
+  background-color: #fff;
+  border-radius: 0px;
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  padding: 20px;
+  padding: 2rem;
+  .widget-title{
+    color: @orange;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-size: 1.9rem;
+    text-align: center;
+  }
 }
 
 .sidebar .enews-widget {
-  background-color: @dkgrey;
+  background-color: #333;
+}
+
+.sidebar{
+  /*Text Widget with Click */
+.widget_text{
+    border-bottom: 1px dotted @medgrey;
+  .textwidget{
+      .readmore{
+        .button(@medgrey);
+        float: right;
+      }
+  }
+   a {border: none;}
+}
+.widget_sp_image{
+  text-align: center;
+  .link{
+    a{
+      color: @dkgrey;
+      border: 0;
+      i{
+        color: @orange;
+      }
+    }
+  }
+}
+span.fa-stack{
+  color: @blue;
+}
 }

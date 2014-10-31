@@ -95,14 +95,14 @@ img.alignright,
 
 .archive-description,
 .author-box {
-  background-color: @white;
+  background-color: transparent;
   margin-bottom: 40px;
   margin-bottom: 4rem;
+  border-bottom: 2px solid @ltgrey;
 }
 
 .archive-description {
-  padding: 40px 40px 24px;
-  padding: 4rem 4rem 2.4rem;
+  padding: 0;
 }
 
 .author-box {
@@ -133,17 +133,22 @@ img.alignright,
 /* Titles
 --------------------------------------------- */
 
+.section-title,
 .entry-title {
   font-size: 36px;
   font-size: 3.6rem;
   line-height: 1;
 }
 
+
+.section-title a,
 .entry-title a,
 .sidebar .widget-title a {
   color: @dkgrey;
 }
 
+
+.section-title a:hover,
 .entry-title a:hover {
   color: @mdgrey
 }

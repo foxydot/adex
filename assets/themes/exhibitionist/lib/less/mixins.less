@@ -19,6 +19,9 @@
   font-size: unit(@size,rem);
   line-height: 1.625;
 }
+.customsansserif,.customsanserif{
+  .customheader();
+}
 
 .fontawesome {
   font-family: FontAwesome;
@@ -63,29 +66,29 @@
 @vltgrey: #CCC;
 @ltgrey: #999;
 @mdgrey: #666;
+@medgrey: @mdgrey;
 @dkgrey: #333;
 @black: #000;
 
 /* Gradients */
 .quickgradient(@color) {
-	.gradient(@color,darken(@color,20%),lighten(@color,20%));
+  .background-image(linear-gradient(to bottom, darken(@color,20%) 0%,lighten(@color,20%) 100%))
 }
 
 /* Buttons */
-.button(@color:@red) {
-	.gradient(@color,darken(@color,20%),lighten(@color,20%));
-	.border-radius(5px);
+.button(@color:@orange) {
+	background-color: @color;
+	.border-radius(12px);
 	border: .5px solid darken(@color,20%);
 	.drop-shadow(0, 0, 2px, 0.2);
 	padding: 6px 24px;
-	.custombody(12);
-	color: @white !important;
+	.customsanserif;
+	color: #FFFFFF !important;
+	font-size: 12px;
 	font-weight: normal;
-	text-shadow: 1px 1px 2px #000000;
-    text-transform: uppercase;
-    display: table;
-    margin: 12px auto;
-    filter: dropshadow(color=#000000, offx=1, offy=1);
+  text-transform: uppercase;
+  display: table;
+  margin: 12px auto;
 }
 
 .button:hover,
