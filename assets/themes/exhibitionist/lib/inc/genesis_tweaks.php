@@ -10,7 +10,6 @@ add_theme_support( 'genesis-structural-wraps', array(
 'nav',
 'subnav',
 'site-inner',
-'footer-widgets',
 'footer'
 ) );
 

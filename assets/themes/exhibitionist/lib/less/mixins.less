@@ -5,6 +5,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 /* Font Stacks */
+.customserif(@size:1.6) {
+  font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: unit((@size*10),px);
+  font-size: unit(@size,rem);
+  line-height: 1.625;
+}
 .custombody(@size:1.6) {
   font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
