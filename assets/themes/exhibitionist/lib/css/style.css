@@ -5656,7 +5656,7 @@ td.visible-print {
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5697,7 +5697,7 @@ html {
 }
 body {
   background-color: #ffffff;
-  color: #333333;
+  color: #1a1a1a;
   font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -5719,15 +5719,15 @@ textarea:focus,
   transition: all 0.1s ease-in-out;
 }
 ::-moz-selection {
-  background-color: #333333;
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 ::selection {
-  background-color: #333333;
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 a {
-  color: #666666;
+  color: #323232;
   text-decoration: none;
 }
 a img {
@@ -5735,7 +5735,7 @@ a img {
   margin-bottom: -0.4rem;
 }
 a:hover {
-  color: #333333;
+  color: #1a1a1a;
 }
 a:focus {
   outline: 0;
@@ -5755,7 +5755,7 @@ ul {
 }
 blockquote,
 blockquote::before {
-  color: #666666;
+  color: #323232;
 }
 blockquote {
   margin: 40px 40px 24px;
@@ -5763,7 +5763,7 @@ blockquote {
   border: none;
 }
 blockquote p {
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5780,7 +5780,7 @@ blockquote::before {
   top: -10px;
 }
 .entry-content code {
-  background-color: #333333;
+  background-color: #1a1a1a;
   color: #cccccc;
 }
 cite {
@@ -5794,12 +5794,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.625;
-  color: #333333;
+  color: #1a1a1a;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 16px;
@@ -5850,10 +5850,10 @@ input,
 select,
 textarea {
   background-color: #ffffff;
-  border: 1px solid #666666;
+  border: 1px solid #323232;
   border-radius: 3px;
-  box-shadow: 1px 1px 3px #666666 inset;
-  color: #333333;
+  box-shadow: 1px 1px 3px #323232 inset;
+  color: #1a1a1a;
   font-size: 14px;
   font-size: 1.4rem;
   padding: 16px;
@@ -5878,7 +5878,7 @@ input[type="reset"],
 input[type="submit"],
 .button,
 .entry-content .button {
-  background-color: #333333;
+  background-color: #1a1a1a;
   border: none;
   box-shadow: none;
   color: #ffffff;
@@ -6095,7 +6095,7 @@ img.alignright,
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.625;
-  color: #333333;
+  color: #1a1a1a;
   margin-bottom: 4px;
   margin-bottom: 0.4rem;
 }
@@ -6120,11 +6120,11 @@ img.alignright,
 .section-title a,
 .entry-title a,
 .sidebar .widget-title a {
-  color: #333333;
+  color: #1a1a1a;
 }
 .section-title a:hover,
 .entry-title a:hover {
-  color: #666666;
+  color: #323232;
 }
 .widget-title {
   font-size: 16px;
@@ -6276,7 +6276,7 @@ Plugins
 }
 .enews-widget input:hover[type="submit"] {
   background-color: #ffffff;
-  color: #333333;
+  color: #1a1a1a;
 }
 /* Genesis Latest Tweets
 --------------------------------------------- */
@@ -6361,11 +6361,6 @@ Site Header
 ---------------------------------------------------------------------------------------------------- */
 .site-header {
   background-color: #fff;
-  -webkit-box-shadow: 0 1px 10px rgba(20, 20, 20, 0.5);
-  box-shadow: 0 1px 10px rgba(20, 20, 20, 0.5);
-  -webkit-box-shadow: 0px 1px 10px rgba(20, 20, 20, 0.5);
-  -moz-box-shadow: 0px 1px 10px rgba(20, 20, 20, 0.5);
-  box-shadow: 0px 1px 10px rgba(20, 20, 20, 0.5);
 }
 .site-header .wrap {
   padding: 40px 0;
@@ -6375,7 +6370,7 @@ Site Header
 --------------------------------------------- */
 .title-area {
   float: left;
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -6453,7 +6448,7 @@ Site Header
   padding: 0;
   text-transform: uppercase;
   font-size: 1rem;
-  color: #666666;
+  color: #323232;
 }
 .site-header .widget-area .widget_nav_menu nav ul li.register {
   border-radius: 6px 0 0 6px;
@@ -6463,7 +6458,7 @@ Site Header
   border-left: 0;
 }
 .site-header .widget-area .widget_nav_menu nav ul li:hover a {
-  color: #333333;
+  color: #1a1a1a;
 }
 .site-header .widget-area .search-form {
   display: inline-block;
@@ -6473,9 +6468,11 @@ Site Header
   whitespace: nowrap;
 }
 .site-header .widget-area .search-form input[type="search"] {
+  font-size: 1.4rem;
   width: 25rem;
   background: #F4F4F4;
   padding: 0.2rem 2.4rem 0.2rem 1rem;
+  border: 0;
 }
 .site-header .widget-area .search-form input[type="submit"] {
   font-family: FontAwesome;
@@ -6484,11 +6481,11 @@ Site Header
   clip: auto;
   color: #999999;
   display: inline-block;
-  font-size: 1.4rem;
-  height: 24px;
+  font-size: 1.2rem;
+  height: 18px;
   line-height: 1;
   text-align: center;
-  width: 24px;
+  width: 18px;
   right: 0.5rem;
   top: 0.2rem;
 }
@@ -6504,7 +6501,7 @@ Site Navigation
 .genesis-nav-menu {
   clear: both;
   color: #31b3d5;
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -6528,10 +6525,10 @@ Site Navigation
 }
 .genesis-nav-menu .menu-item a:hover,
 .genesis-nav-menu .separator a:hover {
-  color: #ff9900;
+  color: #31b3d5;
 }
 .genesis-nav-menu .current-menu-item > a {
-  color: #ff9900;
+  color: #31b3d5;
 }
 .genesis-nav-menu .sub-menu {
   left: -9999px;
@@ -6605,37 +6602,43 @@ Site Navigation
 .nav-primary {
   display: inline-block;
   float: right;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
   margin-top: 20px;
-  font-size: 18px;
   margin-top: 2rem;
-  font-size: 1.8rem;
 }
 .nav-primary li.menu-item {
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 16px;
+  font-size: 1.6rem;
   padding: 1rem 2rem;
+  font-weight: 700;
 }
 .nav-primary li.menu-item a {
-  color: #31b3d5;
+  color: #163559;
   text-transform: uppercase;
-  border-bottom: 3px solid #ffffff;
   padding: 0;
 }
 .nav-primary li.menu-item .sub-menu {
-  border-top: 3px solid #ff9900;
-  background-color: #31b3d5;
-  margin-top: -3px;
+  background-color: #ffffff;
+  margin-top: 0px;
+  -webkit-box-shadow: 0 10px 10px rgba(20, 20, 20, 0.5);
+  box-shadow: 0 10px 10px rgba(20, 20, 20, 0.5);
+  -webkit-box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
+  -moz-box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
+  box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
 }
 .nav-primary li.menu-item .sub-menu li.menu-item {
-  background-color: #31b3d5;
+  background-color: #ffffff;
   padding: 0 2rem;
   width: 100%;
 }
 .nav-primary li.menu-item .sub-menu li.menu-item a {
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #ff9900;
-  color: #ffffff;
+  color: #163559;
   padding: 1rem 0;
   width: 100%;
 }
@@ -6647,7 +6650,7 @@ Site Navigation
   text-decoration: none;
 }
 .nav-primary li.separator {
-  color: #ff9900;
+  color: #163559;
 }
 .nav-primary li:hover a,
 .nav-primary li.current-menu-item a,
@@ -6655,8 +6658,8 @@ Site Navigation
 .nav-primary li:hover a:hover,
 .nav-primary li.current-menu-item a:hover,
 .nav-primary li.current-menu-ancestor a:hover {
+  color: #31b3d5;
   text-decoration: none;
-  border-bottom: 3px solid #ff9900;
 }
 .mainNav > ul > li.first > ul > li.title > ul > li > ul > li {
   padding: 3px 0;
@@ -6676,10 +6679,10 @@ Site Navigation
   line-height: 18px;
   line-height: 1.8rem;
   padding: 0.5rem 1rem;
-  color: #666666;
+  color: #323232;
 }
 .nav-secondary .wrap li.menu-item > a:hover {
-  color: #ff9900;
+  color: #31b3d5;
 }
 .nav-secondary .wrap li.menu-item ul {
   display: none;
@@ -6696,7 +6699,7 @@ Site Navigation
 }
 .nav-secondary .wrap li.menu-item ul li a {
   border: 0;
-  color: #333333;
+  color: #1a1a1a;
   width: auto;
   padding: 0 0 0 20px;
   background-position: left center;
@@ -6722,7 +6725,7 @@ article.entry {
 .entry-content h3 {
   color: #31b3d5;
   text-transform: uppercase;
-  border-bottom: 1px dotted #666666;
+  border-bottom: 1px dotted #323232;
 }
 .entry-content .attachment a,
 .entry-content .gallery a {
@@ -6981,23 +6984,23 @@ Sidebars
   /*Text Widget with Click */
 }
 .sidebar .widget_text {
-  border-bottom: 1px dotted #666666;
+  border-bottom: 1px dotted #323232;
 }
 .sidebar .widget_text .textwidget .readmore {
-  background-color: #666666;
+  background-color: #323232;
   -webkit-border-radius: 12px;
   -webkit-background-clip: padding-box;
   -moz-border-radius: 12px;
   -moz-background-clip: padding;
   border-radius: 12px;
   background-clip: padding-box;
-  border: 0.5px solid #333333;
+  border: 0.5px solid #000000;
   -webkit-filter: drop-shadow(0px 0px 2px 0.2px);
   -moz-filter: drop-shadow(0px 0px 2px 0.2px);
   -ms-filter: drop-shadow(0px 0px 2px 0.2px);
   filter: drop-shadow(0px 0px 2px 0.2px);
   padding: 6px 24px;
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -7017,7 +7020,7 @@ Sidebars
   text-align: center;
 }
 .sidebar .widget_sp_image .link a {
-  color: #333333;
+  color: #1a1a1a;
   border: 0;
 }
 .sidebar .widget_sp_image .link a i {
@@ -7030,7 +7033,7 @@ Sidebars
 Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 .footer-widgets {
-  background-color: #ffffff;
+  background-color: #532a44;
   color: #999;
   clear: both;
   padding: 0;
@@ -7064,13 +7067,14 @@ Footer Widgets
 Site Footer
 ---------------------------------------------------------------------------------------------------- */
 .site-footer {
-  background-color: #31b3d5;
+  background-color: #1a1a1a;
   color: #cccccc;
-  font-family: "Open Sans", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 10px;
   font-size: 1rem;
   line-height: 1.625;
+  text-transform: uppercase;
   padding: 40px 0;
   padding: 1rem 0;
   text-align: center;
@@ -7098,17 +7102,69 @@ Site Footer
 .site-footer a {
   color: #cccccc;
 }
-.site-footer .ftr-menu {
-  width: auto;
-  display: inline-block;
+.page-title-area {
+  background: #532a44;
+}
+.page-title-area .section-title,
+.page-title-area .page-title {
+  padding: 1.2rem 0;
+  margin: 0;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  font-size: 3rem;
+  line-height: 1.625;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 300;
+}
+.footer-menu {
+  background: #323232;
+  color: #ffffff;
+}
+.footer-menu .wrap .ftr-menu {
+  width: 100%;
+  display: block;
   margin-left: 3rem;
 }
-.site-footer .ftr-menu .menu {
+.footer-menu .wrap .ftr-menu .menu {
   list-style: none outside none;
 }
-.site-footer .ftr-menu .menu li {
-  padding: 0 0.5em;
+.footer-menu .wrap .ftr-menu .menu li {
+  list-style: none outside none;
+}
+.footer-menu .wrap .ftr-menu .menu li a {
+  color: #a8cffe;
+}
+.footer-menu .wrap .ftr-menu .menu > li {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   display: inline-block;
+  padding: 3rem;
+  min-height: 300px;
+  border-right: 1px solid #1a1a1a;
+}
+@media (min-width: 992px) {
+  .footer-menu .wrap .ftr-menu .menu > li {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.footer-menu .wrap .ftr-menu .menu > li > a {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.footer-menu .wrap .ftr-menu .menu > li .sub-menu-description {
+  font-style: italic;
+}
+.footer-menu .wrap .ftr-menu .menu > li .sub-menu {
+  padding-top: 2rem;
+}
+.footer-menu .wrap .ftr-menu .menu > li.first-child {
+  border-left: 1px solid #1a1a1a;
 }
 .nav-responsive ul,
 .nav-responsive li,

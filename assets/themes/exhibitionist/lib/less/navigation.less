@@ -20,11 +20,11 @@ Site Navigation
       position: relative;
     }
     a:hover{
-     color: @orange;
+     color: @blue;
     }
    }
    .current-menu-item>a{
-     color: @orange;
+     color: @blue;
    }
 }
 
@@ -117,33 +117,31 @@ Site Navigation
 .nav-primary {
   display: inline-block;
   float: right;
+  .customheader(1.6);
   margin-top: 20px;
-  font-size: 18px;
   margin-top: 2rem;
-  font-size: 1.8rem;
   li.menu-item{
-    font-size: 18px;
-    font-size: 1.8rem;
+    font-size: 16px;
+    font-size: 1.6rem;
     padding: 1rem 2rem;
+    font-weight: 700;
     a{
-      color: @blue;
+      color: @dkblue;
       text-transform: uppercase;
-      border-bottom: 3px solid @white;
       padding: 0;
     }
     .sub-menu{
-      border-top: 3px solid @orange;
-      background-color: @blue;
-      margin-top: -3px;
+      background-color: @white;
+      margin-top: 0px;
+      .box-shadow(0 10px 10px rgba(20,20,20,0.5));
       li.menu-item{
-        background-color: @blue;
+        background-color: @white;
         padding: 0 2rem;
         width: 100%;
         a{
           background-color: transparent;
           border: 0;
-          border-bottom: 1px solid @orange;
-          color: @white;
+          color: @dkblue;
           padding: 1rem 0;
           width: 100%;
         }
@@ -158,12 +156,12 @@ Site Navigation
     }
   }
   li.separator {
-    color: @orange;
+    color: @dkblue;
   }
   li:hover, li.current-menu-item, li.current-menu-ancestor{
     a, a:hover{
+      color: @blue;
       text-decoration: none;
-      border-bottom: 3px solid @orange;
       }
   }
   li.last-child{
@@ -191,7 +189,7 @@ Site Navigation
         color: @mdgrey;
       }
       >a:hover{
-        color:@orange;
+        color:@blue;
       }
       ul{
         display: none;

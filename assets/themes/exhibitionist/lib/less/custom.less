@@ -1,0 +1,54 @@
+.page-title-area{
+  background: @wine;
+  .section-title,.page-title{
+    padding: 1.2rem 0;
+    margin:0;
+    .customheader(3);
+    text-transform: uppercase;
+    color: @white;
+    font-weight: 300;
+  }
+}
+
+
+.footer-menu{
+  background: @mdgrey;
+  color: @white;
+  .wrap{
+    .ftr-menu{
+      width: 100%;
+      display: block;
+      margin-left: 3rem;
+      .menu{
+        list-style: none outside none;
+        li{
+          list-style: none outside none;
+          a{
+            color: @ltblue;
+          }
+        }
+        >li{
+          .make-md-column(4);
+          display: inline-block;
+          padding: 3rem;
+          min-height: 300px;
+          border-right: 1px solid @dkgrey;
+          >a{
+            color: @white;
+            text-transform: uppercase;
+            font-size: 1.2em;
+          }
+          .sub-menu-description{
+            font-style: italic;
+          }
+          .sub-menu{
+            padding-top: 2rem;
+          }
+        }
+        >li.first-child{
+          border-left: 1px solid @dkgrey;
+        }
+      }
+    }
+  }
+}

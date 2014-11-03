@@ -8,11 +8,11 @@ jQuery(document).ready(function($) {
 	$('#footer-widgets').addClass('cols-'+numwidgets);
 	
 	//special for lifestyle
-	$('.ftr-menu ul.menu>li').after(function(){
+	/*$('.ftr-menu ul.menu>li').after(function(){
 		if(!$(this).hasClass('last-child') && $(this).hasClass('menu-item') && $(this).css('display')!='none'){
 			return '<li class="separator">|</li>';
 		}
-	});
+	});*/
 	// add target="_blank" to all *external* 
     var internal_urls = Array('adex.adv','adex.msdlab2.com','adex.com');
     $('a').attr('target',function(){
