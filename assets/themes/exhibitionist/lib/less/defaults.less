@@ -209,16 +209,7 @@ input[type="reset"],
 input[type="submit"],
 .button,
 .entry-content .button {
-  background-color: @dkgrey;
-  border: none;
-  box-shadow: none;
-  color: @white;
-  cursor: pointer;
-  padding: 6px 10px;
-  padding: 0.6rem 1rem;
-  text-transform: uppercase;
-  width: auto;
-  line-height: 1;
+  .button();
 }
 
 button:hover,
@@ -227,16 +218,11 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover,
 .entry-content .button:hover {
-  background-color: darken(@orange, 10%);
+ .button-hover();
 }
 
 .entry-content .button:hover {
   color: @white;
-}
-
-.button {
-  border-radius: 3px;
-  display: inline-block;
 }
 
 input[type="search"]::-webkit-search-cancel-button,

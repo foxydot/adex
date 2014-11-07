@@ -10,6 +10,47 @@
   }
 }
 
+.page-footer-widget{
+  position: relative;
+}
+.image-widget-background{
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  min-height: 500px;
+  display: table;
+  width: 100%;
+  .fuzzybubble{
+      border-radius: 100%;
+      width: 450px;
+      height: 450px;
+      margin: 2.5rem auto;
+      padding: 3rem;
+      border: 4px solid @white;
+      color: @white;
+      .widget-title{
+        margin-top: 5rem;
+        font-size: 3.6rem;
+        color: @white;
+        text-align: center;
+      }
+      .widget-content{
+        width: 80%;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        .subtitle{
+          display: block;
+          font-weight: 700;
+          font-size: 1.8rem;
+        }
+        .link{
+          text-align: center;
+        }
+      }
+  }
+}
+
 //mixins for social colors
 @facebook: #345AA1;
 @twitter: #348DB9;
@@ -97,8 +138,7 @@
     span.msdsocial_street{
       display: block;
     }
-  }
-  
+  }  
   .connected-social{
     .social-media{
       float: right;

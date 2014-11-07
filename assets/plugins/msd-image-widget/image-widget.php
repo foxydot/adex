@@ -51,6 +51,8 @@ class Tribe_Image_Widget extends WP_Widget {
 			add_action( 'admin_notices', array( $this, 'post_upgrade_nag') );
 
 		add_action( 'network_admin_notices', array( $this, 'post_upgrade_nag') );
+        
+        wp_enqueue_script('blur',get_stylesheet_directory_uri().'/lib/js/blur.js',array('jquery'));
 	}
 
 	/**
@@ -87,7 +89,8 @@ class Tribe_Image_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, self::get_defaults() );
 		if ( !empty( $instance['imageurl'] ) || !empty( $instance['attachment_id'] ) ) {
 
-			$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'] );
+            $instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'] );
+            $instance['subtitle'] = apply_filters( 'widget_title', empty( $instance['subtitle'] ) ? '' : $instance['subtitle'] );
 			$instance['description'] = apply_filters( 'widget_text', $instance['description'], $args, $instance );
 			$instance['link'] = apply_filters( 'image_widget_image_link', esc_url( $instance['link'] ), $args, $instance );
 			$instance['linktarget'] = apply_filters( 'image_widget_image_link_target', esc_attr( $instance['linktarget'] ), $args, $instance );
@@ -123,7 +126,8 @@ class Tribe_Image_Widget extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$new_instance = wp_parse_args( (array) $new_instance, self::get_defaults() );
-		$instance['title'] = strip_tags($new_instance['title']);
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['subtitle'] = strip_tags($new_instance['subtitle']);
 		if ( current_user_can('unfiltered_html') ) {
 			$instance['description'] = $new_instance['description'];
 		} else {
@@ -210,7 +214,8 @@ class Tribe_Image_Widget extends WP_Widget {
 	private static function get_defaults() {
 
 		$defaults = array(
-			'title' => '',
+            'title' => '',
+            'subtitle' => '',
 			'description' => '',
 			'link' => '',
 			'linktarget' => '',
@@ -254,7 +259,7 @@ class Tribe_Image_Widget extends WP_Widget {
 				'href' => $instance['link'],
 				'target' => $instance['linktarget'],
 				'class' => 	$this->widget_options['classname'].'-image-link',
-				'title' => ( !empty( $instance['alt'] ) ) ? $instance['alt'] : $instance['title'],
+                'title' => ( !empty( $instance['alt'] ) ) ? $instance['alt'] : $instance['title'],
 			);
 			$attr = apply_filters('image_widget_link_attributes', $attr, $instance );
 			$attr = array_map( 'esc_attr', $attr );

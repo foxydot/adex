@@ -83,19 +83,24 @@
 }
 
 /* Buttons */
-.button(@color:@orange) {
-	background-color: @color;
-	.border-radius(12px);
-	border: .5px solid darken(@color,20%);
-	.drop-shadow(0, 0, 2px, 0.2);
-	padding: 6px 24px;
-	.customsanserif;
-	color: #FFFFFF !important;
-	font-size: 12px;
-	font-weight: normal;
+.button(@color:@wine) {
+  background-color: @color;
+  border-radius: 0;
+  padding: 6px 24px;
+  .customsanserif;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
   text-transform: uppercase;
   display: table;
   margin: 12px auto;
+  text-decoration: none;
+}
+
+
+.button-hover(@color:@wine) {
+  .button(@color);
+  background-color: darken(@color,10%);
 }
 
 .button:hover,
@@ -103,38 +108,7 @@
 .button a,
 .button a:hover,
 .button a:visited {
-	color: white;
-	text-decoration: none;
-}
-
-.gradientimage(@imgurl: '',@color: @red) {
-	@start:darken(@color,20%);
-	@stop:lighten(@color,20%);
-  background: url(@imgurl),@color;
-  background: url(@imgurl),-webkit-gradient(linear,
-                               left bottom,
-                               left top,
-                               color-stop(0, @start),
-                               color-stop(1, @stop));
-  background: url(@imgurl),-ms-linear-gradient(bottom,
-                                  @start,
-                                  @stop);
-  background: url(@imgurl),-moz-linear-gradient(center bottom,
-                                   @start 0%,
-                                   @stop 100%);
-}
-
-.iconbutton(@color:@red,@imgurl:''){
-	.button(@color);
-	.gradientimage(@imgurl,@color);
-	background-position: center center, top left;
-	background-repeat: no-repeat, repeat;
-	text-indent: -9999px;
-	display: inline-block;
-	padding: 0;
-	height: 25px;
-	width: 25px;
-	cursor: pointer;
+  .button-hover();
 }
 
 /* Clears */

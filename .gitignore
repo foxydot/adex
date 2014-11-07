@@ -60,6 +60,7 @@ Icon
 .Trashes
 *.pydevproject
 .project
+config.codekit
 .metadata
 bin/**
 tmp/**
