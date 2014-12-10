@@ -6570,7 +6570,7 @@ Site Navigation
   color: #31b3d5;
   text-decoration: none;
 }
-.nav-primary li.first-child a:before {
+.nav-primary ul.menu > li.first-child a:before {
   font-family: FontAwesome;
   padding: 0 0.4rem 0 0.2rem;
   content: "\f015";
