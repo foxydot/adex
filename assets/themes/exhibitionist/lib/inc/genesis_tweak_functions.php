@@ -80,11 +80,7 @@ function msdlab_page_banner(){
         remove_action('genesis_entry_header', 'genesis_do_post_title');
     }
     $title = $title != ''?sprintf( '<h3>%s</h3>', apply_filters( 'genesis_post_title_text', $title ) ):'';
-    $ret = '<section class="banner">
-        <div class="wrap" style="background-image:url('.$background.')">
-            <h1 itemprop="headline" class="entry-title">'.get_the_title().'</h1>
-        </wrap>
-       </section>';
+    $ret = '<div class="banner clearfix" style="background-image:url('.$background.')"></div>';
     print $ret;
 }
 

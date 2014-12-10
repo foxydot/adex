@@ -5920,7 +5920,6 @@ article {
 /* Content */
 main.content {
   float: none;
-  padding: 2rem 1rem;
   /*width: 740px;*/
 }
 .content-sidebar .content,
@@ -5939,7 +5938,7 @@ main.content {
 /* Primary Sidebar */
 .sidebar-primary {
   float: none;
-  background: #F8F8F8;
+  background: #f8f8f8;
   padding: 2rem 1rem;
 }
 .sidebar-content .sidebar-primary,
@@ -5949,7 +5948,7 @@ main.content {
 /* Secondary Sidebar */
 .sidebar-secondary {
   float: none;
-  background: #F8F8F8;
+  background: #f8f8f8;
   padding: 2rem 1rem;
 }
 .content-sidebar-sidebar .sidebar-secondary {
@@ -6633,8 +6632,7 @@ article.entry {
   border-radius: 3px;
   margin-bottom: 40px;
   margin-bottom: 4rem;
-  padding: 24px 15px 24px;
-  padding: 0;
+  padding: 2rem 1rem;
 }
 .entry-content h3 {
   color: #31b3d5;
@@ -7024,6 +7022,15 @@ Site Footer
   text-transform: uppercase;
   color: #ffffff;
   font-weight: 300;
+}
+.page .banner {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-color: #f8f8f8;
+  min-height: 500px;
+  width: 100%;
 }
 .page-footer-widget {
   position: relative;
