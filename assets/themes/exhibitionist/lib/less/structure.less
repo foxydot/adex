@@ -5,16 +5,17 @@ Structure and Layout
 /* Site Containers
 --------------------------------------------- */
 
-.wrap {
+.wrap,
+.sidebar-primary section,
+.sidebar-secondary section,
+article {
   margin: 0 auto;
   max-width: 1140px;
   }
 
 .site-inner {
   clear: both;
-  padding-top: 40px;
-  padding-top: 4rem;
-  .box-shadow(0 1px 10px rgba(20,20,20,0.5));
+  padding-top: 0;
 }
 
 /* Column Widths and Positions
@@ -29,27 +30,26 @@ Structure and Layout
 }
 
 .content-sidebar-sidebar .content-sidebar-wrap {
-  float: left;
+  float: none;
 }
 
 .sidebar-content-sidebar .content-sidebar-wrap,
 .sidebar-sidebar-content .content-sidebar-wrap {
-  float: right;
+  float: none;
 }
 
 /* Content */
 
 main.content {
-  float: right;
-  margin-bottom: 40px;
-  margin-bottom: 4rem;
+  float: none;
+  padding: 2rem 1rem;
   /*width: 740px;*/
 }
 
 .content-sidebar .content,
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content {
-  float: left;
+  float: none;
 }
 
 .content-sidebar-sidebar .content,
@@ -65,20 +65,24 @@ main.content {
 /* Primary Sidebar */
 
 .sidebar-primary {
-  float: right;
+  float: none;
+  background: #F8F8F8;
+  padding: 2rem 1rem;
 }
 
 .sidebar-content .sidebar-primary,
 .sidebar-sidebar-content .sidebar-primary {
-  float: left;
+  float: none;
 }
 
 /* Secondary Sidebar */
 
 .sidebar-secondary {
-  float: left;
+  float: none;
+  background: #F8F8F8;
+  padding: 2rem 1rem;
 }
 
 .content-sidebar-sidebar .sidebar-secondary {
-  float: right;
+  float: none;
 }

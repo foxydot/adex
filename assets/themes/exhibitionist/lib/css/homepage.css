@@ -41,7 +41,7 @@
   background-color: #311928;
 }
 /* Clears */
-.clearfix {
+.msd-clearfix {
   content: ".";
   display: block;
   height: 0;

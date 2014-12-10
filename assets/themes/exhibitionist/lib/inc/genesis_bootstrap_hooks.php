@@ -30,7 +30,7 @@ function msdlab_bootstrap_content( $attributes ){
     switch($layout){
         case 'content-sidebar':
         case 'sidebar-content':
-            $attributes['class'] .= ' col-md-9 col-sm-12';
+            $attributes['class'] .= ' col-md-12';
             break;
         case 'content-sidebar-sidebar':
         case 'sidebar-sidebar-content':
@@ -49,11 +49,12 @@ function msdlab_bootstrap_sidebar( $attributes ){
     switch($layout){
         case 'content-sidebar':
         case 'sidebar-content':
-            $attributes['class'] .= ' col-md-3 hidden-sm hidden-xs';
+            $attributes['class'] .= ' col-md-12';
             break;
         case 'content-sidebar-sidebar':
         case 'sidebar-sidebar-content':
         case 'sidebar-content-sidebar':
+            $attributes['class'] .= ' row';
             break;
         case 'full-width-content':
             $attributes['class'] .= ' hidden';

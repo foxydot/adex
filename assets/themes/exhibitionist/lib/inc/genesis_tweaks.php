@@ -9,7 +9,6 @@ add_theme_support( 'genesis-structural-wraps', array(
 'header',
 'nav',
 'subnav',
-'site-inner',
 'footer'
 ) );
 
