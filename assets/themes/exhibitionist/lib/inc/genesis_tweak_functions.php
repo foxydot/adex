@@ -74,12 +74,8 @@ function msdlab_page_banner(){
     if(is_front_page())
         return;
     global $post;
-    if(is_page()) {
-        $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'page_banner' );
-        $background = $featured_image[0];
-        remove_action('genesis_entry_header', 'genesis_do_post_title');
-    }
-    $title = $title != ''?sprintf( '<h3>%s</h3>', apply_filters( 'genesis_post_title_text', $title ) ):'';
+    $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'page_banner' );
+    $background = $featured_image[0];
     $ret = '<div class="banner clearfix" style="background-image:url('.$background.')"></div>';
     print $ret;
 }
@@ -150,9 +146,17 @@ function msdlab_do_section_title(){
         print '<h2 class="section-title">';
         print get_section_title();
         print '</h2>';
+    } elseif(is_cpt('project')) {
+        add_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
+        genesis_do_post_title();
+        remove_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
     } elseif(is_single()) {
         genesis_do_post_title();
     }
+}
+
+function msdlab_add_portfolio_prefix($content){
+    return '<a href="/portfolio">Portfolio</a>/'.$content;
 }
 
 /**
@@ -170,14 +174,111 @@ function sp_post_info_filter($post_info) {
 function sp_read_more_link() {
     return '&hellip;&nbsp;<a class="more-link" href="' . get_permalink() . '">Read More <i class="fa fa-angle-right"></i></a>';
 }
-function msdlab_older_link_text() {
+function msdlab_older_link_text($content) {
         $olderlink = 'Older Posts &raquo;';
         return $olderlink;
 }
 
-function msdlab_newer_link_text() {
+function msdlab_newer_link_text($content) {
         $newerlink = '&laquo; Newer Posts';
         return $newerlink;
+}
+
+
+/**
+ * Display links to previous and next post, from a single post.
+ *
+ * @since 1.5.1
+ *
+ * @return null Return early if not a post.
+ */
+function msdlab_prev_next_post_nav() {
+    if ( ! is_singular() || is_page() )
+        return;
+        
+    $format_prev = '&laquo; %link';
+    $format_next = '%link &raquo;';
+    $link = '%title';
+    $in_same_term = false;
+    $excluded_terms = false; 
+    $taxonomy = 'category';
+    if(is_cpt('project')){
+        $format_prev = '%link';
+        $format_next = '%link';
+        $link = '%thumbnail';
+        $taxonomy = 'project_type';
+    }
+
+    genesis_markup( array(
+        'html5'   => '<div %s>',
+        'xhtml'   => '<div class="navigation">',
+        'context' => 'adjacent-entry-pagination',
+    ) );
+
+    echo '<div class="pagination-previous alignleft">';
+    previous_post_link($format_prev, $link, $in_same_term, $excluded_terms, $taxonomy);
+    echo '</div>';
+
+    echo '<div class="pagination-next alignright">';
+    next_post_link($format_next, $link, $in_same_term, $excluded_terms, $taxonomy);
+    echo '</div>';
+
+    echo '</div>';
+
+}
+
+/****PROJECTS***/
+function msdlab_project_header_info(){
+    if(is_cpt('project') ){
+        genesis_do_post_title();
+        msdlab_do_client_name();
+        msdlab_do_project_header();
+    }
+}
+
+function msdlab_project_footer_info(){
+    if(is_cpt('project') ){
+        msdlab_do_project_info();
+    }
+}
+
+function msdlab_do_client_name(){
+    if(is_cpt('project') && class_exists('WPAlchemy_MetaBox')){
+        global $client_info;
+        $client_info->the_meta();
+        $clients = $client_info->get_the_value('client');
+        foreach($clients AS $client){
+            $ret .= '<h5 class="client-name">'.$client['name'].'</h5>';
+        }
+        print $ret;
+    }
+}
+
+function msdlab_do_project_header(){
+    if(is_cpt('project') && class_exists('WPAlchemy_MetaBox')){
+        global $project_header;
+        $project_header->the_meta();
+        $header = $project_header->get_the_value('content');
+        $ret .= '<h3 class="entry-subtitle">'.$header.'</h3>';
+        print $ret;
+    }
+}
+
+function msdlab_do_project_info(){
+    if(is_cpt('project') && class_exists('WPAlchemy_MetaBox')){
+        global $project_info;
+        $project_info->the_meta();
+        $containers = array('challenge','solutions','results');
+        $ret = '<div class="project-widgets row">';
+        foreach($containers AS $c){
+            $ret .= '<section class="widget '.$c.' col-md-4">
+                <h4 class="widget-title">'.ucfirst($c).'</h4>
+                <div>'.apply_filters('the_content',$project_info->get_the_value($c)).'</div>
+            </section>';
+        }
+        $ret .= '</div>';
+        print $ret;
+    }
 }
 /*** FOOTER ***/
 
@@ -330,7 +431,8 @@ class Description_Walker extends Walker_Nav_Menu
  */
 function msdlab_do_social_footer(){
     global $msd_social;
-    
+    global $wp_filter;
+    //ts_var( $wp_filter['genesis_after_endwhile'] );
     if($msd_social){
         $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
         $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';

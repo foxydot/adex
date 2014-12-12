@@ -1,9 +1,9 @@
 <?php 
-global $location_info,$client_info,$additional_files;
+global $project_header,$project_info,$client_info,$additional_files;
 
 $client_info = new WPAlchemy_MetaBox(array
         (
-            'id' => '_Client_information',
+            'id' => '_client_information',
             'title' => 'Client Information',
             'types' => array('project'),
             'context' => 'normal',
@@ -13,18 +13,30 @@ $client_info = new WPAlchemy_MetaBox(array
             'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
             'prefix' => '_client_' // defaults to NULL
         ));
-$location_info = new WPAlchemy_MetaBox(array
-		(
-			'id' => '_location_information',
-			'title' => 'Location Information',
-			'types' => array('location','project'),
-			'context' => 'normal',
-			'priority' => 'high',
-			'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/location-information.php',
-			'autosave' => TRUE,
-			'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
-			'prefix' => '_location_' // defaults to NULL
-		));
+$project_header = new WPAlchemy_MetaBox(array
+        (
+            'id' => '_project_header',
+            'title' => 'Project Header',
+            'types' => array('project'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/project-header.php',
+            'autosave' => TRUE,
+            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+            'prefix' => '_project_' // defaults to NULL
+        ));
+$project_info = new WPAlchemy_MetaBox(array
+        (
+            'id' => '_project_info',
+            'title' => 'Project Info',
+            'types' => array('project'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/project-info.php',
+            'autosave' => TRUE,
+            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+            'prefix' => '_project_' // defaults to NULL
+        ));
 $additional_files = new WPAlchemy_MetaBox(array
         (
             'id' => '_additional_files',

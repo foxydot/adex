@@ -6077,13 +6077,6 @@ img.alignright,
 .entry-title a:hover {
   color: #323232;
 }
-.widget-title {
-  font-size: 16px;
-  font-size: 1.6rem;
-  margin-bottom: 24px;
-  margin-bottom: 2.4rem;
-  text-transform: uppercase;
-}
 .sidebar .widget-title a {
   border: none;
 }
@@ -6118,6 +6111,8 @@ Widgets
   background: none;
   padding: 0.4rem 0;
   font-weight: normal;
+  margin-bottom: 0;
+  color: #532a44;
 }
 /* Featured Content
 --------------------------------------------- */
@@ -6696,6 +6691,18 @@ article.entry {
 .entry-tags {
   display: block;
 }
+.entry-header .entry-title {
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  font-size: 2.8rem;
+  line-height: 1.625;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.25;
+  margin: 0;
+}
 .entry-header .entry-subtitle {
   font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
@@ -6704,6 +6711,16 @@ article.entry {
   line-height: 1.625;
   font-weight: 300;
   color: #532a44;
+  line-height: 1.25;
+}
+.entry-header .client-name {
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1.625;
+  font-weight: 300;
+  color: #1a1a1a;
   line-height: 1.25;
 }
 /* Pagination
@@ -7011,7 +7028,8 @@ Site Footer
   background: #532a44;
 }
 .page-title-area .section-title,
-.page-title-area .page-title {
+.page-title-area .page-title,
+.page-title-area .entry-title {
   padding: 1.2rem 0;
   margin: 0;
   font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
@@ -7023,8 +7041,24 @@ Site Footer
   color: #ffffff;
   font-weight: 300;
 }
-.page .banner {
-  background-size: contain;
+.page-title-area .section-title a,
+.page-title-area .page-title a,
+.page-title-area .entry-title a,
+.page-title-area .section-title a:visited,
+.page-title-area .page-title a:visited,
+.page-title-area .entry-title a:visited {
+  color: #ffffff;
+  opacity: 0.5;
+}
+.page-title-area .section-title a:hover,
+.page-title-area .page-title a:hover,
+.page-title-area .entry-title a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+.page .banner,
+.single-project .banner {
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: local;
@@ -7058,6 +7092,7 @@ Site Footer
   font-size: 3.6rem;
   color: #ffffff;
   text-align: center;
+  text-transform: uppercase;
 }
 .image-widget-background .fuzzybubble .widget-content {
   width: 80%;

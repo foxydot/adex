@@ -1,18 +1,26 @@
 .page-title-area{
   background: @wine;
-  .section-title,.page-title{
+  .section-title,.page-title,.entry-title{
     padding: 1.2rem 0;
     margin:0;
     .customheader(3);
     text-transform: uppercase;
     color: @white;
     font-weight: 300;
+    a, a:visited {
+      color: @white;
+      opacity: 0.5;
+    }
+    a:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
   }
 }
 
-.page{
+.page, .single-project{
   .banner{
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: local;
@@ -46,6 +54,7 @@
         font-size: 3.6rem;
         color: @white;
         text-align: center;
+        text-transform: uppercase;
       }
       .widget-content{
         width: 80%;

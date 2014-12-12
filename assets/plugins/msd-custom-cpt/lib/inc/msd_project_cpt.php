@@ -137,7 +137,7 @@ if (!class_exists('MSDProjectCPT')) {
                 'has_archive' => true,
                 'query_var' => true,
                 'can_export' => true,
-                'rewrite' => array('slug'=>'project','with_front'=>false),
+                'rewrite' => array('slug'=>'portfolio','with_front'=>false),
                 'capability_type' => 'post'
             );
         
@@ -155,7 +155,7 @@ if (!class_exists('MSDProjectCPT')) {
             if($current_screen->post_type == $this->cpt){
                 wp_enqueue_script('media-upload');
                 wp_enqueue_script('thickbox');
-                wp_register_script('my-upload', plugin_dir_url(dirname(__FILE__)).'/js/msd-upload-file.js', array('jquery','media-upload','thickbox'),FALSE,TRUE);
+                //wp_register_script('my-upload', plugin_dir_url(dirname(__FILE__)).'/js/msd-upload-file.js', array('jquery','media-upload','thickbox'),FALSE,TRUE);
                 wp_enqueue_script('my-upload');
             }
         }
