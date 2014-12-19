@@ -7184,6 +7184,36 @@ Site Footer
 .image-widget-background .fuzzybubble .widget-content .link {
   text-align: center;
 }
+.post-type-archive-project .page-title-area {
+  display: none;
+}
+.post-type-archive-project .archive-description {
+  background: #532a44;
+  text-align: center;
+  color: #ffffff;
+  padding: 3rem;
+}
+.post-type-archive-project .archive-description h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 3.6rem;
+  letter-spacing: 0.5rem;
+}
+.post-type-archive-project .archive-description div.sep {
+  background: url(../img/bkg-portfolio-sep-wht.png) no-repeat center center;
+  display: block;
+  min-height: 4.6rem;
+  margin-bottom: 3rem;
+}
+.post-type-archive-project .archive-description p {
+  width: 80%;
+  margin: 0 auto;
+}
+.post-type-archive-project .archive-description p a {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
 .post-type-archive-project #filters {
   text-align: center;
   padding: 1rem;
