@@ -69,6 +69,14 @@ function msdlab_search_form($form, $search_text, $button_text, $label){
     return $form;
 }
 
+function msdlab_get_thumbnail_url($post_id = null, $size = 'post-thumbnail'){
+    global $post;
+    if(!$post_id)
+        $post_id = $post->ID;
+    $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $size );
+    $url = $featured_image[0];
+    return $url;
+}
 
 function msdlab_page_banner(){
     if(is_front_page())
@@ -147,10 +155,18 @@ function msdlab_do_section_title(){
         print get_section_title();
         print '</h2>';
     } elseif(is_cpt('project')) {
-        add_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
-        genesis_do_post_title();
-        remove_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
+        if(is_single()){
+            add_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
+            genesis_do_post_title();
+            remove_filter('genesis_post_title_text','msdlab_add_portfolio_prefix');
+        } if(is_post_type_archive('project')){
+            print '<h2 class="section-title">';
+            print 'Portfolio';
+            print '</h2>'; 
+        }
     } elseif(is_single()) {
+        genesis_do_post_title();
+    } else {
         genesis_do_post_title();
     }
 }
@@ -195,18 +211,19 @@ function msdlab_newer_link_text($content) {
 function msdlab_prev_next_post_nav() {
     if ( ! is_singular() || is_page() )
         return;
-        
-    $format_prev = '&laquo; %link';
-    $format_next = '%link &raquo;';
-    $link = '%title';
+	
     $in_same_term = false;
     $excluded_terms = false; 
-    $taxonomy = 'category';
+    $previous_post_link = get_previous_post_link('&laquo; %link', '%title', $in_same_term, $excluded_terms, 'category');
+    $next_post_link = get_next_post_link('%link &raquo;', '%title', $in_same_term, $excluded_terms, 'category');
     if(is_cpt('project')){
-        $format_prev = '%link';
-        $format_next = '%link';
-        $link = '%thumbnail';
         $taxonomy = 'project_type';
+        $prev_post = get_adjacent_post( $in_same_term, $excluded_terms, true, $taxonomy );
+        $next_post = get_adjacent_post( $in_same_term, $excluded_terms, false, $taxonomy );
+        $size = 'nav-post-thumb';
+        $previous_post_link = $prev_post?'<a href="'.get_post_permalink($prev_post->ID).'" style="background-image:url('.msdlab_get_thumbnail_url($prev_post->ID, $size).'")><span class="nav-title"><i class="fa fa-angle-double-left"></i> '.$prev_post->post_title.'</span></a>':'';
+        $next_post_link = $next_post?'<a href="'.get_post_permalink($next_post->ID).'" style="background-image:url('.msdlab_get_thumbnail_url($next_post->ID, $size).'")><span class="nav-title">'.$next_post->post_title.' <i class="fa fa-angle-double-right"></i></span></a>':'';
+        
     }
 
     genesis_markup( array(
@@ -214,13 +231,15 @@ function msdlab_prev_next_post_nav() {
         'xhtml'   => '<div class="navigation">',
         'context' => 'adjacent-entry-pagination',
     ) );
+    
+    
 
-    echo '<div class="pagination-previous alignleft">';
-    previous_post_link($format_prev, $link, $in_same_term, $excluded_terms, $taxonomy);
+    echo '<div class="pagination-previous pull-left col-xs-6">';
+    echo $previous_post_link;
     echo '</div>';
 
-    echo '<div class="pagination-next alignright">';
-    next_post_link($format_next, $link, $in_same_term, $excluded_terms, $taxonomy);
+    echo '<div class="pagination-next pull-right col-xs-6">';
+    echo $next_post_link;
     echo '</div>';
 
     echo '</div>';
@@ -432,7 +451,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['genesis_after_endwhile'] );
+    //ts_var( $wp_filter['genesis_loop'] );
     if($msd_social){
         $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
         $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';

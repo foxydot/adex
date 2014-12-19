@@ -2,7 +2,9 @@
 /**
  * Add new image sizes
  */
+add_image_size('project-thumbnail', 370, 370, true);
 add_image_size('tiny-post-thumb', 45, 45, TRUE);
+add_image_size('nav-post-thumb', 540, 300, true);
 add_image_size( 'post-image', 540, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.
 
 /* Display a custom favicon */
@@ -29,7 +31,9 @@ function msd_post_image() {
     if ( has_post_thumbnail() && is_page() ) {
         msdlab_page_banner();
     } elseif ( has_post_thumbnail() && is_cpt('project') ) {
-        msdlab_page_banner();
+        if( is_single() ){
+            msdlab_page_banner();
+        }
     } elseif ( has_post_thumbnail() ){
         print '<section class="header-image">';
         printf( '<a title="%s" href="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );

@@ -124,7 +124,7 @@ if (!class_exists('MSDProjectCPT')) {
                 'labels' => $labels,
                 'hierarchical' => false,
                 'description' => 'Project',
-                'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+                'supports' => array( 'title', 'editor', 'author', 'thumbnail','genesis-cpt-archives-settings' ),
                 'taxonomies' => array( 'category', 'project_type', 'market_sector' ),
                 'public' => true,
                 'show_ui' => true,
@@ -225,10 +225,6 @@ if (!class_exists('MSDProjectCPT')) {
                         $query->set('meta_value',$searchterm);
                         $query->set('meta_compare','LIKE');
                     };
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
-                    ts_data($query);
-                }
-                elseif( $query->is_main_query() && $query->is_archive ) {
                     $query->set( 'post_type', array('post','page',$this->cpt) );
                 }
             }

@@ -7066,6 +7066,83 @@ Site Footer
   min-height: 500px;
   width: 100%;
 }
+.page .adjacent-entry-pagination,
+.single-project .adjacent-entry-pagination {
+  margin: 0 auto;
+  max-width: 1140px;
+  margin-bottom: 4rem;
+  display: block;
+  width: 100%;
+}
+.page .adjacent-entry-pagination:before,
+.single-project .adjacent-entry-pagination:before,
+.page .adjacent-entry-pagination:after,
+.single-project .adjacent-entry-pagination:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.page .adjacent-entry-pagination:after,
+.single-project .adjacent-entry-pagination:after {
+  clear: both;
+}
+.page .adjacent-entry-pagination:before,
+.single-project .adjacent-entry-pagination:before,
+.page .adjacent-entry-pagination:after,
+.single-project .adjacent-entry-pagination:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.page .adjacent-entry-pagination:after,
+.single-project .adjacent-entry-pagination:after {
+  clear: both;
+}
+.page .adjacent-entry-pagination .pagination-previous a,
+.single-project .adjacent-entry-pagination .pagination-previous a,
+.page .adjacent-entry-pagination .pagination-next a,
+.single-project .adjacent-entry-pagination .pagination-next a {
+  background-size: cover;
+  display: block;
+  min-height: 300px;
+  position: relative;
+}
+.page .adjacent-entry-pagination .pagination-previous a span,
+.single-project .adjacent-entry-pagination .pagination-previous a span,
+.page .adjacent-entry-pagination .pagination-next a span,
+.single-project .adjacent-entry-pagination .pagination-next a span {
+  font-weight: 500;
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #1a1a1a;
+  margin: 0 10%;
+  padding: 6px 12px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  display: block;
+  width: 80%;
+  top: 40%;
+  position: absolute;
+}
+.page .adjacent-entry-pagination .pagination-previous a:hover,
+.single-project .adjacent-entry-pagination .pagination-previous a:hover,
+.page .adjacent-entry-pagination .pagination-next a:hover,
+.single-project .adjacent-entry-pagination .pagination-next a:hover {
+  text-decoration: none;
+}
+.page .adjacent-entry-pagination .pagination-previous a span:before,
+.single-project .adjacent-entry-pagination .pagination-previous a span:before {
+  font-family: FontAwesome;
+  content: '';
+}
+.page .adjacent-entry-pagination .pagination-next a span:after,
+.single-project .adjacent-entry-pagination .pagination-next a span:after {
+  font-family: FontAwesome;
+  content: '';
+}
 .page-footer-widget {
   position: relative;
 }
@@ -7106,6 +7183,150 @@ Site Footer
 }
 .image-widget-background .fuzzybubble .widget-content .link {
   text-align: center;
+}
+.post-type-archive-project #filters {
+  text-align: center;
+  padding: 1rem;
+}
+.post-type-archive-project #filters a.filter {
+  border: 1px solid #532a44;
+  border-radius: 100%;
+  font-size: 1rem;
+  text-align: center;
+  min-height: 9rem;
+  min-width: 9rem;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+}
+.post-type-archive-project #filters a.filter i {
+  display: block;
+  margin: 2rem auto 0.5rem;
+}
+.post-type-archive-project #filters a.filter:after,
+.post-type-archive-project #filters a.filter:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.post-type-archive-project #filters a.filter:after {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: transparent;
+  border-width: 6px;
+  margin-left: -6px;
+}
+.post-type-archive-project #filters a.filter:before {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: transparent;
+  border-width: 7px;
+  margin-left: -7px;
+}
+.post-type-archive-project #filters a.filter:hover,
+.post-type-archive-project #filters a.filter.active {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #532a44;
+}
+.post-type-archive-project #filters a.filter:hover:after,
+.post-type-archive-project #filters a.filter:hover:before,
+.post-type-archive-project #filters a.filter.active:after,
+.post-type-archive-project #filters a.filter.active:before {
+  top: 100%;
+  left: 51%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.post-type-archive-project #filters a.filter:hover:after,
+.post-type-archive-project #filters a.filter.active:after {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: #532A44;
+  border-width: 6px;
+  margin-left: -6px;
+}
+.post-type-archive-project #filters a.filter:hover:before,
+.post-type-archive-project #filters a.filter.active:before {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: #532A44;
+  border-width: 7px;
+  margin-left: -7px;
+}
+.post-type-archive-project #portfolio-projects article {
+  padding: 0.5rem;
+  margin: 0;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background {
+  min-height: 400px;
+  position: relative;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  width: 310px;
+  height: 310px;
+  margin: 3rem;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble a:hover {
+  text-decoration: none;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble .entry-title {
+  margin-top: 4rem;
+  font-size: 2.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #1a1a1a;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble .entry-title a {
+  color: #ffffff;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble .entry-subtitle {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.4rem;
+  text-transform: none;
+  color: #ffffff;
+  font-weight: 500;
+  border: 0;
+  text-shadow: 2px 2px 4px #1a1a1a;
+}
+.post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble .entry-permalink a {
+  background-color: #532a44;
+  border-radius: 0;
+  padding: 6px 24px;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: table;
+  margin: 12px auto;
+  text-decoration: none;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  text-align: center;
+}
+.post-type-archive-project #portfolio-projects article:hover .image-widget-background .fuzzybubble {
+  opacity: 1;
 }
 .footer-widgets {
   color: #ffffff;
