@@ -107,6 +107,11 @@ if (!class_exists('MSDCustomCPT')) {
                 register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
                 register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
             }
+            if(class_exists('MSDEventCPT')){
+                $this->event_class = new MSDEventCPT();
+                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+            }
             if(class_exists('MSDProjectCPT')){
                 $this->project_class = new MSDProjectCPT();
                 register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
