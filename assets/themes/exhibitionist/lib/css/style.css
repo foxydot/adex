@@ -7231,7 +7231,7 @@ Site Footer
 }
 .post-type-archive-project #filters a.filter i {
   display: block;
-  margin: 2rem auto 0.5rem;
+  margin: 1.5rem auto -1rem;
 }
 .post-type-archive-project #filters a.filter:after,
 .post-type-archive-project #filters a.filter:before {

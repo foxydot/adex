@@ -4,7 +4,7 @@
 add_action('genesis_before_loop','msdlab_alter_loop_params');
 remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description' );
 add_action( 'genesis_before_loop', 'msdlab_do_cpt_archive_title_description' );
-add_action('wp_enqueue_scripts', 'msdlab_portfolio_add_scripts');
+add_action('wp_enqueue_scripts', 'msdlab_portfolio_add_scripts_and_styles');
 remove_all_actions('genesis_entry_header');
 add_action('genesis_entry_header','msdlab_project_open_entry');
 remove_all_actions('genesis_entry_content');
@@ -35,40 +35,6 @@ function msdlab_alter_loop_params(){
     query_posts($query_string . "&orderby=rand");
 }
 
- /**
- * Add custom headline and description to relevant custom post type archive pages.
- *
- * If we're not on a post type archive page, or not on page 1, then nothing extra is displayed.
- *
- * If there's a custom headline to display, it is marked up as a level 1 heading.
- *
- * If there's a description (intro text) to display, it is run through wpautop() before being added to a div.
- *
- * @since 2.0.0
- *
- * @uses genesis_has_post_type_archive_support() Check if a post type should potentially support an archive setting page.
- * @uses genesis_get_cpt_option()                Get list of custom post types which need an archive settings page.
- *
- * @return null Return early if not on relevant post type archive.
- */
-function msdlab_do_cpt_archive_title_description() {
-
-    if ( ! is_post_type_archive() || ! genesis_has_post_type_archive_support() )
-        return;
-
-    if ( get_query_var( 'paged' ) >= 2 )
-        return;
-
-    $headline   = genesis_get_cpt_option( 'headline' );
-    $intro_text = genesis_get_cpt_option( 'intro_text' );
-
-    $headline   = $headline ? sprintf( '<h1 class="archive-title">%s</h1>', $headline ) : '';
-    $intro_text = $intro_text ? apply_filters( 'genesis_cpt_archive_intro_text_output', $intro_text ) : '';
-
-    if ( $headline || $intro_text )
-        printf( '<div class="archive-description cpt-archive-description"><div class="wrap">%s</div></div>', $headline .'<div class="sep"></div>'. $intro_text );
-
-}
 
 function msdlab_portfolio_wrapper($attributes){
     global $post;
@@ -86,9 +52,10 @@ function msdlab_portfolio_wrapper($attributes){
 }
 
 
-function msdlab_portfolio_add_scripts() {
+function msdlab_portfolio_add_scripts_and_styles() {
     global $is_IE;
     if(!is_admin()){
+        wp_enqueue_style('adexfont',get_stylesheet_directory_uri().'/lib/css/custom-font.css');
         wp_enqueue_script('isotope',get_stylesheet_directory_uri().'/lib/js/isotope.pkgd.js',array('jquery'));
     }
 }
@@ -132,7 +99,7 @@ function msdlab_portfolio_footer_scripts(){
 function msdlab_project_filter(){
    $terms = get_terms('project_type',array('orderby'=>'slug','order'=>'ASC','hide_empty'=>false));
    foreach($terms AS $term){
-       $filters[] = '<a href="#" data-filter=".'.$term->slug.'" class="filter filter-'.$term->slug.'"><i class="fa fa-3x fa-calendar"></i>'.$term->name.'</a>';
+       $filters[] = '<a href="#" data-filter=".'.$term->slug.'" class="filter filter-'.$term->slug.'"><i class="fa-3x adex-'.$term->slug.'"></i>'.$term->name.'</a>';
    }
    $menu = '<div id="filters" class="wrap">'.implode(' ', $filters).'</div>';
    print $menu;
