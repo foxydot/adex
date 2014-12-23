@@ -2,16 +2,16 @@
 function msdlab_alter_loop_params($query){
      if ( ! is_admin() && $query->is_main_query() ) {
          if($query->is_post_type_archive('event')){
-             $months = 12;
+            $curmonth = strtotime('first day of this month');
              $meta_query = array(
                         array(
                             'key' => '_event_event_datestamp',
-                            'value' => time()-86400,
+                            'value' => $curmonth,
                             'compare' => '>'
                         ),
                         array(
                             'key' => '_event_event_datestamp',
-                            'value' => mktime(0, 0, 0, date("m")+$months, date("d"), date("Y")),
+                            'value' => mktime(0, 0, 0, date("m",$curmonth), date("d",$curmonth), date("Y",$curmonth)+1),
                             'compare' => '<'
                         )
                     );
