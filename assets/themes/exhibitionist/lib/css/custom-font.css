@@ -51,3 +51,18 @@
 .adex-webbasedmanagement:before {
   content: "g";
 }
+.adex-design:before {
+  content: "h";
+}
+.adex-fabrication:before {
+  content: "i";
+}
+.adex-fulfillment2:before {
+  content: "j";
+}
+.adex-logistics-facility:before {
+  content: "k";
+}
+.adex-sales-project-management:before {
+  content: "l";
+}
