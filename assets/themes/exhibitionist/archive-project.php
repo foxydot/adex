@@ -48,6 +48,7 @@ function msdlab_portfolio_wrapper($attributes){
 function msdlab_portfolio_add_scripts_and_styles() {
     global $is_IE;
     if(!is_admin()){
+        wp_enqueue_style('portfolio',get_stylesheet_directory_uri().'/lib/css/portfolio.css');
         wp_enqueue_style('adexfont',get_stylesheet_directory_uri().'/lib/css/custom-font.css');
         wp_enqueue_script('isotope',get_stylesheet_directory_uri().'/lib/js/isotope.pkgd.js',array('jquery'));
     }
