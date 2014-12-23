@@ -1,5 +1,7 @@
 <?php
 require_once('genesis_tweak_functions.php');
+
+add_action('pre_get_posts','msdlab_alter_loop_params');
 /*** GENERAL ***/
 add_theme_support( 'html5' );//* Add HTML5 markup structure
 add_theme_support( 'genesis-responsive-viewport' );//* Add viewport meta tag for mobile browsers
@@ -55,7 +57,6 @@ remove_action( 'genesis_after_post_content', 'genesis_post_meta' ); //remove the
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 ); //remove the info (date, posted by,etc.)
 remove_action( 'genesis_entry_footer', 'genesis_post_meta'); //remove the meta (filed under, tags, etc.)
 //add_action( 'msdlab_title_area', 'msdlab_do_post_subtitle' );
-
 
 add_action( 'genesis_entry_header', 'msdlab_project_header_info' );
 add_action( 'genesis_entry_footer', 'msdlab_project_footer_info' );

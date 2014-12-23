@@ -1,7 +1,6 @@
 <?php
 //remove_action('genesis_loop','genesis_do_loop');
 //add_action('genesis_loop', 'msdlab_portfolio_loop');
-add_action('genesis_before_loop','msdlab_alter_loop_params');
 remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description' );
 add_action( 'genesis_before_loop', 'msdlab_do_cpt_archive_title_description' );
 add_action('wp_enqueue_scripts', 'msdlab_portfolio_add_scripts_and_styles');
@@ -29,12 +28,6 @@ add_action('wp_footer','msdlab_portfolio_footer_scripts');
     
 //add_action('genesis_loop','msdlab_portfolio_loop');
 genesis();
-
-function msdlab_alter_loop_params(){
-    global $query_string;
-    query_posts($query_string . "&orderby=rand");
-}
-
 
 function msdlab_portfolio_wrapper($attributes){
     global $post;

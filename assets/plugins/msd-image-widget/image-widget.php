@@ -51,8 +51,6 @@ class Tribe_Image_Widget extends WP_Widget {
 			add_action( 'admin_notices', array( $this, 'post_upgrade_nag') );
 
 		add_action( 'network_admin_notices', array( $this, 'post_upgrade_nag') );
-        
-        wp_enqueue_script('blur',get_stylesheet_directory_uri().'/lib/js/blur.js',array('jquery'));
 	}
 
 	/**

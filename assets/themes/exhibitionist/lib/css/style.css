@@ -7184,6 +7184,21 @@ Site Footer
 .image-widget-background .fuzzybubble .widget-content .link {
   text-align: center;
 }
+.archive-description {
+  padding: 3rem;
+  border: 0;
+  margin-bottom: 0;
+}
+.archive-description h1 {
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: 1.625;
+  font-weight: 300;
+  color: #532a44;
+  line-height: 1.25;
+}
 .post-type-archive-project .page-title-area {
   display: none;
 }
@@ -7191,7 +7206,6 @@ Site Footer
   background: #532a44;
   text-align: center;
   color: #ffffff;
-  padding: 3rem;
 }
 .post-type-archive-project .archive-description h1 {
   color: #ffffff;

@@ -53,7 +53,7 @@ if (!class_exists('MSDEventCPT')) {
 		        'hierarchical' => false,
 		        'description' => 'Event',
 		        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ,'genesis-cpt-archives-settings'),
-		        'taxonomies' => array( 'category' ),
+		        'taxonomies' => array(),
 		        'public' => true,
 		        'show_ui' => true,
 		        'show_in_menu' => true,
@@ -74,49 +74,35 @@ if (!class_exists('MSDEventCPT')) {
 		
 		function plugin_header() {
 			global $post_type;
-			?>
-		    <?php
 		}
 		 
 		function add_admin_scripts() {
 			global $current_screen;
 			if($current_screen->post_type == $this->cpt){
-				wp_enqueue_script('media-upload');
-				wp_enqueue_script('thickbox');
-				wp_register_script('my-upload', plugin_dir_url(dirname(__FILE__)).'/js/msd-upload-file.js', array('jquery','media-upload','thickbox'),FALSE,TRUE);
-				wp_enqueue_script('my-upload');
+                wp_enqueue_script('jquery-ui-core');
+                wp_enqueue_script('jquery-ui-datepicker');
+                wp_enqueue_script('jquery-timepicker',plugin_dir_url(dirname(__FILE__)).'js/jquery.timepicker.min.js',array('jquery'));
+                wp_enqueue_script('media-upload');
+                wp_enqueue_script('thickbox');
 			}
 		}
-		
-		function add_admin_styles() {
-			global $current_screen;
-			if($current_screen->post_type == $this->cpt){
-				wp_enqueue_style('thickbox');
-				wp_enqueue_style('custom_meta_css',plugin_dir_url(dirname(__FILE__)).'/css/meta.css');
-			}
-		}	
+
+        function add_admin_styles() {
+            global $current_screen;
+            if($current_screen->post_type == $this->cpt){
+                wp_enqueue_style('thickbox');
+                wp_enqueue_style('jquery-ui-style','http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css');
+                wp_enqueue_style('custom_meta_css',plugin_dir_url(dirname(__FILE__)).'css/meta.css');
+            }
+        }   
 			
 		function print_footer_scripts()
 		{
 			global $current_screen;
 			if($current_screen->post_type == $this->cpt){
 				print '<script type="text/javascript">/* <![CDATA[ */
-					jQuery(function($)
-					{
-						var i=1;
-						$(\'.customEditor textarea\').each(function(e)
-						{
-							var id = $(this).attr(\'id\');
-			 
-							if (!id)
-							{
-								id = \'customEditor-\' + i++;
-								$(this).attr(\'id\',id);
-							}
-			 
-							tinyMCE.execCommand(\'mceAddControl\', false, id);
-			 
-						});
+					jQuery(function($){
+						
 					});
 				/* ]]> */</script>';
 			}
@@ -135,8 +121,18 @@ if (!class_exists('MSDEventCPT')) {
 			global $current_screen;
 			if($current_screen->post_type == $this->cpt){
 				?><script type="text/javascript">
-						jQuery('#postdivrich').before(jQuery('#_contact_info_metabox'));
-					</script><?php
+                    jQuery(function($){
+                        $( ".datepicker" ).datepicker({
+                        onSelect : function(dateText, inst)
+                        {
+                            var epoch = $.datepicker.formatDate('@', $(this).datepicker('getDate')) / 1000;
+                            $('.datestamp').val(epoch);
+                        }
+                        });
+                        $('.timepicker').timepicker({ 'scrollDefaultNow': true });
+                        $("#postdivrich").after($("#_event_info_metabox"));
+                    });
+                 </script><?php
 			}
 		}
 		

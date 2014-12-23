@@ -2,6 +2,7 @@
 /**
  * Connected Class
  */
+if(class_exists('MSDConnected')){
 class KohlerConnected extends MSDConnected {
     function widget( $args, $instance ) {
         extract($args);
@@ -97,3 +98,4 @@ class KohlerConnected extends MSDConnected {
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("KohlerConnected");'));
+}

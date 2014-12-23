@@ -1,4 +1,32 @@
 <?php
+function msdlab_alter_loop_params($query){
+     if ( ! is_admin() && $query->is_main_query() ) {
+         if($query->is_post_type_archive('event')){
+             $months = 12;
+             $meta_query = array(
+                        array(
+                            'key' => '_event_event_datestamp',
+                            'value' => time()-86400,
+                            'compare' => '>'
+                        ),
+                        array(
+                            'key' => '_event_event_datestamp',
+                            'value' => mktime(0, 0, 0, date("m")+$months, date("d"), date("Y")),
+                            'compare' => '<'
+                        )
+                    );
+            $query->set('meta_query',$meta_query);
+            
+            $query->set('meta_key','_event_event_datestamp');
+            $query->set('orderby','meta_value_num');
+            $query->set('order','ASC');
+            $query->set('posts_per_page',-1);
+            $query->set('numposts',-1);
+        } elseif ($query->is_post_type_archive('project')){
+           $query->set('orderby','rand');
+        }
+    }
+}
 /*** HEADER ***/
 /**
  * Add apple touch icons
@@ -461,7 +489,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['genesis_before_loop'] );
+    //ts_var( $wp_filter['genesis_entry_header'] );
     if($msd_social){
         $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
         $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';

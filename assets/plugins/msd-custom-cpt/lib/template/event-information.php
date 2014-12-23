@@ -1,62 +1,134 @@
 <?php global $wpalchemy_media_access; 
-$containers = array('challenge','solutions','results');
+$states = array('AL'=>"Alabama",
+        'AK'=>"Alaska",
+        'AZ'=>"Arizona",
+        'AR'=>"Arkansas",
+        'CA'=>"California",
+        'CO'=>"Colorado",
+        'CT'=>"Connecticut",
+        'DE'=>"Delaware",
+        'DC'=>"District Of Columbia",
+        'FL'=>"Florida",
+        'GA'=>"Georgia",
+        'HI'=>"Hawaii",
+        'ID'=>"Idaho",
+        'IL'=>"Illinois",
+        'IN'=>"Indiana",
+        'IA'=>"Iowa",
+        'KS'=>"Kansas",
+        'KY'=>"Kentucky",
+        'LA'=>"Louisiana",
+        'ME'=>"Maine",
+        'MD'=>"Maryland",
+        'MA'=>"Massachusetts",
+        'MI'=>"Michigan",
+        'MN'=>"Minnesota",
+        'MS'=>"Mississippi",
+        'MO'=>"Missouri",
+        'MT'=>"Montana",
+        'NE'=>"Nebraska",
+        'NV'=>"Nevada",
+        'NH'=>"New Hampshire",
+        'NJ'=>"New Jersey",
+        'NM'=>"New Mexico",
+        'NY'=>"New York",
+        'NC'=>"North Carolina",
+        'ND'=>"North Dakota",
+        'OH'=>"Ohio",
+        'OK'=>"Oklahoma",
+        'OR'=>"Oregon",
+        'PA'=>"Pennsylvania",
+        'RI'=>"Rhode Island",
+        'SC'=>"South Carolina",
+        'SD'=>"South Dakota",
+        'TN'=>"Tennessee",
+        'TX'=>"Texas",
+        'UT'=>"Utah",
+        'VT'=>"Vermont",
+        'VA'=>"Virginia",
+        'WA'=>"Washington",
+        'WV'=>"West Virginia",
+        'WI'=>"Wisconsin",
+        'WY'=>"Wyoming");
 ?>
 <style>
-    .meta_control .table {display: block; width: 100%;}
-    .meta_control .row {display: block;}
-    .meta_control .row:before,
-.meta_control .row:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.meta_control .row:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.meta_control .row {
-    *zoom: 1;
-    margin-bottom: 1rem;
-}
-.meta_control .cell {display: block; clear: both;margin-left: 1rem;}
-    .even {background: #eee;}
-    .odd {background: #fff;}
-    .file input[type="text"] {width: 75%}
-    .meta_control label{ display:block; font-weight:bold; margin-right: 1%;float: left; width: 14%; text-align: right;}
- .input_container{width: 85%;float: left;}
- .input_container.full_width{width: 98%;float: none;}
-.meta_control textarea, .meta_control input[type='text'], .meta_control select,.meta_control .wp-editor-wrap
-{ display:inline;margin-bottom:3px; width: 90%;
-     }
-     .meta_control .file input[type='text']{width: 76%;}
+#postdivrich {display: none;}
 </style>
 <div class="meta_control">
     <div class="table">
-        <?php $i = 0; ?>
-        <?php foreach($containers AS $c){ ?>
-    <div class="row <?php print $i%2==0?'even':'odd'; ?>">
+        <div class="row">
+            <div class="cell">
+            <?php $metabox->the_field('venue'); ?>
+                <label>Location Name</label>
+                <div class="input_container">
+                    <input type="text" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+               </div>
+            </div>
+        </div>
+        
+<?php while($mb->have_fields('address',1)): ?>
+    <div class="row">
         <div class="cell">
-            <label><?php print ucfirst($c); ?></label>
-            <div class="input_container">
-                <?php 
-                $mb->the_field($c);
-                $mb_content = html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8');
-                $mb_editor_id = sanitize_key($mb->get_the_name());
-                $mb_settings = array('textarea_name'=>$mb->get_the_name(),'textarea_rows' => '5',);
-                wp_editor( $mb_content, $mb_editor_id, $mb_settings );
-                ?>
-           </div>
+        <?php $metabox->the_field('street'); ?>
+        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Street Address</label>
+        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_street" name="<?php $metabox->the_name(); ?>"></div>
         </div>
     </div>
-    <?php $i++; ?>
-        <?php } ?>
+    <div class="row">
+        <div class="cell">
+        <?php $metabox->the_field('city'); ?>
+        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">City</label>
+        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_city" name="<?php $metabox->the_name(); ?>"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+        <?php $metabox->the_field('state'); ?>
+        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">State</label>
+        <div class="input_container">
+            <select id="_location_state" name="<?php $metabox->the_name(); ?>">
+                <option value="">--SELECT--</option>
+                <?php foreach($states AS $k =>$v){ ?>
+                    <option value="<?php print $v; ?>"<?php print $metabox->get_the_value()==$v?' SELECTED':''?>><?php print $v; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell">
+        <?php $metabox->the_field('zip'); ?>
+        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Zip Code</label>
+        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_location_zip" name="<?php $metabox->the_name(); ?>"></div>
+        </div>
+    </div>
+<?php endwhile; ?>
+    <div class="row">
+        <div class="cell">
+            <hr />
+       </div>
+    </div>
+        <div class="row">
+            <div class="cell">
+                <?php $metabox->the_field('event_datestamp'); ?>
+                <input type="hidden" class="datestamp" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                <?php $metabox->the_field('event_date'); ?>
+                <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Event Date</label>
+                <div class="input_container">
+                    <input type="text" class="datepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                </div>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="cell">
+            <?php $metabox->the_field('event_start_time'); ?>
+                <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Event Times</label>
+                <div class="input_container"><input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                    to 
+                <?php $metabox->the_field('event_end_time'); ?>
+                <input type="text" class="timepicker" value="<?php $metabox->the_value(); ?>" id="<?php $metabox->the_name(); ?>" name="<?php $metabox->the_name(); ?>">
+                </div>
+            </div>    
+        </div>
     </div>
 </div>
-<script>
-jQuery(function($){
-    $("#postdivrich").after($("#_project_info_metabox"));
-});</script>
