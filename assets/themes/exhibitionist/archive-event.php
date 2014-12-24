@@ -5,7 +5,6 @@ add_action( 'genesis_before_loop', 'msdlab_do_cpt_archive_title_description' );
 add_filter('genesis_link_post_title','msdlab_event_remove_link');
 add_action('genesis_before_while','msdlab_event_open_collapsable');
 add_action('genesis_before_entry','msdlab_event_maybe_open_panel');
-add_action('genesis_after_entry','msdlab_event_maybe_close_panel');
 add_action('genesis_after_endwhile','msdlab_event_close_collapsable');
 //add_action('genesis_entry_header','genesis_do_post_title'); //move the title out of the content area
 add_action('genesis_entry_content','msdlab_event_content');
