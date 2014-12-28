@@ -101,7 +101,7 @@ if (is_admin() && $template_file == 'page-sectioned.php') { ?>
 </div>
 <script>
 jQuery(function($){
-    $("#wpa_loop-tabs").sortable({
+    $("#wpa_loop-sections").sortable({
         change: function(){
             $("#warning").show();
         }
