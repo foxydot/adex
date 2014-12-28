@@ -1,3 +1,4 @@
+<?php global $wpalchemy_media_access; ?>
 <div class="my_meta_control" id="subtitle_metabox">
 	<p>
 		<?php $mb->the_field('subtitle'); ?>

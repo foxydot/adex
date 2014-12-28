@@ -8,10 +8,12 @@ Author URI: http://msdlab.com
 */
 
 if(!class_exists('WPAlchemy_MetaBox')){
+    if(!include_once (WP_CONTENT_DIR.'/wpalchemy/MetaBox.php'))
 	include_once (plugin_dir_path(__FILE__).'/lib/wpalchemy/MetaBox.php');
 }
 global $wpalchemy_media_access;
 if(!class_exists('WPAlchemy_MediaAccess')){
+    if(!include_once (WP_CONTENT_DIR.'/wpalchemy/MediaAccess.php'))
 	include_once (plugin_dir_path(__FILE__).'/lib/wpalchemy/MediaAccess.php');
 }
 $wpalchemy_media_access = new WPAlchemy_MediaAccess();

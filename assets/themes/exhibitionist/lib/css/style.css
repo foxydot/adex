@@ -7199,6 +7199,211 @@ Site Footer
   color: #532a44;
   line-height: 1.25;
 }
+.billboard_nav {
+  padding: 3rem;
+  border: 0;
+  margin-bottom: 0;
+  z-index: 10000;
+  background-color: #532a44;
+  min-height: 300px;
+  position: relative;
+  margin-bottom: -140px;
+  text-align: center;
+  color: #ffffff;
+}
+.billboard_nav h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 3.6rem;
+  letter-spacing: 0.5rem;
+}
+.billboard_nav div.sep {
+  background: url(../img/bkg-portfolio-sep-wht.png) no-repeat center center;
+  display: block;
+  min-height: 4.6rem;
+  margin-bottom: 3rem;
+}
+.billboard_nav .nav-icons-wrapper {
+  position: absolute;
+}
+.billboard_nav .nav-icons-wrapper a {
+  color: #ffffff;
+}
+.billboard_nav .nav-icons-wrapper a .round-wrap {
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  text-align: center;
+  height: 6em;
+  width: 6em;
+  margin: 1rem;
+  position: relative;
+  vertical-align: top;
+  line-height: 1;
+}
+.billboard_nav .nav-icons-wrapper a .round-wrap i {
+  display: block;
+  margin: 2rem auto 0;
+}
+.billboard_nav .nav-icons-wrapper a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+.billboard_nav .nav-icons-wrapper a:hover .round-wrap {
+  border: 1px solid #532a44;
+  background-color: #532a44;
+}
+.billboard_nav .fuzzybubble a:hover {
+  text-decoration: none;
+}
+.billboard_nav .fuzzybubble .entry-subtitle {
+  color: #ffffff;
+  margin: 5rem auto 0;
+  font-size: 3.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #1a1a1a;
+  width: 90%;
+}
+.billboard_nav .fuzzybubble p {
+  width: 80%;
+  margin: 0 auto;
+}
+.floating_nav {
+  text-align: center;
+  padding: 1rem;
+  z-index: 9000;
+  height: 140px;
+  width: 100%;
+  background: #ffffff;
+}
+.floating_nav a {
+  border: 1px solid #532a44;
+  border-radius: 100%;
+  font-size: 1rem;
+  text-align: center;
+  min-height: 9rem;
+  min-width: 9rem;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  vertical-align: top;
+  line-height: 1;
+}
+.floating_nav a i {
+  display: block;
+  margin: 2rem auto 0;
+}
+.floating_nav a:after,
+.floating_nav a:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.floating_nav a:after {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: transparent;
+  border-width: 6px;
+  margin-left: -6px;
+}
+.floating_nav a:before {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: transparent;
+  border-width: 7px;
+  margin-left: -7px;
+}
+.floating_nav a:hover,
+.floating_nav a.active {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #532a44;
+}
+.floating_nav a:hover:after,
+.floating_nav a:hover:before,
+.floating_nav a.active:after,
+.floating_nav a.active:before {
+  top: 100%;
+  left: 51%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.floating_nav a:hover:after,
+.floating_nav a.active:after {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: #532A44;
+  border-width: 6px;
+  margin-left: -6px;
+}
+.floating_nav a:hover:before,
+.floating_nav a.active:before {
+  border-color: rgba(83, 42, 68, 0);
+  border-top-color: #532A44;
+  border-width: 7px;
+  margin-left: -7px;
+}
+.section .section-title {
+  background: #d6b293;
+}
+.section .section-title h3 {
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1.625;
+  font-weight: 300;
+  padding: 0.5rem 0;
+}
+.section .section-body {
+  padding: 3rem 0;
+}
+.section .section-body:before,
+.section .section-body:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.section .section-body:after {
+  clear: both;
+}
+.section .section-body:before,
+.section .section-body:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.section .section-body:after {
+  clear: both;
+}
+.section .section-body img.pull-left {
+  margin-right: 2rem;
+}
+.section .section-body img.pull-right {
+  margin-left: 2rem;
+}
+.section .section-body .section-subtitle {
+  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: 1.625;
+  font-weight: 300;
+  color: #532a44;
+  line-height: 1.25;
+}
 .footer-widgets {
   color: #ffffff;
 }

@@ -166,11 +166,17 @@ function msdlab_ro_layout_logic() {
  * Move titles
  */
 function msdlab_do_title_area(){
-    print '<div id="page-title-area" class="page-title-area">';
-    print '<div class="wrap">';
-    do_action('msdlab_title_area');
-    print '</div>';
-    print '</div>';
+    global $post;
+    $postid = is_admin()?$_GET['post']:$post->ID;
+    $template_file = get_post_meta($postid,'_wp_page_template',TRUE);
+    if ($template_file == 'page-sectioned.php') {
+    } else { 
+        print '<div id="page-title-area" class="page-title-area">';
+        print '<div class="wrap">';
+        do_action('msdlab_title_area');
+        print '</div>';
+        print '</div>';
+    }
 }
 
 function msdlab_do_section_title(){
@@ -489,7 +495,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['genesis_entry_header'] );
+    //ts_var( $wp_filter['init'] );
     if($msd_social){
         $address = '<span itemprop="name">'.$msd_social->get_bizname().'</span> | <span itemprop="streetAddress">'.get_option('msdsocial_street').'</span>, <span itemprop="streetAddress">'.get_option('msdsocial_street2').'</span> | <span itemprop="addressLocality">'.get_option('msdsocial_city').'</span>, <span itemprop="addressRegion">'.get_option('msdsocial_state').'</span> <span itemprop="postalCode">'.get_option('msdsocial_zip').'</span> | '.$msd_social->get_digits();
         $copyright = '&copy; '.date('Y').' '.$msd_social->get_bizname().' | An Equal Opportunity Employer | All Rights Reserved';

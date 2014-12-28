@@ -134,6 +134,187 @@
     line-height: 1.25;
       }
   }
+.billboard_nav {
+  padding: 3rem;
+  border: 0;
+  margin-bottom: 0;
+  z-index:10000;
+  background-color: @wine;
+  min-height: 300px;
+  position: relative;
+  margin-bottom: -140px;
+  text-align: center;
+  color: @white;
+  h1{
+    color: @white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3.6rem;
+    letter-spacing: 0.5rem;
+    }
+  div.sep{
+    background: url(../img/bkg-portfolio-sep-wht.png) no-repeat center center;
+    display: block;
+    min-height: 4.6rem;
+    margin-bottom: 3rem;
+  }
+  .nav-icons-wrapper{
+    position: absolute;
+    a{
+      color: @white;
+      .round-wrap{
+        border: 1px solid @white;
+        border-radius: 100%;
+        text-align: center;
+        height: 6em;
+        width: 6em;
+        margin: 1rem;
+        position: relative;
+        vertical-align: top;
+        line-height: 1;
+        i{
+          display: block;
+          margin: 2rem auto 0;
+        }
+      }
+    }
+    a:hover{
+      text-decoration: none;
+      color: @white;
+      .round-wrap{
+        border: 1px solid @wine;
+        background-color: @wine;
+      }
+    }
+  }
+  
+  .fuzzybubble{
+      a:hover{
+        text-decoration: none;
+      }
+      .entry-subtitle{
+        color: @white;
+        margin: 5rem auto 0;
+        font-size: 3.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px @dkgrey;
+        width: 90%;
+      }
+      p{
+        width: 80%;
+        margin: 0 auto;
+      }
+  }
+}
+.floating_nav {
+    text-align: center;
+    padding: 1rem;
+    z-index: 9000;
+    height: 140px;
+    width: 100%;
+    background: @white;
+    a{
+      border: 1px solid @wine;
+      border-radius: 100%;
+      font-size: 1rem;
+      text-align: center;
+      min-height: 9rem;
+      min-width: 9rem;
+      display: inline-block;
+      margin: 1rem;
+      position: relative;
+      vertical-align: top;
+      line-height: 1;
+      i{
+        display: block;
+        margin: 2rem auto 0;
+      }
+    }
+    a:after, a:before { 
+      top: 100%; 
+      left: 50%; 
+      border: solid transparent; 
+      content: " "; 
+      height: 0; 
+      width: 0; 
+      position: absolute; 
+      pointer-events: none;
+      } 
+    a:after {  
+      border-color: rgba(83, 42, 68, 0); 
+      border-top-color: transparent; 
+      border-width: 6px; 
+      margin-left: -6px;
+      } 
+    a:before {  
+      border-color: rgba(83, 42, 68, 0); 
+      border-top-color: transparent; 
+      border-width: 7px; 
+      margin-left: -7px;
+      }
+
+    a:hover, a.active{
+      text-decoration: none;
+      color: @white;
+      background-color: @wine;
+    }
+    
+    a:hover:after, a:hover:before,
+    a.active:after, a.active:before  { 
+      top: 100%; 
+      left: 51%; 
+      border: solid transparent; 
+      content: " "; 
+      height: 0; 
+      width: 0; 
+      position: absolute; 
+      pointer-events: none;
+      } 
+    a:hover:after,
+    a.active:after { 
+      border-color: rgba(83, 42, 68, 0); 
+      border-top-color: #532A44; 
+      border-width: 6px; 
+      margin-left: -6px;
+      } 
+    a:hover:before,
+    a.active:before { 
+      border-color: rgba(83, 42, 68, 0); 
+      border-top-color: #532A44; 
+      border-width: 7px; 
+      margin-left: -7px;
+      }
+}
+.section{
+  .section-title{
+    background: @peach;
+    h3{
+      color: @white;
+      text-align: center;
+      text-transform: uppercase;
+      .customheader(2.4);
+      font-weight: 300;
+      padding: 0.5rem 0;
+    }
+  }
+  .section-body{
+    .clearfix;
+    padding: 3rem 0;
+    img.pull-left{
+      margin-right: 2rem;
+    }
+    img.pull-right{
+      margin-left: 2rem;
+    }
+    .section-subtitle{
+      .customheader(2.2);
+      font-weight: 300;
+      color: @wine;
+      line-height: 1.25;
+    }
+  }
+}
 
 //mixins for social colors
 @facebook: #345AA1;
