@@ -158,13 +158,6 @@ if (!class_exists('MSDCustomPages')) {
         function check_requirements(){
             
         }
-        /**
-         * @desc Checks to see if the given plugin is active.
-         * @return boolean
-         */
-        function is_plugin_active($plugin) {
-            return in_array($plugin, (array) get_option('active_plugins', array()));
-        }
         /***************************/
   } //End Class
 } //End if class exists statement

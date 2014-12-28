@@ -44,9 +44,9 @@ class MSDSectionedPage{
     
     function sectioned_page_output(){
         wp_enqueue_script('sticky',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.sticky.js',array('jquery'),FALSE,TRUE);
-        
         global $post,$subtitle_metabox,$sectioned_page_metabox;
         $i = 1;
+        if(is_object($sectioned_page_metabox)){
         while($sectioned_page_metabox->have_fields('sections')){
             $eo = $i%2==1?'even':'odd';
             $pull = $i%2==1?'left':'right';
@@ -75,7 +75,7 @@ class MSDSectionedPage{
 </div>
 ';
             $i++;
-        }
+        }//close while
         print '<div id="billboard_nav" class="billboard_nav image-widget-background" style="background-image:url('.msdlab_get_thumbnail_url($post->ID,'page_banner').');">
         <div class="wrap">
         <h1 class="page-title">'.$post->post_title.'</h1>
@@ -91,6 +91,8 @@ class MSDSectionedPage{
         </div>';
         print '<div id="floating_nav" class="floating_nav">'.implode("\n",$floating_nav).'</div>';
         print implode("\n",$sections);
+        
+        }//clsoe if
     }
 
     function sectioned_page_floating_nav(){

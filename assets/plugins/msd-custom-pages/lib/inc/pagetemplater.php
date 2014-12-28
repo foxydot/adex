@@ -116,7 +116,7 @@ class PageTemplater {
                         
                 } 
 
-                $file = plugin_dir_path(__FILE__). get_post_meta( 
+                $file = WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/template/'. get_post_meta( 
                     $post->ID, '_wp_page_template', true 
                 );
                 
