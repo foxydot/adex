@@ -121,10 +121,9 @@ function msdlab_do_post_permalink() {
     //* Don't show on singular views, or if the entry has a title
     if ( is_singular() )
         return;
-
     $permalink = get_permalink();
-
-    echo apply_filters( 'genesis_post_permalink', sprintf( '<p class="entry-permalink"><a href="%s" rel="bookmark">%s</a></p>', esc_url( $permalink ), __('View More') ) );
-
+    if(get_the_content()){
+        echo apply_filters( 'genesis_post_permalink', sprintf( '<p class="entry-permalink"><a href="%s" rel="bookmark">%s</a></p>', esc_url( $permalink ), __('View More') ) );
+    }
 }
 ?>
