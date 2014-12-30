@@ -7103,7 +7103,11 @@ Site Footer
 .page .adjacent-entry-pagination .pagination-previous a,
 .single-project .adjacent-entry-pagination .pagination-previous a,
 .page .adjacent-entry-pagination .pagination-next a,
-.single-project .adjacent-entry-pagination .pagination-next a {
+.single-project .adjacent-entry-pagination .pagination-next a,
+.page .adjacent-entry-pagination .pagination-previous div,
+.single-project .adjacent-entry-pagination .pagination-previous div,
+.page .adjacent-entry-pagination .pagination-next div,
+.single-project .adjacent-entry-pagination .pagination-next div {
   background-size: cover;
   display: block;
   min-height: 300px;
@@ -7112,7 +7116,11 @@ Site Footer
 .page .adjacent-entry-pagination .pagination-previous a span,
 .single-project .adjacent-entry-pagination .pagination-previous a span,
 .page .adjacent-entry-pagination .pagination-next a span,
-.single-project .adjacent-entry-pagination .pagination-next a span {
+.single-project .adjacent-entry-pagination .pagination-next a span,
+.page .adjacent-entry-pagination .pagination-previous div span,
+.single-project .adjacent-entry-pagination .pagination-previous div span,
+.page .adjacent-entry-pagination .pagination-next div span,
+.single-project .adjacent-entry-pagination .pagination-next div span {
   font-weight: 500;
   font-size: 2.8rem;
   color: #ffffff;

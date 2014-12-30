@@ -52,6 +52,11 @@ class MSDSectionedPage{
             $eo = $i%2==1?'even':'odd';
             $pull = $i%2==1?'left':'right';
             $title = apply_filters('the_title',$sectioned_page_metabox->get_the_value('title'));
+            $wrapped_title = count($title)>0?'<div class="section-title">
+        <h3 class="wrap">
+            '.$title.'
+        </h3>
+    </div>':'';
             $slug = sanitize_title_with_dashes(str_replace('/', '-', $sectioned_page_metabox->get_the_value('title')));
             $subtitle = $sectioned_page_metabox->get_the_value('subtitle') !=''?'<h4 class="section-subtitle">'.apply_filters('the_content',$sectioned_page_metabox->get_the_value('subtitle')).'</h4>':'';
             $content = apply_filters('the_content',$sectioned_page_metabox->get_the_value('content'));
@@ -61,11 +66,7 @@ class MSDSectionedPage{
             $floating_nav[] = '<a href="#'.$slug.'"><i class="fa-3x adex-'.$slug.'"></i>'.str_replace(' ', '<br>', $title).'</a>';
             $sections[] = '
 <div id="'.$slug.'" class="section section-'.$eo.' section-'.$slug.' clearfix">
-    <div class="section-title">
-        <h3 class="wrap">
-            '.$title.'
-        </h3>
-    </div>
+    '.$wrapped_title.'
     <div class="section-body">
         <div class="wrap">
             '.$image.'
