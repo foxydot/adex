@@ -41,7 +41,7 @@ $additional_files = new WPAlchemy_MetaBox(array
         (
             'id' => '_additional_files',
             'title' => 'Additional Files',
-            'types' => array('project'),
+            'types' => array(),
             'context' => 'normal',
             'priority' => 'high',
             'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/additional-files.php',
