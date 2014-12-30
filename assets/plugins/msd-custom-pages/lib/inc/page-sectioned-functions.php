@@ -22,7 +22,8 @@ class MSDSectionedPage{
         /**
          * Initializes the plugin by setting filters and administration functions.
          */
-        private function __construct() {            
+        private function __construct() {
+            add_action('admin_footer',array(&$this,'info_footer_hook') );            
         }
         
     function add_metaboxes(){
@@ -76,20 +77,22 @@ class MSDSectionedPage{
 ';
             $i++;
         }//close while
-        print '<div id="billboard_nav" class="billboard_nav image-widget-background" style="background-image:url('.msdlab_get_thumbnail_url($post->ID,'page_banner').');">
-        <div class="wrap">
-        <h1 class="page-title">'.$post->post_title.'</h1>
-        <div class="sep even"></div>
-        <div class="nav-icons-wrapper">'.implode("\n",$billboard_nav).'</div>
-        <div class="fuzzybubble">
-            <div class=""> 
-            <h3 class="entry-subtitle">'.$subtitle_metabox->get_the_value('subtitle').'</h3>
-            <p class="">'.apply_filters('the_content',$post->post_content).'</p>
+        if(!is_front_page()){
+            print '<div id="billboard_nav" class="billboard_nav image-widget-background" style="background-image:url('.msdlab_get_thumbnail_url($post->ID,'page_banner').');">
+            <div class="wrap">
+            <h1 class="page-title">'.$post->post_title.'</h1>
+            <div class="sep even"></div>
+            <div class="nav-icons-wrapper">'.implode("\n",$billboard_nav).'</div>
+            <div class="fuzzybubble">
+                <div class=""> 
+                <h3 class="entry-subtitle">'.$subtitle_metabox->get_the_value('subtitle').'</h3>
+                <p class="">'.apply_filters('the_content',$post->post_content).'</p>
+                </div>
             </div>
-        </div>
-        </div>
-        </div>';
-        print '<div id="floating_nav" class="floating_nav">'.implode("\n",$floating_nav).'</div>';
+            </div>
+            </div>';
+            print '<div id="floating_nav" class="floating_nav">'.implode("\n",$floating_nav).'</div>';
+        }
         print implode("\n",$sections);
         
         }//clsoe if
@@ -108,5 +111,13 @@ class MSDSectionedPage{
         </script>
         <?php
     }
-
+        function info_footer_hook()
+        {
+            global $current_screen;
+            if($current_screen->post_type == $this->cpt){
+                ?><script type="text/javascript">
+                        jQuery('#postdivrich').after(jQuery('#_sectioned_page_metabox'));
+                    </script><?php
+            }
+        }
 }
