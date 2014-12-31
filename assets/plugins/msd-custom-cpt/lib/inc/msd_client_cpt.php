@@ -208,7 +208,7 @@ if (!class_exists('MSDClientCPT')) {
                 .msdlab_logo_gallery .item-wrapper {
                     height:200px;
                     opacity: 0;
-                    padding: 1rem inherit;
+                    padding: 2rem;
                     /* For Safari 3.1 to 6.0 */
                     -webkit-transition-property: all;
                     -webkit-transition-duration: 2s;
