@@ -206,9 +206,9 @@ if (!class_exists('MSDClientCPT')) {
             $ret .= '
             <style>
                 .msdlab_logo_gallery .item-wrapper {
-                    height:200px;
+                    height:120px;
                     opacity: 0;
-                    padding: 2rem;
+                    padding: 2rem 4rem;
                     /* For Safari 3.1 to 6.0 */
                     -webkit-transition-property: all;
                     -webkit-transition-duration: 2s;
