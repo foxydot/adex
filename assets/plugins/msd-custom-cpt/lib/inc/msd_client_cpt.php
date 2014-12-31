@@ -238,7 +238,7 @@ if (!class_exists('MSDClientCPT')) {
             </style>
             <script>
                 jQuery(document).ready(function($) {   
-                    $(".msdlab_logo_gallery .item").css("opacity",1);
+                    $(".msdlab_logo_gallery .item-wrapper").css("opacity",1);
                 });
             </script>';
             return $ret;
