@@ -200,17 +200,15 @@ if (!class_exists('MSDClientCPT')) {
                         $fade = '1ms';
                         break;
                 }
-                $ret .= '<div class="col-md-'. 12/$columns .' col-sm-1 item" style="background-image:url('.$logo_url.');-webkit-transition-delay: '.$fade.';-moz-transition-delay: '.$fade.';-ms-transition-delay: '.$fade.';-o-transition-delay: '.$fade.';transition-delay: '.$fade.';"></div>';
+                $ret .= '<div class="col-md-'. 12/$columns .' col-sm-1 item-wrapper" style="-webkit-transition-delay: '.$fade.';-moz-transition-delay: '.$fade.';-ms-transition-delay: '.$fade.';-o-transition-delay: '.$fade.';transition-delay: '.$fade.';"><div class="item" style="background-image:url('.$logo_url.');"></div></div>';
             }
             $ret = '<div class="msdlab_logo_gallery">'.$ret.'</div>';
             $ret .= '
             <style>
-                .msdlab_logo_gallery .item {
-                    background-size: contain;
-                    min-height:200px;
-                    background-repeat: no-repeat;
-                    background-position: center center;
+                .msdlab_logo_gallery .item-wrapper {
+                    height:200px;
                     opacity: 0;
+                    padding: 1rem inherit;
                     /* For Safari 3.1 to 6.0 */
                     -webkit-transition-property: all;
                     -webkit-transition-duration: 2s;
@@ -229,6 +227,14 @@ if (!class_exists('MSDClientCPT')) {
                     transition-duration: 2s;
                     transition-timing-function: ease-in-out;
                 }
+                .msdlab_logo_gallery .item-wrapper .item {
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    height: 100%;
+                    width: 100%;
+                }
+
             </style>
             <script>
                 jQuery(document).ready(function($) {   
