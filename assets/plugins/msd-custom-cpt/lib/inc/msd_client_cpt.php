@@ -163,7 +163,7 @@ if (!class_exists('MSDClientCPT')) {
                 'rows' => 4,
                 'columns' => 4,
                 'fade_in' => 'random',
-                'animate' => 'random'
+                'animate' => false
             ), $atts ) );
             
             $args = array(
