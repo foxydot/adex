@@ -173,10 +173,10 @@ if (!class_exists('MSDClientCPT')) {
             switch($animate){
                 case true:
                 case 'random':
-                    $args['posts-per-page'] = -1;
+                    $args['posts_per_page'] = -1;
                     break;
                 case false:
-                    $args['posts-per-page'] = $rows * $columns;
+                    $args['posts_per_page'] = $rows * $columns;
                     break;
             }
             $clients = get_posts($args);
