@@ -124,6 +124,11 @@ if (!class_exists('MSDCustomCPT')) {
                 register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
                 register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
             }
+            if(class_exists('MSDTestimonialCPT')){
+                $this->testimonial_class = new MSDTestimonialCPT();
+                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+            }
         }
 
         /**

@@ -72,6 +72,8 @@ add_theme_support( 'genesis-footer-widgets', 1 ); //adds automatic footer widget
 //add the menu
 add_action('genesis_before_footer','msdlab_do_footer_menu', 20);
 
+add_action('genesis_before_footer','msdlab_do_footer_widget', 1);
+
 remove_action('genesis_footer','genesis_do_footer'); //replace the footer
 add_action('genesis_footer','msdlab_do_social_footer');//with a msdsocial support one
 

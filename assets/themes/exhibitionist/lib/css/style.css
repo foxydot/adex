@@ -7412,6 +7412,32 @@ Site Footer
   color: #532a44;
   line-height: 1.25;
 }
+.quote:before {
+  font-family: FontAwesome;
+  float: left !important;
+  content: '\f10d';
+  color: #999999;
+  font-size: 3em;
+  margin-right: 1rem;
+  line-height: 1;
+}
+.attribution {
+  font-weight: 700;
+  color: #532a44;
+}
+.msdlab_testimonial_gallery .link-wrapper {
+  clear: both;
+  text-align: center;
+  margin-bottom: -3rem;
+}
+.msdlab_testimonial_gallery .link-wrapper a {
+  background: #532a44;
+  padding: 1rem 3rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
 .footer-widgets {
   color: #ffffff;
 }

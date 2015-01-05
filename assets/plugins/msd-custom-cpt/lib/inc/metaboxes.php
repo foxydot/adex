@@ -1,5 +1,5 @@
 <?php 
-global $project_header,$project_info,$client_info,$additional_files,$event_info;
+global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info;
 
 $client_info = new WPAlchemy_MetaBox(array
         (
@@ -60,4 +60,16 @@ $event_info = new WPAlchemy_MetaBox(array
             'autosave' => TRUE,
             'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
             'prefix' => '_event_' // defaults to NULL
+        ));
+$testimonial_info = new WPAlchemy_MetaBox(array
+        (
+            'id' => '_testimonial_info',
+            'title' => 'Testimonial Info',
+            'types' => array('testimonial'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/testimonial-information.php',
+            'autosave' => TRUE,
+            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+            'prefix' => '_testimonial_' // defaults to NULL
         ));

@@ -57,7 +57,7 @@ if (!class_exists('MSDClientCPT')) {
                 'labels' => $labels,
                 'hierarchical' => false,
                 'description' => 'Client',
-                'supports' => array( 'title', 'thumbnail','genesis-cpt-archives-settings' ),
+                'supports' => array( 'title', 'thumbnail' ),
                 'taxonomies' => array( 'market_sector' ),
                 'public' => true,
                 'show_ui' => true,
@@ -67,10 +67,10 @@ if (!class_exists('MSDClientCPT')) {
                 'show_in_nav_menus' => true,
                 'publicly_queryable' => true,
                 'exclude_from_search' => true,
-                'has_archive' => true,
+                'has_archive' => false,
                 'query_var' => true,
                 'can_export' => true,
-                'rewrite' => array('slug'=>'portfolio','with_front'=>false),
+                'rewrite' => array('slug'=>'client','with_front'=>false),
                 'capability_type' => 'post'
             );
         
