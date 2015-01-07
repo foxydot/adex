@@ -339,11 +339,11 @@ function msdlab_do_project_info(){
     if(is_cpt('project') && class_exists('WPAlchemy_MetaBox')){
         global $project_info;
         $project_info->the_meta();
-        $containers = array('challenge','solutions','results');
+        $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>'Result');
         $ret = '<div class="project-widgets row">';
-        foreach($containers AS $c){
+        foreach($containers AS $c => $t){
             $ret .= '<section class="widget '.$c.' col-md-4">
-                <h4 class="widget-title">'.ucfirst($c).'</h4>
+                <h4 class="widget-title">'.ucfirst($t).'</h4>
                 <div>'.apply_filters('the_content',$project_info->get_the_value($c)).'</div>
             </section>';
         }

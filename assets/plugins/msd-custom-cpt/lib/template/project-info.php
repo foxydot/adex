@@ -1,5 +1,6 @@
-<?php global $wpalchemy_media_access; 
-$containers = array('challenge','solutions','results');
+<?php global $wpalchemy_media_access;         
+$containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>'Result');
+
 ?>
 <style>
     .meta_control .table {display: block; width: 100%;}
@@ -37,10 +38,10 @@ $containers = array('challenge','solutions','results');
 <div class="meta_control">
     <div class="table">
         <?php $i = 0; ?>
-        <?php foreach($containers AS $c){ ?>
+        <?php foreach($containers AS $c => $t){ ?>
     <div class="row <?php print $i%2==0?'even':'odd'; ?>">
         <div class="cell">
-            <label><?php print ucfirst($c); ?></label>
+            <label><?php print ucfirst($t); ?></label>
             <div class="input_container">
                 <?php 
                 $mb->the_field($c);

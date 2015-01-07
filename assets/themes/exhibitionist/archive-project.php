@@ -55,11 +55,15 @@ function msdlab_portfolio_add_scripts_and_styles() {
 }
 
 function msdlab_portfolio_footer_scripts(){
+    global $project_slugs;
+    $slugs = implode(' ',$project_slugs);
     print '<script type="text/javascript">
         jQuery(window).load(function() {
+            jQuery("#portfolio-projects .project:last-child").after("<article id=\"more-projects\" class=\"more-projects\">Read More</article>");
             jQuery("#portfolio-projects").isotope({
               itemSelector : ".type-project",
               layoutMode: "fitRows",
+              filter: ".project:lt(8), .more-projects",
             }); 
             
             // filter items when filter link is clicked
@@ -70,7 +74,7 @@ function msdlab_portfolio_footer_scripts(){
               jQuery("#portfolio-projects").isotope({
                   itemSelector : ".type-project",
                   layoutMode : "fitRows",
-                  filter: selector
+                  filter: selector + ":lt(8), .more-projects",
                 }); 
               return false;
             });   
@@ -82,7 +86,7 @@ function msdlab_portfolio_footer_scripts(){
             jQuery("article").mouseenter(function(){
                 var bkg = $(this).find(".image-widget-background");
                 $(this).find(".fuzzybubble").blurjs({
-                radius: 20,
+                radius: 10,
                 source: bkg, 
                 });
             });
@@ -91,9 +95,11 @@ function msdlab_portfolio_footer_scripts(){
 }
 
 function msdlab_project_filter(){
+    global $project_slugs;
    $terms = get_terms('project_type',array('orderby'=>'slug','order'=>'ASC','hide_empty'=>false));
    foreach($terms AS $term){
        $filters[] = '<a href="#" data-filter=".'.$term->slug.'" class="filter filter-'.$term->slug.'"><i class="fa-3x adex-'.$term->slug.'"></i>'.$term->name.'</a>';
+       $project_slugs[] = $term->slug;
    }
    $menu = '<div id="filters" class="wrap">'.implode(' ', $filters).'</div>';
    print $menu;

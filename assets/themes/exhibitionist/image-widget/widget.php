@@ -34,7 +34,7 @@ echo '</div>
     <script type="text/javascript">
         jQuery(document).ready(function($){
             $(".fuzzybubble").blurjs({
-                radius: 20,
+                radius: 10,
                 source: ".image-widget-background",
             });
         });

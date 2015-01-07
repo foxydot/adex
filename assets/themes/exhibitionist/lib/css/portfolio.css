@@ -185,11 +185,12 @@
   color: #ffffff;
 }
 .post-type-archive-project #portfolio-projects article .image-widget-background .fuzzybubble .entry-subtitle {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: block;
   font-size: 1.4rem;
   text-transform: none;
+  text-align: center;
   color: #ffffff;
   font-weight: 500;
   border: 0;
