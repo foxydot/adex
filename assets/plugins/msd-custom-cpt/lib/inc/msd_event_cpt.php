@@ -29,6 +29,10 @@ if (!class_exists('MSDEventCPT')) {
 			//Filters
 			add_filter( 'pre_get_posts', array(&$this,'custom_query') );
 			add_filter( 'enter_title_here', array(&$this,'change_default_title') );
+            
+            if(class_exists('MSDEventShortcodes')){
+                $this->event_shortcodes = new MSDEventShortcodes();
+            }
 		}
 		
 		function register_cpt_event() {

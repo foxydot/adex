@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 	var numwidgets = $('#footer-widgets div.widget').length;
 	$('#footer-widgets').addClass('cols-'+numwidgets);
 	
-    $('a[href*=#]:not([href=#])').click(function() {
+    $('a[href*=#]:not([href=#],.carousel-control)').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;

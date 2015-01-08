@@ -343,6 +343,46 @@
     }
   }
 }
+
+.msdlab_upcoming_events{
+  .wrap;
+  .clearfix;
+  color: @dkgrey;
+  margin: 1rem auto;
+  h3{
+    .customheader();
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  a{
+      color: @wine;
+      font-weight: 700;
+  }
+  .carousel-controls{
+    .pull-left;
+    position: relative;
+    width: 3rem;
+    margin: 0 2rem;
+    .carousel-control, .carousel-control:hover, .carousel-control:focus{
+      .customheader();
+      color: @wine;
+      font-weight: 700;
+      background: none;
+      text-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+  }
+  .carousel-inner{
+    width: 65%;
+    .pull-left;
+    margin-left: 8rem;
+    .item{
+      .event-date{}
+      .event-title{font-weight: 700;}
+      .event-venue{font-style: italic;}
+    }
+  }
+}
 //mixins for social colors
 @facebook: #345AA1;
 @twitter: #348DB9;
