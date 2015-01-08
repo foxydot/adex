@@ -7,6 +7,25 @@ jQuery(document).ready(function($) {
 	var numwidgets = $('#footer-widgets div.widget').length;
 	$('#footer-widgets').addClass('cols-'+numwidgets);
 	
+    $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      var my_offset;
+      if($('#floating_nav').length > 0){
+          my_offset = 140;
+      } else {
+          my_offset = 0;
+      }
+      console.log(my_offset);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - my_offset
+        }, 1000);
+        return false;
+      }
+    }
+  });
 	//special for lifestyle
 	/*$('.ftr-menu ul.menu>li').after(function(){
 		if(!$(this).hasClass('last-child') && $(this).hasClass('menu-item') && $(this).css('display')!='none'){
