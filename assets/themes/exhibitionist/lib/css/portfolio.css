@@ -214,6 +214,10 @@
   text-decoration: none;
   text-align: center;
 }
-.post-type-archive-project #portfolio-projects article:hover .image-widget-background .fuzzybubble {
+.post-type-archive-project #portfolio-projects article:hover .image-widget-background .fuzzybubble,
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble {
   opacity: 1;
+}
+.post-type-archive-project #portfolio-projects article.more-projects {
+  cursor: pointer;
 }

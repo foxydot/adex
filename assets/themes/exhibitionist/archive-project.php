@@ -59,25 +59,33 @@ function msdlab_portfolio_footer_scripts(){
     $slugs = implode(' ',$project_slugs);
     print '<script type="text/javascript">
         jQuery(window).load(function() {
-            jQuery("#portfolio-projects .project:last-child").after("<article id=\"more-projects\" class=\"more-projects\">Read More</article>");
+            var selector = ".project";
+            var quantity = 8;
             jQuery("#portfolio-projects").isotope({
-              itemSelector : ".type-project",
+              itemSelector : ".type-project, .more-projects",
               layoutMode: "fitRows",
-              filter: ".project:lt(8), .more-projects",
+              filter: ".project:lt(" + quantity + "), .more-projects",
             }); 
             
             // filter items when filter link is clicked
             jQuery("#filters a").click(function(){
               jQuery("#filters a").removeClass("active");
               jQuery(this).addClass("active");
-              var selector = jQuery(this).attr("data-filter");
+              selector = jQuery(this).attr("data-filter");
               jQuery("#portfolio-projects").isotope({
-                  itemSelector : ".type-project",
-                  layoutMode : "fitRows",
-                  filter: selector + ":lt(8), .more-projects",
+                  filter: selector + ":lt(" + quantity + "), .more-projects",
                 }); 
               return false;
             });   
+            jQuery("#more-projects").click(function(){
+                  quantity = quantity + 9;
+                  jQuery("#portfolio-projects").isotope({
+                      filter: selector + ":lt(" + quantity + "), .more-projects",
+                    }); 
+                if(selector.length < quantity){
+                    jQuery("#more-projects").hide();
+                }
+            });
             jQuery( window ).scroll(function() {
                 jQuery("#portfolio-projects").isotope();
             });
@@ -110,6 +118,17 @@ function msdlab_project_open_portfolio(){
     print '<div id="portfolio-projects" class="wrap">';
 }
 function msdlab_project_close_portfolio(){
+    print '<article id="more-projects" class="more-projects">
+    <div class="image-widget-background">
+        <div class="fuzzybubble">
+            <div class="entry-content" itemprop="text">
+                <h1 class="entry-title" itemprop="headline">
+                Load More
+                </h1>
+            </div>
+        </div>
+    </div>
+    </article>';
     print '</div>';
 }
 
