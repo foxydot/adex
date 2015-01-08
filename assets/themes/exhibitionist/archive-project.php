@@ -119,14 +119,8 @@ function msdlab_project_open_portfolio(){
 }
 function msdlab_project_close_portfolio(){
     print '<article id="more-projects" class="more-projects">
-    <div class="image-widget-background">
-        <div class="fuzzybubble">
-            <div class="entry-content" itemprop="text">
-                <h1 class="entry-title" itemprop="headline">
-                Load More
-                </h1>
-            </div>
-        </div>
+    <div style="height: 370px;width:370px;background:url('.get_stylesheet_directory_uri().'/lib/img/plus.png'.') no-repeat center center #D5D5D5;">
+        <div style="position: absolute;bottom:10px;right:20px">+ Load More</div>
     </div>
     </article>';
     print '</div>';

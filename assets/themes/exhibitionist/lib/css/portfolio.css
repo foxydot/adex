@@ -214,10 +214,38 @@
   text-decoration: none;
   text-align: center;
 }
-.post-type-archive-project #portfolio-projects article:hover .image-widget-background .fuzzybubble,
-.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble {
+.post-type-archive-project #portfolio-projects article:hover .image-widget-background .fuzzybubble {
   opacity: 1;
 }
 .post-type-archive-project #portfolio-projects article.more-projects {
   cursor: pointer;
+}
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background {
+  background: #999999;
+}
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble {
+  opacity: 1;
+  border: 0;
+}
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble .entry-title {
+  margin-top: 4rem;
+  font-size: 2.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #1a1a1a;
+}
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble .entry-title a {
+  color: #ffffff;
+}
+.post-type-archive-project #portfolio-projects article.more-projects .image-widget-background .fuzzybubble .entry-subtitle {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.4rem;
+  text-transform: none;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  border: 0;
+  text-shadow: 2px 2px 4px #1a1a1a;
 }

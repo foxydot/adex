@@ -149,7 +149,7 @@
         }
       }
     }
-    article:hover, article.more-projects{
+    article:hover{
       .image-widget-background{
         .fuzzybubble{
           opacity:1;
@@ -158,6 +158,35 @@
     }
     article.more-projects{
       cursor: pointer;
+      .image-widget-background{
+      background: @ltgrey;
+        .fuzzybubble{
+          opacity:1;
+          border: 0;
+            .entry-title{
+              margin-top: 4rem;
+              font-size: 2.8rem;
+              text-align: center;
+              text-transform: uppercase;
+              text-shadow: 2px 2px 4px @dkgrey;
+              a{
+                color: @white;
+              }
+            }
+            .entry-subtitle{
+              width: 100%;
+              margin: 0 auto;
+              display: block;
+              font-size: 1.4rem;
+              text-transform: none;
+              text-align: center;
+              color: @white;
+              font-weight: 500;
+              border: 0;
+              text-shadow: 2px 2px 4px @dkgrey;
+            }
+        }
+      }
     }
   }
 }
