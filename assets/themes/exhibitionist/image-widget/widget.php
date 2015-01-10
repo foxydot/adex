@@ -7,8 +7,7 @@
 // Block direct requests
 if ( !defined('ABSPATH') )
 	die('-1');
-
-echo '<div class="image-widget-background" style="background-image: url('.$imageurl.')">
+echo '<div class="image-widget-background" style="background-image: url('.$imageurl.')" id="'.$this->id.'">
     <div class="fuzzybubble">
 ';
 
@@ -33,7 +32,7 @@ echo '      </div>
 echo '</div>
     <script type="text/javascript">
         jQuery(document).ready(function($){
-            $(".fuzzybubble").blurjs({
+            $("#'.$this->id.' .fuzzybubble").blurjs({
                 radius: 10,
                 source: ".image-widget-background",
             });

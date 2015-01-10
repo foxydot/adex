@@ -104,8 +104,8 @@ class MSDSectionedPage{
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             $("#floating_nav").sticky({ topSpacing: 0 });
-            $(".fuzzybubble").blurjs({
-                radius: 20,
+            $("#billboard_nav .fuzzybubble").blurjs({
+                radius: 10,
                 source: $('.image-widget-background'), 
                 });
         });
