@@ -7258,6 +7258,9 @@ Site Footer
   text-align: center;
   color: #ffffff;
 }
+.billboard_nav wrap {
+  position: relative;
+}
 .billboard_nav h1 {
   color: #ffffff;
   text-transform: uppercase;
@@ -7272,10 +7275,16 @@ Site Footer
   margin-bottom: 3rem;
 }
 .billboard_nav .nav-icons-wrapper {
-  position: absolute;
+  position: relative;
+  top: -400px;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto -400px;
 }
 .billboard_nav .nav-icons-wrapper a {
   color: #ffffff;
+  position: absolute;
+  opacity: 0;
 }
 .billboard_nav .nav-icons-wrapper a .round-wrap {
   border: 1px solid #ffffff;

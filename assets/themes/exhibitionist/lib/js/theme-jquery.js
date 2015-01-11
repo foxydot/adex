@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
           return el.apply(this, arguments);
         };
       });
-	$('.layerslider_widget .ls-slide').on('show',function(){
+	$('.layerslider_widget .ls-slide').one('show',function(){
         var fb = $(this).find('.fuzzybubble');
         var img = $(this).find('.ls-bg');
 	    fb.layersliderblur({

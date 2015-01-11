@@ -45,7 +45,9 @@ class MSDSectionedPage{
     
     function sectioned_page_output(){
         wp_enqueue_script('sticky',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.sticky.js',array('jquery'),FALSE,TRUE);
-        global $post,$subtitle_metabox,$sectioned_page_metabox;
+        wp_enqueue_script('jquery-path',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.path.js',array('jquery','bootstrap-jquery'));
+        
+        global $post,$subtitle_metabox,$sectioned_page_metabox,$nav_ids;
         $i = 1;
         if(is_object($sectioned_page_metabox)){
         while($sectioned_page_metabox->have_fields('sections')){
@@ -61,9 +63,10 @@ class MSDSectionedPage{
             $subtitle = $sectioned_page_metabox->get_the_value('subtitle') !=''?'<h4 class="section-subtitle">'.apply_filters('the_content',$sectioned_page_metabox->get_the_value('subtitle')).'</h4>':'';
             $content = apply_filters('the_content',$sectioned_page_metabox->get_the_value('content'));
             $image = $sectioned_page_metabox->get_the_value('image') !=''?'<img src="'.$sectioned_page_metabox->get_the_value('image').'" class="pull-'.$pull.'">':'';
+            $nav_ids[] = $slug;
             $nav[] = '';
-            $billboard_nav[] = '<a href="#'.$slug.'" class="nav-icon-'.$i.'"><div class="round-wrap"><i class="fa-3x adex-'.$slug.'"></i></div>'.str_replace(' ', '<br>', $title).'</a>';
-            $floating_nav[] = '<a href="#'.$slug.'"><i class="fa-3x adex-'.$slug.'"></i>'.str_replace(' ', '<br>', $title).'</a>';
+            $billboard_nav[] = '<a id="'.$slug.'_bb_nav" href="#'.$slug.'" class="nav-icon-'.$i.'"><div class="round-wrap"><i class="fa-3x adex-'.$slug.'"></i></div>'.str_replace(' ', '<br>', $title).'</a>';
+            $floating_nav[] = '<a id="'.$slug.'_fl_nav" href="#'.$slug.'"><i class="fa-3x adex-'.$slug.'"></i>'.str_replace(' ', '<br>', $title).'</a>';
             $sections[] = '
 <div id="'.$slug.'" class="section section-'.$eo.' section-'.$slug.' clearfix">
     '.$wrapped_title.'
@@ -83,13 +86,13 @@ class MSDSectionedPage{
             <div class="wrap">
             <h1 class="page-title">'.$post->post_title.'</h1>
             <div class="sep even"></div>
-            <div class="nav-icons-wrapper">'.implode("\n",$billboard_nav).'</div>
             <div class="fuzzybubble">
                 <div class=""> 
                 <h3 class="entry-subtitle">'.$subtitle_metabox->get_the_value('subtitle').'</h3>
                 <p class="">'.apply_filters('the_content',$post->post_content).'</p>
                 </div>
             </div>
+            <div class="nav-icons-wrapper">'.implode("\n",$billboard_nav).'</div>
             </div>
             </div>';
             print '<div id="floating_nav" class="floating_nav">'.implode("\n",$floating_nav).'</div>';
@@ -100,14 +103,33 @@ class MSDSectionedPage{
     }
 
     function sectioned_page_floating_nav(){
+        global $nav_ids;
         ?>
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             $("#floating_nav").sticky({ topSpacing: 0 });
-            $("#billboard_nav .fuzzybubble").blurjs({
+            /*$("#billboard_nav .fuzzybubble").blurjs({
                 radius: 10,
                 source: $('.image-widget-background'), 
-                });
+                });*/
+            var arc_params = function(i) {
+              var arc_positions = [240,270,300,60,90,120];
+              return new $.path.arc({
+                center: [230,100],  
+                    radius: 320,    
+                    start: 180,
+                    end: arc_positions[i],
+                    dir: -1
+              });
+            }
+            <?php
+            $i = 0;
+            foreach($nav_ids AS $nav_id){
+                print '$("#billboard_nav #'.$nav_id.'_bb_nav").delay('.($i*1000).').animate({opacity: 1,path : arc_params('.$i.')},8000);
+                ';
+                $i++;
+            }
+            ?>
         });
         </script>
         <?php
