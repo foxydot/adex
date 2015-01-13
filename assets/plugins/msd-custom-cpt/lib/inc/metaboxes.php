@@ -1,5 +1,5 @@
 <?php 
-global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info;
+global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info,$gallery_info;
 
 $client_info = new WPAlchemy_MetaBox(array
         (
@@ -36,6 +36,18 @@ $project_info = new WPAlchemy_MetaBox(array
             'autosave' => TRUE,
             'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
             'prefix' => '_project_' // defaults to NULL
+        ));
+$gallery_info = new WPAlchemy_MetaBox(array
+        (
+            'id' => '_gallery_info',
+            'title' => 'Gallery Info',
+            'types' => array('project'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/gallery-info.php',
+            'autosave' => TRUE,
+            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+            'prefix' => '_gallery_' // defaults to NULL
         ));
 $additional_files = new WPAlchemy_MetaBox(array
         (

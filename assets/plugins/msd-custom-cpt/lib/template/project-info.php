@@ -38,6 +38,21 @@ $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>
 <div class="meta_control">
     <div class="table">
         <?php $i = 0; ?>
+    <div class="row <?php print $i%2==0?'even':'odd'; ?>">
+        <div class="cell">
+            <label>Entry Type</label>
+            <div class="input_container">
+                <?php $mb->the_field('case_study'); ?>
+               <select name="<?php $mb->the_name(); ?>">
+                <option value="0"<?php $mb->the_select_state('0'); ?>>Sample</option>
+                <option value="100"<?php $mb->the_select_state('100'); ?>>Gallery</option>
+                <option value="200"<?php $mb->the_select_state('200'); ?>>Case Study</option>
+                <option value="300"<?php $mb->the_select_state('300'); ?>>Case Study &amp; Gallery</option>
+                </select>
+           </div>
+        </div>
+    </div>
+    <?php $i++; ?>
         <?php foreach($containers AS $c => $t){ ?>
     <div class="row <?php print $i%2==0?'even':'odd'; ?>">
         <div class="cell">

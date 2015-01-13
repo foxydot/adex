@@ -27,6 +27,10 @@ function msdlab_alter_loop_params($query){
             $query->set('posts_per_page',-1);
             $query->set('numposts',-1);
         }
+        if($query->is_post_type_archive('project')){
+           $query->set('orderby',array('meta_value_num'=>'DESC','rand'));
+           $query->set('meta_key','_project_case_study');
+        }
     }
 }
 /*** HEADER ***/
