@@ -79,10 +79,11 @@ function msdlab_portfolio_footer_scripts(){
             });   
             jQuery("#more-projects").click(function(){
                   quantity = quantity + 9;
+                  console.log("$(selector).length: " + jQuery(selector).length + "| quantity: " + quantity);
                   jQuery("#portfolio-projects").isotope({
                       filter: selector + ":lt(" + quantity + "), .more-projects",
                     }); 
-                if(selector.length < quantity){
+                if(jQuery(selector).length < quantity){
                     jQuery("#more-projects").hide();
                 }
             });
