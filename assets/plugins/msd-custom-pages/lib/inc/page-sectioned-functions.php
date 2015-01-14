@@ -103,7 +103,7 @@ class MSDSectionedPage{
     }
 
     function sectioned_page_floating_nav(){
-        global $nav_ids;
+        global $nav_ids; //http://julian.com/research/velocity/ llook at this to speed up animations
         ?>
         <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -125,7 +125,7 @@ class MSDSectionedPage{
             <?php
             $i = 0;
             foreach($nav_ids AS $nav_id){
-                print '$("#billboard_nav #'.$nav_id.'_bb_nav").delay('.($i*1000).').animate({opacity: 1,path : arc_params('.$i.')},8000);
+                print '$("#billboard_nav #'.$nav_id.'_bb_nav").delay('.($i*500).').animate({opacity: 1,path : arc_params('.$i.')},4000);
                 ';
                 $i++;
             }

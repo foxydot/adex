@@ -22,7 +22,8 @@
 		<div class="input_container">
 		    
         <?php if($mb->get_the_value() != ''){
-            print '<img src="'.$mb->get_the_value().'">';
+            $thumb = wp_get_attachment_image_src( get_attachment_id_from_src($mb->get_the_value()), 'thumbnail' );
+            print '<img src="'.$thumb[0].'"><br/>';
         } ?>
         <?php $wpalchemy_media_access->setGroupName('imageurl'. $mb->get_the_index())->setInsertButtonLabel('Insert This')->setTab('gallery'); ?>
 		<?php echo $wpalchemy_media_access->getField(array('name' => $mb->get_the_name(), 'value' => $mb->get_the_value())); ?>

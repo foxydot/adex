@@ -302,6 +302,20 @@ function msdlab_prev_next_post_nav() {
 }
 
 /****PROJECTS***/
+function msdlab_project_gallery(){
+    if(is_cpt('project') ){
+        global $gallery_info;
+        $gallery_info->the_meta();
+            $ret = FALSE;
+            if($gallery_info->have_fields('gallery')){
+                $ret = do_shortcode('[gallery]');
+            }
+            if($ret){
+                print '<div class="project-gallery col-md-4 pull-right">'.$ret.'</div>';
+            }
+    }
+}
+
 function msdlab_project_header_info(){
     if(is_cpt('project') ){
         genesis_do_post_title();
