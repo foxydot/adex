@@ -7071,6 +7071,54 @@ Site Footer
   min-height: 500px;
   width: 100%;
 }
+.page .project-gallery,
+.single-project .project-gallery {
+  max-height: 360px;
+  overflow: auto;
+}
+.page .project-gallery .gallery .gallery-item,
+.single-project .project-gallery .gallery .gallery-item {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  width: 33.33333333%;
+  padding: 0 0.2rem;
+  margn: 0.2rem 0;
+}
+.page .project-gallery .gallery .gallery-item .gallery-icon a img.attachment-thumbnail,
+.single-project .project-gallery .gallery .gallery-item .gallery-icon a img.attachment-thumbnail {
+  border: 0;
+  margin: 0.2rem 0;
+}
+.page .jp-carousel-wrap .jp-carousel-overlay,
+.single-project .jp-carousel-wrap .jp-carousel-overlay {
+  background-color: #ffffff;
+}
+.page .jp-carousel-wrap .jp-carousel-info .jp-carousel-image-meta,
+.single-project .jp-carousel-wrap .jp-carousel-info .jp-carousel-image-meta {
+  background: none repeat scroll 0 0 #eee;
+  border: 1px solid #ddd;
+  color: #333;
+}
+.page .jp-carousel-wrap .jp-carousel-info .jp-carousel-image-meta .jp-carousel-image-exif,
+.single-project .jp-carousel-wrap .jp-carousel-info .jp-carousel-image-meta .jp-carousel-image-exif {
+  display: none;
+}
+.page .jp-carousel-wrap .jp-carousel-info .jp-carousel-titleanddesc,
+.single-project .jp-carousel-wrap .jp-carousel-info .jp-carousel-titleanddesc {
+  border-top: 1px solid #ddd;
+  color: #999;
+}
+.page .jp-carousel-wrap .jp-carousel-info .jp-carousel-titleanddesc .jp-carousel-titleanddesc-title,
+.single-project .jp-carousel-wrap .jp-carousel-info .jp-carousel-titleanddesc .jp-carousel-titleanddesc-title {
+  color: #666;
+}
+.page .jp-carousel-wrap .jp-carousel-close-hint span,
+.single-project .jp-carousel-wrap .jp-carousel-close-hint span {
+  border-radius: 0px;
+}
 .page .adjacent-entry-pagination,
 .single-project .adjacent-entry-pagination {
   margin: 0 auto;

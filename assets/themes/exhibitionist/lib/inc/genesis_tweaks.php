@@ -4,6 +4,7 @@ require_once('genesis_tweak_functions.php');
 add_action('pre_get_posts','msdlab_alter_loop_params');
 /*** GENERAL ***/
 add_theme_support( 'html5' );//* Add HTML5 markup structure
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 add_theme_support( 'genesis-responsive-viewport' );//* Add viewport meta tag for mobile browsers
 add_theme_support( 'custom-background' );//* Add support for custom background
 //* Add support for structural wraps
