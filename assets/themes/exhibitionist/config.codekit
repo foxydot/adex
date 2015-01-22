@@ -20,6 +20,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/archive-testimonial.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/archive-testimonial.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/front-page.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -986,6 +995,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/lib\/css\/portfolio.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/css\/portfolio.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/lib\/css\/reset.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -1585,6 +1603,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/lib\/img\/home-location-big-map.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 267813,
+		"inputAbbreviatedPath": "\/lib\/img\/home-location-big-map.png",
+		"outputAbbreviatedPath": "\/lib\/img\/home-location-big-map.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/lib\/img\/home-location-phone.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 154686,
+		"inputAbbreviatedPath": "\/lib\/img\/home-location-phone.png",
+		"outputAbbreviatedPath": "\/lib\/img\/home-location-phone.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/lib\/img\/icon-dot.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1647,6 +1687,17 @@
 		"initialSize": 1329,
 		"inputAbbreviatedPath": "\/lib\/img\/mobile_button.png",
 		"outputAbbreviatedPath": "\/lib\/img\/mobile_button.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/lib\/img\/plus.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1498,
+		"inputAbbreviatedPath": "\/lib\/img\/plus.png",
+		"outputAbbreviatedPath": "\/lib\/img\/plus.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1792,6 +1843,237 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/lib\/js\/_dependent\/greensock\/easing\/EasePack.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/easing\/EasePack.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/easing\/min\/EasePack.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/jquery.gsap.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/jquery.gsap.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/min\/jquery.gsap.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/AttrPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/AttrPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/AttrPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/BezierPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/BezierPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/BezierPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/ColorPropsPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/ColorPropsPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/ColorPropsPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/CSSPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/CSSPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/CSSPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/CSSRulePlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/CSSRulePlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/CSSRulePlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/DirectionalRotationPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/DirectionalRotationPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/DirectionalRotationPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/EaselPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/EaselPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/EaselPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/EndArrayPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/EndArrayPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/EndArrayPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/KineticPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/KineticPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/KineticPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/RaphaelPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/RaphaelPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/RaphaelPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/RoundPropsPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/RoundPropsPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/RoundPropsPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/ScrollToPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/ScrollToPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/ScrollToPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/plugins\/TextPlugin.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/TextPlugin.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/plugins\/min\/TextPlugin.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/TimelineLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/TimelineLite.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/min\/TimelineLite.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/TimelineMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/TimelineMax.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/min\/TimelineMax.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/TweenLite.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/TweenLite.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/min\/TweenLite.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/TweenMax.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/TweenMax.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/min\/TweenMax.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/greensock\/utils\/Draggable.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/utils\/Draggable.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/greensock\/utils\/min\/Draggable.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/_dependent\/jquery.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/_dependent\/jquery.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/_dependent\/min\/jquery.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/lib\/js\/blur.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1891,12 +2173,67 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/lib\/js\/jquery.path.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/jquery.path.js",
+		"outputAbbreviatedPath": "\/lib\/js\/min\/jquery.path-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/jquery.scrollmagic.debug.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/jquery.scrollmagic.debug.js",
+		"outputAbbreviatedPath": "\/lib\/js\/min\/jquery.scrollmagic.debug-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/jquery.scrollmagic.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/jquery.scrollmagic.js",
+		"outputAbbreviatedPath": "\/lib\/js\/min\/jquery.scrollmagic-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/jquery.scrollmagic.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/jquery.scrollmagic.min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/min\/jquery.scrollmagic.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/lib\/js\/min\/blur-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/lib\/js\/min\/blur-min.js",
 		"outputAbbreviatedPath": "\/lib\/js\/min\/min\/blur-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/lib\/js\/min\/homepage-jquery-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/js\/min\/homepage-jquery-min.js",
+		"outputAbbreviatedPath": "\/lib\/js\/min\/min\/homepage-jquery-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
