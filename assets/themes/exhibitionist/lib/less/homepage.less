@@ -1,2 +1,39 @@
 @import 'lesshat';
 @import 'mixins';
+
+.section-location{
+  z-index: 10;
+  .section-body{
+    background: url('../img/home-location-big-map.png') no-repeat center center @vltgrey;
+    background-size: cover;
+    padding: 0;
+    .wrap{
+      position: relative;
+      display: table;
+      min-height: 86rem;
+      .inner-wrap{
+        background-color: rgba(255,255,255,0.7);
+        padding: 2rem;
+        margin-top: 40rem;
+        margin-right: 40rem;
+        margin-bottom: 4rem;
+      }
+      .the-hand{
+        background: url('../img/home-location-phone.png') no-repeat left top transparent;
+        padding: 5.7rem 24rem 24rem 6.5rem;
+        position: absolute;
+        right: 0;
+        bottom: -2rem;
+        iframe{
+          width: 15.8rem;
+          height: 27.6rem;
+          border: 0;
+        }
+      }
+    }
+  }
+}
+.section-some-of-the-businesses-we-work-with{
+  z-index: 1000;
+  background-color: @white;
+}

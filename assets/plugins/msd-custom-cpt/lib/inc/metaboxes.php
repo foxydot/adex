@@ -1,5 +1,5 @@
 <?php 
-global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info,$gallery_info;
+global $project_header,$project_info,$client_info,$additional_files,$event_info,$testimonial_info,$gallery_info,$location_info;
 
 $client_info = new WPAlchemy_MetaBox(array
         (
@@ -84,4 +84,16 @@ $testimonial_info = new WPAlchemy_MetaBox(array
             'autosave' => TRUE,
             'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
             'prefix' => '_testimonial_' // defaults to NULL
+        ));
+$location_info = new WPAlchemy_MetaBox(array
+        (
+            'id' => '_location_info',
+            'title' => 'Location Info',
+            'types' => array('location'),
+            'context' => 'normal',
+            'priority' => 'high',
+            'template' => WP_PLUGIN_DIR.'/'.plugin_dir_path('msd-custom-cpt/msd-custom-cpt.php').'lib/template/location-information.php',
+            'autosave' => TRUE,
+            'mode' => WPALCHEMY_MODE_EXTRACT, // defaults to WPALCHEMY_MODE_ARRAY
+            'prefix' => '_location_' // defaults to NULL
         ));

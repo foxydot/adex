@@ -29,6 +29,8 @@ if (!class_exists('MSDLocationCPT')) {
 			//Filters
 			add_filter( 'pre_get_posts', array(&$this,'custom_query') );
 			add_filter( 'enter_title_here', array(&$this,'change_default_title') );
+            
+            add_shortcode('location_section',array(&$this,'homepage_location_output'));
 		}
 		
 		function register_cpt_location() {
@@ -53,7 +55,7 @@ if (!class_exists('MSDLocationCPT')) {
 		        'hierarchical' => false,
 		        'description' => 'Location',
 		        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ,'genesis-cpt-archives-settings'),
-		        'taxonomies' => array( 'category' ),
+		        'taxonomies' => array(),
 		        'public' => true,
 		        'show_ui' => true,
 		        'show_in_menu' => true,
@@ -140,6 +142,32 @@ if (!class_exists('MSDLocationCPT')) {
 			}
 		}
 		
+        function homepage_location_output($atts){
+           extract( shortcode_atts( array(), $atts ) );
+           global $location_info;
+            $args = array(
+                'posts_per_page' => -1,
+                'post_type' => $this->cpt,
+            );
+            $locations = get_posts($args);
+            $i = 0;
+            $ret = '<locations id="locations_popovers">';
+            foreach($locations AS $location){
+                $location_info->the_meta($location->ID);
+                $locations[$i]->homepage_map_position = $location_info->get_the_value('homepage_map_position');
+                $locations[$i]->title = $location->post_title;
+                $ret .= '
+                <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker" data-container="body" data-toggle="popover" data-placement="top" data-content="'.$location->post_title.'">
+  '.$location->post_title.'
+</a>';
+                $i++;
+            }
+            $ret .= '</locations>
+<div id="the-hand" class="the-hand">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3089.450363011913!2d-84.452986!3d39.255347!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x23eba871ce630456!2sAD-EX+International!5e0!3m2!1sen!2sus!4v1421896457550" frameborder="0" style="border:0"></iframe>
+</div>';
+           return $ret;
+        }
 
 		function custom_query( $query ) {
 			if(!is_admin()){

@@ -84,6 +84,12 @@ if (!class_exists('MSDCustomCPT')) {
     	 * @var array $options Stores the options for this plugin
     	 */
     	var $options = array();
+        
+        /**
+         * @var bool $flushrules Weather or not to flush rewrite rules on activation.
+         */
+        var $flushrules = FALSE;
+        
         //Methods
         /**
         * PHP 4 Compatible Constructor
@@ -103,29 +109,29 @@ if (!class_exists('MSDCustomCPT')) {
         	register_activation_hook(__FILE__, array(&$this,'check_requirements'));
         	//get sub-packages
         	requireDir(plugin_dir_path(__FILE__).'/lib/inc');
+           
             //here are some examples to get started with
             if(class_exists('MSDLocationCPT')){
-                //$this->location_class = new MSDLocationCPT();
-                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
-                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                $this->location_class = new MSDLocationCPT();
+                $this->flushrules = TRUE;
             }
             if(class_exists('MSDEventCPT')){
                 $this->event_class = new MSDEventCPT();
-                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
-                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                $this->flushrules = TRUE;
             }
             if(class_exists('MSDProjectCPT')){
                 $this->project_class = new MSDProjectCPT();
-                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
-                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                $this->flushrules = TRUE;
             }
             if(class_exists('MSDClientCPT')){
                 $this->client_class = new MSDClientCPT();
-                register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
-                register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
+                $this->flushrules = TRUE;
             }
             if(class_exists('MSDTestimonialCPT')){
                 $this->testimonial_class = new MSDTestimonialCPT();
+                $this->flushrules = TRUE;
+            }
+            if($this->flushrules){
                 register_activation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
                 register_deactivation_hook( __FILE__, create_function('','flush_rewrite_rules();') );
             }
