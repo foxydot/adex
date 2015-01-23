@@ -123,5 +123,12 @@ $states = array('AL'=>"Alabama",
         <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_homepage_map_position" name="<?php $metabox->the_name(); ?>"></div>
         </div>
     </div>
+    <div class="row">
+        <div class="cell">
+        <?php $metabox->the_field('google_map_string'); ?>
+        <label id="<?php $metabox->the_name(); ?>_label" for="<?php $metabox->the_name(); ?>">Google Map String</label>
+        <div class="input_container"><input type="text" value="<?php $metabox->the_value(); ?>" id="_google_map_string" name="<?php $metabox->the_name(); ?>"></div>
+        </div>
+    </div>
 </div>
 </div>
