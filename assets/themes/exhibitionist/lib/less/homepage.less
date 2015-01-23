@@ -13,8 +13,58 @@
       min-height: 86rem;
       .map-marker{
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
+        display: table;
+        background: url(../img/pin-shadow.png) no-repeat center bottom;
+        padding-bottom: 1.6rem;
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -ms-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+        .location-photo{
+          height: 0;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+          border-radius: 0.6rem 0.6rem 0 0;
+        }
+        .marker-text{
+          background-color: @wine;
+          color: @white;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          padding: .5em 2em;
+          border-radius: 0.6rem;
+          position: relative;
+          text-align: center;
+          width: auto;
+          -webkit-transition: all 500ms ease-in-out;
+          -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+          -o-transition: all 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
+        }
+        .marker-text:after{
+          top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-color: rgba(136, 183, 213, 0); border-top-color: @wine; border-width: 6px; margin-left: -6px;
+        }
+      }
+      .map-marker:hover{
+        text-decoration: none;
+      }
+      .map-marker:hover{
+        .location-photo{
+          display: block;
+          height: 200px;
+          width: 100%;
+        }
+        .marker-text{
+          border-radius: 0 0 0.6rem 0.6rem;
+          width: 300px;
+        }
       }
       .inner-wrap{
         background-color: rgba(255,255,255,0.7);

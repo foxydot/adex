@@ -61,7 +61,9 @@ class MSDSectionedPage{
     </div>':'';
             $slug = sanitize_title_with_dashes(str_replace('/', '-', $sectioned_page_metabox->get_the_value('title')));
             $subtitle = $sectioned_page_metabox->get_the_value('subtitle') !=''?'<h4 class="section-subtitle">'.apply_filters('the_content',$sectioned_page_metabox->get_the_value('subtitle')).'</h4>':'';
+            if($slug=='location'){remove_filter( 'the_content', 'wpautop' );}
             $content = apply_filters('the_content',$sectioned_page_metabox->get_the_value('content'));
+            if($slug=='location'){add_filter( 'the_content', 'wpautop' );}
             $image = $sectioned_page_metabox->get_the_value('image') !=''?'<img src="'.$sectioned_page_metabox->get_the_value('image').'" class="pull-'.$pull.'">':'';
             $nav_ids[] = $slug;
             $nav[] = '';

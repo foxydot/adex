@@ -1,5 +1,6 @@
 var controller;
 jQuery(document).ready(function($) {
+    console.log(location_positions);
     var numwidgets = $('#homepage-widgets section.widget').length;
     $('#homepage-widgets').addClass('cols-'+numwidgets);
     var cols = 12/numwidgets;
@@ -7,10 +8,6 @@ jQuery(document).ready(function($) {
     $('#homepage-widgets section.widget').addClass('col-xs-12');
     $(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>').append($('#the-hand'));
     $(".section-location .section-body .wrap").prepend($('#locations_popovers'));
-      $('[data-toggle="popover"]').popover({
-          "placement": "top",
-          "trigger": "hover",
-      });
       
       // init controller
     controller = new ScrollMagic();

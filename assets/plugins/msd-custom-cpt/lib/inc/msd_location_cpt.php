@@ -85,8 +85,6 @@ if (!class_exists('MSDLocationCPT')) {
 			if($current_screen->post_type == $this->cpt){
 				wp_enqueue_script('media-upload');
 				wp_enqueue_script('thickbox');
-				wp_register_script('my-upload', plugin_dir_url(dirname(__FILE__)).'/js/msd-upload-file.js', array('jquery','media-upload','thickbox'),FALSE,TRUE);
-				wp_enqueue_script('my-upload');
 			}
 		}
 		
@@ -154,18 +152,24 @@ if (!class_exists('MSDLocationCPT')) {
             $ret = '<locations id="locations_popovers">';
             foreach($locations AS $location){
                 $location_info->the_meta($location->ID);
-                $locations[$i]->homepage_map_position = $location_info->get_the_value('homepage_map_position');
                 $locations[$i]->title = $location->post_title;
+                $image = has_post_thumbnail($location->ID)?msdlab_get_thumbnail_url($location->ID,'medium'):FALSE;
                 $ret .= '
-                <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker" data-container="body" data-toggle="popover" data-placement="top" data-content="'.$location->post_title.'">
-  '.$location->post_title.'
-</a>';
+                <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker">
+                <div class="location-photo" style="background-image:url('.$image.');"></div>
+                <div class="marker-text">'.$location->post_title.'</div>
+                </a>';
+                $script .= '{elem:"#'.sanitize_title_for_query($location->post_title).'_popover", position:"'.$location_info->get_the_value('homepage_map_position').'"},';
                 $i++;
             }
             $ret .= '</locations>
+            <script>
+                var location_positions = ['.$script.'];
+            </script>
 <div id="the-hand" class="the-hand">
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3089.450363011913!2d-84.452986!3d39.255347!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x23eba871ce630456!2sAD-EX+International!5e0!3m2!1sen!2sus!4v1421896457550" frameborder="0" style="border:0"></iframe>
 </div>';
+//ts_data(get_intermediate_image_sizes());
            return $ret;
         }
 
