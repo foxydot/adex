@@ -155,7 +155,7 @@ if (!class_exists('MSDLocationCPT')) {
                 $locations[$i]->title = $location->post_title;
                 $image = has_post_thumbnail($location->ID)?msdlab_get_thumbnail_url($location->ID,'medium'):FALSE;
                 $ret .= '
-                <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker">
+                <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker" map-data="'.$location_info->get_the_value('google_map_string').'">
                 <div class="location-photo" style="background-image:url('.$image.');"></div>
                 <div class="marker-text">'.$location->post_title.'</div>
                 </a>';

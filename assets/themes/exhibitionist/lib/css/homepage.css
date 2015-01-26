@@ -55,27 +55,28 @@
   background: url('../img/home-location-big-map.png') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
-}
-.section-location .section-body .wrap {
   position: relative;
-  display: table;
-  min-height: 86rem;
 }
-.section-location .section-body .wrap .map-marker {
+.section-location .section-body #locations_popovers {
+  position: relative;
+  z-index: 900;
+}
+.section-location .section-body #locations_popovers .map-marker {
   position: absolute;
-  bottom: 0;
-  left: 0;
   display: table;
+  width: 300px;
   background: url(../img/pin-shadow.png) no-repeat center bottom;
   padding-bottom: 1.6rem;
+  text-align: center;
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;
   -ms-transition: all 500ms ease-in-out;
   -o-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
 }
-.section-location .section-body .wrap .map-marker .location-photo {
+.section-location .section-body #locations_popovers .map-marker .location-photo {
   height: 0;
+  display: inline-block;
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;
   -ms-transition: all 500ms ease-in-out;
@@ -83,7 +84,7 @@
   transition: all 500ms ease-in-out;
   border-radius: 0.6rem 0.6rem 0 0;
 }
-.section-location .section-body .wrap .map-marker .marker-text {
+.section-location .section-body #locations_popovers .map-marker .marker-text {
   background-color: #532a44;
   color: #ffffff;
   font-size: 1.2rem;
@@ -93,13 +94,15 @@
   position: relative;
   text-align: center;
   width: auto;
+  display: inline;
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;
   -ms-transition: all 500ms ease-in-out;
   -o-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
+  white-space: nowrap;
 }
-.section-location .section-body .wrap .map-marker .marker-text:after {
+.section-location .section-body #locations_popovers .map-marker .marker-text:after {
   top: 100%;
   left: 50%;
   border: solid transparent;
@@ -113,17 +116,27 @@
   border-width: 6px;
   margin-left: -6px;
 }
-.section-location .section-body .wrap .map-marker:hover {
+.section-location .section-body #locations_popovers .map-marker:hover,
+.section-location .section-body #locations_popovers .map-marker:active,
+.section-location .section-body #locations_popovers .map-marker:focus {
   text-decoration: none;
 }
-.section-location .section-body .wrap .map-marker:hover .location-photo {
-  display: block;
-  height: 200px;
+.section-location .section-body #locations_popovers .map-marker:hover .location-photo,
+.section-location .section-body #locations_popovers .map-marker:focus .location-photo {
+  width: 100%
+          height: 200px;
+}
+.section-location .section-body #locations_popovers .map-marker:hover .marker-text,
+.section-location .section-body #locations_popovers .map-marker:focus .marker-text {
+  border-radius: 0 0 0.6rem 0.6rem;
   width: 100%;
 }
-.section-location .section-body .wrap .map-marker:hover .marker-text {
-  border-radius: 0 0 0.6rem 0.6rem;
-  width: 300px;
+.section-location .section-body .wrap {
+  position: relative;
+  display: table;
+  min-height: 780px;
+  min-height: 78rem;
+  z-index: 100;
 }
 .section-location .section-body .wrap .inner-wrap {
   background-color: rgba(255, 255, 255, 0.7);
