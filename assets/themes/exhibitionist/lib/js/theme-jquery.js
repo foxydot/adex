@@ -22,8 +22,8 @@ jQuery(document).ready(function($) {
                 });
                 
 	});
-	
-    $('a[href*=#]:not([href=#],.carousel-control)').click(function() {
+	//what is this for? I assume for the floating nav, but now that's broken.
+    /*$('a[href*=#]:not([href=#],.carousel-control)').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
         return false;
       }
     }
-  });
+  });*/
 	//special for lifestyle
 	/*$('.ftr-menu ul.menu>li').after(function(){
 		if(!$(this).hasClass('last-child') && $(this).hasClass('menu-item') && $(this).css('display')!='none'){
