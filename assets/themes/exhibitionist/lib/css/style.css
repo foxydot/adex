@@ -7298,7 +7298,8 @@ Site Footer
 }
 .billboard_nav .nav-icons-wrapper {
   position: relative;
-  top: -400px;
+  top: -640px;
+  left: -50px;
   width: 600px;
   height: 600px;
   margin: 0 auto -400px;
@@ -7306,7 +7307,7 @@ Site Footer
 .billboard_nav .nav-icons-wrapper a {
   color: #ffffff;
   position: absolute;
-  opacity: 0;
+  opacity: 0.3;
 }
 .billboard_nav .nav-icons-wrapper a .round-wrap {
   border: 1px solid #ffffff;
@@ -7775,6 +7776,15 @@ Site Footer
 }
 .footer-menu .wrap .ftr-menu .menu > li.first-child {
   border-left: 1px solid #1a1a1a;
+}
+.dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #91e600;
+  border-radius: 50%;
+  top: 0;
+  left: 300px;
 }
 .nav-responsive ul,
 .nav-responsive li,

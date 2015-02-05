@@ -45,7 +45,7 @@ class MSDSectionedPage{
     
     function sectioned_page_output(){
         wp_enqueue_script('sticky',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.sticky.js',array('jquery'),FALSE,TRUE);
-        wp_enqueue_script('jquery-path',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.path.js',array('jquery','bootstrap-jquery'));
+        //wp_enqueue_script('jquery-path',WP_PLUGIN_URL.'/'.plugin_dir_path('msd-custom-pages/msd-custom-pages.php'). '/lib/js/jquery.path.js',array('jquery','bootstrap-jquery'));
         
         global $post,$subtitle_metabox,$sectioned_page_metabox,$nav_ids;
         $i = 1;
@@ -110,28 +110,35 @@ class MSDSectionedPage{
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             $("#floating_nav").sticky({ topSpacing: 0 });
-            /*$("#billboard_nav .fuzzybubble").blurjs({
+            <?php
+            /*
+            $("#billboard_nav .fuzzybubble").blurjs({
                 radius: 10,
                 source: $('.image-widget-background'), 
-                });*/
-            var arc_params = function(i) {
-              var arc_positions = [240,270,300,60,90,120];
-              return new $.path.arc({
-                center: [230,100],  
-                    radius: 320,    
-                    start: 180,
-                    end: arc_positions[i],
-                    dir: -1
-              });
-            }
+                });
+             */
+                ?>
+           
+       //new tweening
+       var progress = [0.166,0.25,0.333,0.667,0.75,0.833];
+       var duration = 3,  //duration (in seconds)
+           path = [{x:0, y:0}, {x:320, y:320}, {x:0, y:640}, {x:-320, y:320},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
+       //var tl = new TimelineMax({repeat:10, yoyo:true});       
             <?php
             $i = 0;
-            foreach($nav_ids AS $nav_id){
-                print '$("#billboard_nav #'.$nav_id.'_bb_nav").delay('.($i*500).').animate({opacity: 1,path : arc_params('.$i.')},4000);
-                ';
-                $i++;
-            }
+            $js_nav_ids = json_encode($nav_ids);
             ?>
+            var dots = <?php print $js_nav_ids; ?>
+            
+            var count = dots.length;
+            console.log(count);
+            for (i = 0; i < count; i++){
+                //var dot = $("#" + dots[i] + "_bb_nav");
+                var dot = $("<div />", {id:"dot"+i}).addClass("dot").appendTo(".nav-icons-wrapper");
+                var t = TweenMax.to(dot, duration, {bezier:{values:path, curviness:1.5}, paused:true, ease:Linear.easeNone,});
+                TweenLite.to(t, duration - (duration * i/6 ), {progress:1 - progress[i], ease:Linear.easeNone, delay:i*0.3});
+                TweenLite.to(dot, duration - (duration * i/6 ), {css:{opacity: 1}});
+            }
         });
         </script>
         <?php

@@ -45,6 +45,14 @@ function msdlab_add_scripts() {
         wp_enqueue_script('nav-scripts',get_stylesheet_directory_uri().'/lib/js/nav-scripts.js',array('jquery','bootstrap-jquery'));
         wp_enqueue_script('equalHeights',get_stylesheet_directory_uri().'/lib/js/jquery.equal-height-columns.js',array('jquery'));
         wp_enqueue_script('blur',get_stylesheet_directory_uri().'/lib/js/blur.js',array('jquery'));
+        wp_deregister_script('greensock');
+        wp_enqueue_script('tweenlite',get_stylesheet_directory_uri().'/lib/js/greensock/TweenLite.min.js');
+        wp_enqueue_script('tweenmax',get_stylesheet_directory_uri().'/lib/js/greensock/TweenMax.min.js');
+        wp_enqueue_script('timelinelite',get_stylesheet_directory_uri().'/lib/js/greensock/TimelineLite.min.js');
+        wp_enqueue_script('greensock-easepack',get_stylesheet_directory_uri().'/lib/js/greensock/easing/EasePack.min.js');
+        wp_enqueue_script('greensock-css',get_stylesheet_directory_uri().'/lib/js/greensock/plugins/CSSPlugin.min.js');
+        wp_enqueue_script('greensock-bezier',get_stylesheet_directory_uri().'/lib/js/greensock/plugins/BezierPlugin.min.js');
+        wp_enqueue_script('tweenmax-jquery',get_stylesheet_directory_uri().'/lib/js/greensock/jquery.gsap.min.js',array('jquery','tweenmax'));
         if($is_IE){
             wp_enqueue_script('columnizr',get_stylesheet_directory_uri().'/lib/js/jquery.columnizer.js',array('jquery'));
             wp_enqueue_script('background-size',get_stylesheet_directory_uri().'/lib/js/jquery.backgroundSize.js',array('jquery'));
@@ -53,8 +61,8 @@ function msdlab_add_scripts() {
             wp_enqueue_script('ie-fixes',get_stylesheet_directory_uri().'/lib/js/ie-jquery.js',array('jquery'));
         }
         if(is_front_page()){
-            wp_enqueue_script('tweenmax',get_stylesheet_directory_uri().'/lib/js/_dependent/greensock/TweenMax.min.js',array('jquery'));
-            wp_enqueue_script('scroll-magic',get_stylesheet_directory_uri().'/lib/js/jquery.scrollmagic.js',array('jquery','greensock'));
+            wp_enqueue_script('scroll-magic',get_stylesheet_directory_uri().'/lib/js/jquery.scrollmagic.min.js',array('jquery','tweenmax'));
+            wp_enqueue_script('scroll-magic-debug',get_stylesheet_directory_uri().'/lib/js/jquery.scrollmagic.debug.js',array('jquery','tweenmax','scroll-magic'));
             wp_enqueue_script('msd-homepage-jquery',get_stylesheet_directory_uri().'/lib/js/homepage-jquery.js',array('jquery','bootstrap-jquery','scroll-magic'));
         }
     }
