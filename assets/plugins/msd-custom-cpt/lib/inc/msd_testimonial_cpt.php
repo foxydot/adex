@@ -26,7 +26,7 @@ if (!class_exists('MSDTestimonialCPT')) {
 			add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
 			
 			//Filters
-			add_filter( 'pre_get_posts', array(&$this,'custom_query') );
+			//add_filter( 'pre_get_posts', array(&$this,'custom_query') );
             add_shortcode('testimonial',array(&$this,'testimonial_shortcode_handler'));
             add_shortcode('testimonials',array(&$this,'testimonial_shortcode_handler'));
 		}

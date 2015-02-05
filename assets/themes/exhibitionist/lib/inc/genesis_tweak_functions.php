@@ -221,6 +221,11 @@ function msdlab_do_section_title(){
         }
     } elseif(is_single()) {
         genesis_do_post_title();
+    } elseif(is_search()){
+        add_action('genesis_entry_header','genesis_do_post_title',5);
+        print '<h2 class="section-title">';
+        print 'Search Results';
+        print '</h2>'; 
     } else {
         genesis_do_post_title();
     }

@@ -27,7 +27,7 @@ if (!class_exists('MSDEventCPT')) {
 			add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
 			
 			//Filters
-			add_filter( 'pre_get_posts', array(&$this,'custom_query') );
+			//add_filter( 'pre_get_posts', array(&$this,'custom_query') );
 			add_filter( 'enter_title_here', array(&$this,'change_default_title') );
             
             if(class_exists('MSDEventShortcodes')){
