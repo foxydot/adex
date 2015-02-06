@@ -48,7 +48,8 @@
 .adex-scrolldown:before {
   content: "f";
 }
-.adex-webbasedmanagement:before {
+.adex-web-based-management:before,
+.adex-webbased-management:before {
   content: "g";
 }
 .adex-design:before {

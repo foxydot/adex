@@ -110,20 +110,18 @@ class MSDSectionedPage{
         <script type="text/javascript">
         jQuery(document).ready(function($) {
             $("#floating_nav").sticky({ topSpacing: 0 });
-            <?php
-            /*
+            
             $("#billboard_nav .fuzzybubble").blurjs({
                 radius: 10,
                 source: $('.image-widget-background'), 
                 });
-             */
-                ?>
+                
            
        //new tweening
        var progress = [0.166,0.25,0.333,0.667,0.75,0.833];
        var duration = 3,  //duration (in seconds)
            path = [{x:0, y:0}, {x:320, y:320}, {x:0, y:640}, {x:-320, y:320},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
-       //var tl = new TimelineMax({repeat:10, yoyo:true});       
+       var tl = new TimelineMax({repeat:10, yoyo:true});       
             <?php
             $i = 0;
             $js_nav_ids = json_encode($nav_ids);
@@ -133,11 +131,11 @@ class MSDSectionedPage{
             var count = dots.length;
             console.log(count);
             for (i = 0; i < count; i++){
-                //var dot = $("#" + dots[i] + "_bb_nav");
-                var dot = $("<div />", {id:"dot"+i}).addClass("dot").appendTo(".nav-icons-wrapper");
+                var dot = $("#" + dots[i] + "_bb_nav");
+                //var dot = $("<div />", {id:"dot"+i}).addClass("dot").appendTo(".nav-icons-wrapper");
                 var t = TweenMax.to(dot, duration, {bezier:{values:path, curviness:1.5}, paused:true, ease:Linear.easeNone,});
                 TweenLite.to(t, duration - (duration * i/6 ), {progress:1 - progress[i], ease:Linear.easeNone, delay:i*0.3});
-                TweenLite.to(dot, duration - (duration * i/6 ), {css:{opacity: 1}});
+                TweenLite.to(dot, duration*3 - (duration * i/6 ), {css:{opacity: 1},delay:i*0.3});
             }
         });
         </script>

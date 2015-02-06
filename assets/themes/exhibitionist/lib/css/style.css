@@ -5597,7 +5597,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.625;
 }
-a,
 button,
 input:focus,
 input[type="button"],
@@ -7307,7 +7306,9 @@ Site Footer
 .billboard_nav .nav-icons-wrapper a {
   color: #ffffff;
   position: absolute;
-  opacity: 0.3;
+  opacity: 0;
+  top: 0;
+  left: 50%;
 }
 .billboard_nav .nav-icons-wrapper a .round-wrap {
   border: 1px solid #ffffff;
