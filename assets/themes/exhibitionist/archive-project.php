@@ -59,12 +59,19 @@ function msdlab_portfolio_footer_scripts(){
     $slugs = implode(' ',$project_slugs);
     print '<script type="text/javascript">
         jQuery(window).load(function() {
-            var selector = ".project";
+            var hashID = window.location.hash.substring(1);
+            var selector;
+            if(hashID.length > 0){
+                selector = "." + hashID;
+                jQuery("#filters a[href=\"#" + hashID + "\"]").addClass("active");
+            } else {
+                selector = ".project";
+            }
             var quantity = 8;
             jQuery("#portfolio-projects").isotope({
               itemSelector : ".type-project, .more-projects",
               layoutMode: "fitRows",
-              filter: ".project:lt(" + quantity + "), .more-projects",
+              filter: selector + ":lt(" + quantity + "), .more-projects",
             }); 
             
             // filter items when filter link is clicked
@@ -76,7 +83,7 @@ function msdlab_portfolio_footer_scripts(){
                   filter: selector + ":lt(" + quantity + "), .more-projects",
                 }); 
               return false;
-            });   
+            });
             jQuery("#more-projects").click(function(){
                   quantity = quantity + 9;
                   console.log("$(selector).length: " + jQuery(selector).length + "| quantity: " + quantity);
@@ -107,7 +114,7 @@ function msdlab_project_filter(){
     global $project_slugs;
    $terms = get_terms('project_type',array('orderby'=>'slug','order'=>'ASC','hide_empty'=>false));
    foreach($terms AS $term){
-       $filters[] = '<a href="#" data-filter=".'.$term->slug.'" class="filter filter-'.$term->slug.'"><i class="fa-3x adex-'.$term->slug.'"></i>'.$term->name.'</a>';
+       $filters[] = '<a href="#'.$term->slug.'" data-filter=".'.$term->slug.'" class="filter filter-'.$term->slug.'"><i class="fa-3x adex-'.$term->slug.'"></i>'.$term->name.'</a>';
        $project_slugs[] = $term->slug;
    }
    $menu = '<div id="filters" class="wrap">'.implode(' ', $filters).'</div>';
