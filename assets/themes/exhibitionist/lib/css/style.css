@@ -7625,6 +7625,9 @@ Site Footer
 .footer-widgets .connected-form :-ms-input-placeholder {
   color: #ffffff;
 }
+.footer-widgets .connected-form .gform_footer {
+  padding-right: 4px;
+}
 .footer-widgets .connected-form input[type="submit"],
 .footer-widgets .connected-form input[type="button"],
 .footer-widgets .connected-form a.button {
@@ -7644,6 +7647,8 @@ Site Footer
   text-transform: uppercase;
   font-size: 14px;
   font-size: 1.4rem;
+  position: relative;
+  top: 23rem;
 }
 .footer-widgets .align-right .connected-bizname {
   font-weight: 700;

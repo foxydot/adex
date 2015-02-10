@@ -26,7 +26,7 @@ class KohlerConnected extends MSDConnected {
             print '</div>';
         }
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '<div class="col-md-5 align-right">';
+            print '<div class="col-md-5 align-right align-bottom-wrapper"><div class="align-bottom">';
         }
         if ( $address ){
             print '<h3>Address</h3>';
@@ -89,7 +89,7 @@ class KohlerConnected extends MSDConnected {
         }   
         
         if(($address||$phone||$tollfree||$fax||$email||$social)&&$form_id > 0){
-            print '</div>';
+            print '</div></div>';
         }
         print '</div>';
         
