@@ -7,6 +7,9 @@ jQuery(document).ready(function($) {
     $('#homepage-widgets section.widget').addClass('col-xs-12');
     $(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>').append($('#the-hand'));
     $(".section-location .section-body .wrap").before($('#locations_popovers'));
+    
+    $(".section-testimonials .quote").equalHeightColumns();
+    $(".section-testimonials .attribution").equalHeightColumns();
       
       // init controller
     controller = new ScrollMagic();
