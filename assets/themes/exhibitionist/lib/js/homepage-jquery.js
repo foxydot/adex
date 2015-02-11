@@ -29,10 +29,10 @@ jQuery(document).ready(function($) {
     function position_it(){
         
         var width = $('#location .section-body').width();
-        var height = ($('#location .section-body').width()*996)/1406;
+        var height = ($('#location .section-body').width()*1156)/1389;
         var heightdiff = height - $('#location .section-body').height();
         
-        $('#locations_popovers').css('left',width/2 + 'px').css('top',(height-heightdiff)/2 + 'px');
+        $('#locations_popovers').css('left', '50%').css('top',(height-heightdiff)/2 + 'px').css('border','1px dashed red');
         for(var i = 0, l = location_positions.length; i < l; ++i){
             var elem = location_positions[i].elem;
             var posstr = location_positions[i].position;

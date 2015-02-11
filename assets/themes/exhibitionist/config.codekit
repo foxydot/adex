@@ -1691,6 +1691,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/lib\/img\/mapForMath2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 410847,
+		"inputAbbreviatedPath": "\/lib\/img\/mapForMath2.png",
+		"outputAbbreviatedPath": "\/lib\/img\/mapForMath2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/lib\/img\/mobile_button.png": {
 		"fileType": 32768,
 		"ignore": 0,
