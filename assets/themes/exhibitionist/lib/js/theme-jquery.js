@@ -23,11 +23,12 @@ jQuery(document).ready(function($) {
                 
 	});
     $('#billboard_nav a[href*=#]:not([href=#]),#floating_nav a[href*=#]:not([href=#]),#filters a[href*=#]:not([href=#]),a[href=#filters]').click(function() {
+        console.log($(this));
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;
       if($('#floating_nav').length > 0){
-          my_offset = 140;
+          my_offset = 139;
       } else {
           my_offset = 0;
       }
