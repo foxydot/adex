@@ -128,18 +128,23 @@
 .section-location .section-body #locations_popovers .map-marker:hover,
 .section-location .section-body #locations_popovers .map-marker:active {
   z-index: 1000;
+  border-radius: 0.6rem;
 }
 .section-location .section-body #locations_popovers .map-marker:hover .location-photo,
 .section-location .section-body #locations_popovers .map-marker:active .location-photo {
   width: 300px;
   height: 200px;
   display: block;
+  -webkit-box-shadow: 0 -2px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .section-location .section-body #locations_popovers .map-marker:hover .marker-text,
 .section-location .section-body #locations_popovers .map-marker:active .marker-text {
   border-radius: 0 0 0.6rem 0.6rem;
   width: 300px;
   display: block;
+  -webkit-box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .section-location .section-body .wrap {
   position: relative;
