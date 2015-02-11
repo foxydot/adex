@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
         var height = ($('#location .section-body').width()*1156)/1389;
         var heightdiff = height - $('#location .section-body').height();
         
-        $('#locations_popovers').css('left', '50%').css('top',(height-heightdiff)/2 + 'px').css('border','1px dashed red');
+        $('#locations_popovers').css('left', '50%').css('top',(height-heightdiff)/2 + 'px');
         for(var i = 0, l = location_positions.length; i < l; ++i){
             var elem = location_positions[i].elem;
             var posstr = location_positions[i].position;
@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         var mapdata = $(this).attr('map-data');
         $('#the-hand iframe').attr('src',mapdata);
-        position_it();
+        //position_it();
     });
     $( window ).resize(function() {
         position_it();
