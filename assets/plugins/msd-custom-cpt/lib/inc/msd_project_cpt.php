@@ -123,7 +123,7 @@ if (!class_exists('MSDProjectCPT')) {
             $args = array( 
                 'labels' => $labels,
                 'hierarchical' => false,
-                'description' => 'Project',
+                'description' => 'Portfolio',
                 'supports' => array( 'title', 'editor', 'author', 'thumbnail','genesis-cpt-archives-settings' ),
                 'taxonomies' => array( 'project_type', 'market_sector' ),
                 'public' => true,

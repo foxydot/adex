@@ -61,7 +61,7 @@ function msdlab_portfolio_footer_scripts(){
         jQuery(window).load(function() {
             var hashID = window.location.hash.substring(1);
             var selector;
-            if(hashID.length > 0){
+            if(hashID.length > 0 && hashID !== "filters"){
                 selector = "." + hashID;
                 jQuery("#filters a[href=\"#" + hashID + "\"]").addClass("active");
             } else {

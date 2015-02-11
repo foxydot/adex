@@ -7301,7 +7301,7 @@ Site Footer
   left: -50px;
   width: 600px;
   height: 600px;
-  margin: 0 auto -400px;
+  margin: 0 auto -500px;
 }
 .billboard_nav .nav-icons-wrapper a {
   color: #ffffff;
@@ -7398,7 +7398,8 @@ Site Footer
   margin-left: -7px;
 }
 .floating_nav a:hover,
-.floating_nav a.active {
+.floating_nav a.active,
+.floating_nav a:focus {
   text-decoration: none;
   color: #ffffff;
   background-color: #532a44;
@@ -7406,7 +7407,9 @@ Site Footer
 .floating_nav a:hover:after,
 .floating_nav a:hover:before,
 .floating_nav a.active:after,
-.floating_nav a.active:before {
+.floating_nav a.active:before,
+.floating_nav a:focus:after,
+.floating_nav a:focus:before {
   top: 100%;
   left: 51%;
   border: solid transparent;
@@ -7417,6 +7420,7 @@ Site Footer
   pointer-events: none;
 }
 .floating_nav a:hover:after,
+.floating_nav a:focus:after,
 .floating_nav a.active:after {
   border-color: rgba(83, 42, 68, 0);
   border-top-color: #532A44;
@@ -7424,6 +7428,7 @@ Site Footer
   margin-left: -6px;
 }
 .floating_nav a:hover:before,
+.floating_nav a:focus:before,
 .floating_nav a.active:before {
   border-color: rgba(83, 42, 68, 0);
   border-top-color: #532A44;

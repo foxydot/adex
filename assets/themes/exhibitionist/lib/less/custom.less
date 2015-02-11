@@ -264,7 +264,7 @@
     left: -50px;
     width: 600px;
     height: 600px;
-    margin: 0 auto -400px;
+    margin: 0 auto -500px;
     
     a{
       color: @white;
@@ -364,14 +364,15 @@
       margin-left: -7px;
       }
 
-    a:hover, a.active{
+    a:hover, a.active, a:focus{
       text-decoration: none;
       color: @white;
       background-color: @wine;
     }
     
     a:hover:after, a:hover:before,
-    a.active:after, a.active:before  { 
+    a.active:after, a.active:before,
+    a:focus:after, a:focus:before  { 
       top: 100%; 
       left: 51%; 
       border: solid transparent; 
@@ -382,6 +383,7 @@
       pointer-events: none;
       } 
     a:hover:after,
+    a:focus:after,
     a.active:after { 
       border-color: rgba(83, 42, 68, 0); 
       border-top-color: #532A44; 
@@ -389,6 +391,7 @@
       margin-left: -6px;
       } 
     a:hover:before,
+    a:focus:before,
     a.active:before { 
       border-color: rgba(83, 42, 68, 0); 
       border-top-color: #532A44; 

@@ -22,8 +22,7 @@ jQuery(document).ready(function($) {
                 });
                 
 	});
-	//what is this for? I assume for the floating nav, but now that's broken.
-    /*$('a[href*=#]:not([href=#],.carousel-control)').click(function() {
+    $('#billboard_nav a[href*=#]:not([href=#]),#floating_nav a[href*=#]:not([href=#]),#filters a[href*=#]:not([href=#]),a[href=#filters]').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;
@@ -32,7 +31,6 @@ jQuery(document).ready(function($) {
       } else {
           my_offset = 0;
       }
-      console.log(my_offset);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
         $('html,body').animate({
@@ -41,61 +39,15 @@ jQuery(document).ready(function($) {
         return false;
       }
     }
-  });*/
+  });
 	//special for lifestyle
 	/*$('.ftr-menu ul.menu>li').after(function(){
 		if(!$(this).hasClass('last-child') && $(this).hasClass('menu-item') && $(this).css('display')!='none'){
 			return '<li class="separator">|</li>';
 		}
 	});*/
-	// add target="_blank" to all *external* 
-    var internal_urls = Array('adex.adv','adex.msdlab2.com','adex.com');
-    $('a').attr('target',function(){
-        var url = $(this).attr('href');
-        var target = $(this).attr('target');
-        if(url == '#' || strripos(url,'http',0)===false){
-            return '_self';
-        } else {
-            var i=0;
-            while (internal_urls[i]){
-                if(strripos(url, internal_urls[i], 0)){
-                    return target;
-                }
-                i++;
-            }
-            return '_blank';
-        }
-    });
+	
 });
-function strripos(haystack, needle, offset) {
-  //  discuss at: http://phpjs.org/functions/strripos/
-  // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // bugfixed by: Onno Marsman
-  // bugfixed by: Brett Zamir (http://brett-zamir.me)
-  //    input by: saulius
-  //   example 1: strripos('Kevin van Zonneveld', 'E');
-  //   returns 1: 16
-
-  haystack = (haystack + '')
-    .toLowerCase();
-  needle = (needle + '')
-    .toLowerCase();
-
-  var i = -1;
-  if (offset) {
-    i = (haystack + '')
-      .slice(offset)
-      .lastIndexOf(needle); // strrpos' offset indicates starting point of range till end,
-    // while lastIndexOf's optional 2nd argument indicates ending point of range from the beginning
-    if (i !== -1) {
-      i += offset;
-    }
-  } else {
-    i = (haystack + '')
-      .lastIndexOf(needle);
-  }
-  return i >= 0 ? i : false;
-}
 
 (function ($) {
     $.fn.layersliderblur = function (options) {
