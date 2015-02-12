@@ -7800,6 +7800,9 @@ Site Footer
 .footer-menu .wrap .ftr-menu .menu > li.first-child {
   border-left: 1px solid #1a1a1a;
 }
+.fuzzybubble {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
 .dot {
   position: absolute;
   width: 20px;
