@@ -52,14 +52,17 @@
   z-index: 10;
 }
 .section-location .section-body {
-  background: url('../img/home-location-big-map.png') no-repeat center center #cccccc;
+  background: url('../img/mapForMath2.png') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;
+  display: block;
 }
 .section-location .section-body #locations_popovers {
   position: relative;
   z-index: 900;
+  left: 50%;
+  top: 50%;
 }
 .section-location .section-body #locations_popovers .map-marker {
   z-index: auto;
@@ -152,6 +155,7 @@
   min-height: 780px;
   min-height: 78rem;
   z-index: 100;
+  top: -26px;
 }
 .section-location .section-body .wrap .inner-wrap {
   background-color: rgba(255, 255, 255, 0.7);

@@ -4,14 +4,17 @@
 .section-location{
   z-index: 10;
   .section-body{
-    background: url('../img/home-location-big-map.png') no-repeat center center @vltgrey;
-    //background: url('../img/mapForMath2.png') no-repeat center center @vltgrey;
+    //background: url('../img/home-location-big-map.png') no-repeat center center @vltgrey;
+    background: url('../img/mapForMath2.png') no-repeat center center @vltgrey;
     background-size: cover;
     padding: 0;
     position: relative;
+    display: block;
     #locations_popovers{
       position: relative;
       z-index: 900;
+      left: 50%;
+      top: 50%;
       .map-marker{
         z-index: auto;
         position: absolute;
@@ -91,6 +94,7 @@
       min-height: 780px;
       min-height: 78rem;
       z-index: 100;
+      top: -26px;
       .inner-wrap{
         background-color: rgba(255,255,255,0.7);
         padding: 2rem;

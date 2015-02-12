@@ -6489,13 +6489,13 @@ Site Navigation
 .nav-primary li.menu-item {
   font-size: 16px;
   font-size: 1.6rem;
-  padding: 1rem 2rem;
   font-weight: 700;
+  padding: 0;
 }
 .nav-primary li.menu-item a {
   color: #163559;
   text-transform: uppercase;
-  padding: 0;
+  padding: 1rem 1.2rem;
 }
 .nav-primary li.menu-item .sub-menu {
   background-color: #ffffff;
@@ -6541,6 +6541,9 @@ Site Navigation
   font-family: FontAwesome;
   padding: 0 0.4rem 0 0.2rem;
   content: "\f015";
+}
+.nav-primary li.last-child a {
+  padding-right: 0;
 }
 .mainNav > ul > li.first > ul > li.title > ul > li > ul > li {
   padding: 3px 0;
