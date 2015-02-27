@@ -121,3 +121,62 @@
   z-index: 1000;
   background-color: @white;
 }
+@media only screen and (max-width: 992px) {}
+@media only screen and (max-width: 767px) {
+  .section-location{
+    .section-body{
+     #locations_popovers{
+       display: none;
+       position: static;
+       left: 0;
+       top: 0;
+       .map-marker{
+         position: static;
+         width: 100%;
+         background-image: none;
+         padding: 0;
+         .location-photo{
+           display: none;
+           height: 0;
+           width:0;
+         }
+         .marker-text{
+           width: 100%;
+           display: block;
+           border-radius: 0;
+         }
+         .marker-text:after{
+           border: 0;
+           display: none;
+         }
+       }
+      .map-marker:hover,
+      .map-marker:active{
+         .location-photo{
+           display: none;
+           height: 0;
+           width:0;
+         }
+         .marker-text{
+           width: 100%;
+           border-radius: 0;
+         }
+       }
+     }
+     .wrap{
+       top:0;
+       min-height: auto;
+       padding: 0;
+       .inner-wrap{
+         margin-top: 0;
+         margin-right: 0;
+         margin-bottom: 0;
+       }
+       .the-hand{
+         display: none;
+       }
+     }
+    }
+  }
+}
+@media only screen and (max-width : 479px) {}

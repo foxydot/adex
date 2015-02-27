@@ -61,25 +61,27 @@ jQuery(document).ready(function($) {
         var imgWidth = bkgSize.width; //$('#location .section-body').width(); //checks out
         var imgHeight = bkgSize.height;
         var heightdiff = imgHeight - $('#location .section-body').height();
+        var windowsize = $(window).width();
         
-        
-        $('#locations_popovers').css('left', '50%').css('top',(imgHeight-heightdiff)/2 + 'px').css('border','1px solid red');
-        for(var i = 0, l = location_positions.length; i < l; ++i){
-            var elem = location_positions[i].elem;
-            var posstr = location_positions[i].position;
-            //console.log(elem + ': ' + posstr);
-            var pos = posstr.split("|");
-            var left = ((pos[0]*(imgWidth/2))-($(elem).width()/2)); //checks out
-            var top = ((pos[1]*(imgHeight/2))+($(elem).height()));
-            
-            console.log(elem + ': ' + left + '|' + top);
-            $(elem).css("left",left + "px").css("top",top + "px");
-            var btm = $(elem).css("bottom");
-            $(elem).css("bottom",btm).css("top","auto");
+        if(windowsize > 786){
+            $('#locations_popovers').css('left', '50%').css('top',(imgHeight-heightdiff)/2 + 'px').css('border','1px solid red');
+            for(var i = 0, l = location_positions.length; i < l; ++i){
+                var elem = location_positions[i].elem;
+                var posstr = location_positions[i].position;
+                //console.log(elem + ': ' + posstr);
+                var pos = posstr.split("|");
+                var left = ((pos[0]*(imgWidth/2))-($(elem).width()/2)); //checks out
+                var top = ((pos[1]*(imgHeight/2))+($(elem).height()));
+                
+                console.log(elem + ': ' + left + '|' + top);
+                $(elem).css("left",left + "px").css("top",top + "px");
+                var btm = $(elem).css("bottom");
+                $(elem).css("bottom",btm).css("top","auto");
+            }
         }
     }
     var testbox = '<div style="height: 100px; width: 100px; background-color: red; opacity: 0.5;position: absolute;top: 50%; left: 50%;"></div>';
-    $('#locations_popovers').append(testbox);
+    //$('#locations_popovers').append(testbox);
     position_it();
     $('a.map-marker').hover(function(e){
     });
