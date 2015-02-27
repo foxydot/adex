@@ -14,13 +14,22 @@ jQuery(document).ready(function($) {
         };
       });
 	$('.layerslider_widget .ls-slide').one('show',function(){
+	    var windowsize = $(window).width();
         var fb = $(this).find('.fuzzybubble');
+        if(windowsize < 786){
+            var h = $(this).height();
+            fb.css('height',h*.7 + 'px').css('width',h*.7 + 'px').css('padding',h*.1 + 'px').css('font-size',h*0.075 + 'px').css('margin-top',0);
+            var h1 = fb.find('h1');
+            var h3 = fb.find('h3');
+            h1.css('margin-top',h*0.05 + 'px').css('font-size',h*0.1 + 'px');
+            h3.css('font-size',h*0.075 + 'px');
+        }
         var img = $(this).find('.ls-bg');
-	    fb.layersliderblur({
-                radius: 10,
-                source: img, 
-                });
-                
+       fb.layersliderblur({
+            radius: 10,
+            source: img, 
+            });
+              
 	});
     $('#billboard_nav a[href*=#]:not([href=#]),#floating_nav a[href*=#]:not([href=#]),#filters a[href*=#]:not([href=#]),a[href=#filters]').click(function() {
         console.log($(this));
