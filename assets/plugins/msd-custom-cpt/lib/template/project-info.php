@@ -53,6 +53,16 @@ $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>
         </div>
     </div>
     <?php $i++; ?>
+    <div class="row <?php print $i%2==0?'even':'odd'; ?>">
+        <div class="cell">
+            <label>Show in International?</label>
+            <div class="input_container">
+                <?php $mb->the_field('international'); ?>
+                <input type="checkbox" name="<?php $mb->the_name(); ?>" value="1"<?php $mb->the_checkbox_state(1); ?>/>
+           </div>
+        </div>
+    </div>
+    <?php $i++; ?>
         <?php foreach($containers AS $c => $t){ ?>
     <div class="row <?php print $i%2==0?'even':'odd'; ?>">
         <div class="cell">

@@ -20,7 +20,7 @@
 
 /* Smaller screens */
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 992px) { //SM
   /* Enter Your Custom Styles Here */ 
   div.wrap {
     padding: 0 15px;
@@ -47,11 +47,18 @@
       }
      }
   }
+  .footer-widgets{
+    .align-right{
+      position: relative;
+      bottom: auto;
+      right: auto;
+    }
+  }
 }
 
 /* Mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) { //XS
   /* Enter Your Custom Styles Here */ 
   
   .mobile-only {display: block;}
@@ -71,7 +78,7 @@
       width: 100%;
       position: relative;
       text-indent: 20px;
-      background: @blue;
+      background: @wine;
       min-height: 46px;
       padding-top: 14px;
       position: relative;
@@ -89,7 +96,7 @@
           list-style: none;
           padding: 0;
           a{
-            background: @blue;
+            background: @wine;
             color: @white;
             display: block;
             width: 100%;
@@ -103,7 +110,7 @@
             }
           }
           a:hover{
-            background: lighten(@blue,10%);
+            background: lighten(@wine,10%);
           }
           .toggle-switch{
             margin-right: 12px;
@@ -141,7 +148,7 @@
         }
         li.current-menu-item{
           a{
-          background: lighten(@blue, 15%);
+          background: lighten(@wine, 15%);
           }
         }
       }
@@ -155,7 +162,7 @@
     font-family: 'FontAwesome';
     font-size: 2.2rem;
     text-indent: 0;
-    color: @blue;
+    color: @wine;
     text-align: center;
     width: 30px;
     height: 30px;
@@ -166,6 +173,37 @@
     right: 15px;
     top: 10px;
   }  
+  .billboard_nav{
+    min-height: 200px;
+    font-size: 1.2rem;
+    .fuzzybubble {
+      height: 300px;
+      width: 300px;
+      font-size: 0.8em;
+      .entry-subtitle{
+        margin-top: 1.5rem;
+        font-size: 2.4rem;
+      }
+      .widget-content{
+        .widget_sp_image-description{
+          display: none;
+        }
+      }
+    }
+    .nav-icons-wrapper{
+      height: 450px;
+      width: 450px;
+      top: -450px;
+    }
+  }
+  .floating_nav{
+    height: 115px;
+    a{
+      font-size: 0.8rem;
+      min-height: 7.5rem;
+      min-width: 7.5rem;
+    }
+  }
 }
 
 
@@ -187,6 +225,21 @@
         }
         .msd-connected{
           margin-top: -1.5rem;
+        }
+      }
+    }
+  }
+  .image-widget-background {
+    .fuzzybubble {
+      height: 300px;
+      width: 300px;
+      .widget-title{
+        margin-top: 1.5rem;
+        font-size: 2.4rem;
+      }
+      .widget-content{
+        .widget_sp_image-description{
+          display: none;
         }
       }
     }

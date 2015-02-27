@@ -696,6 +696,10 @@ class Description_Walker extends Walker_Nav_Menu
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 )
     {
         $classes     = empty ( $item->classes ) ? array () : (array) $item->classes;
+        if($depth == 0){
+            $classes[] = 'col-md-4';
+            $classes[] = 'col-sm-12';
+        }
 
         $class_names = join(
             ' '

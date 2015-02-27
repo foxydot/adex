@@ -116,11 +116,18 @@ class MSDSectionedPage{
                 source: $('.image-widget-background'), 
                 });
                 
-           
+            var windowsize = $(window).width();
+            var path_obj;
+            if(windowsize < 786){
+               path_obj = [{x:0, y:0}, {x:210, y:210}, {x:0, y:420}, {x:-210, y:210},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
+            } else {
+               path_obj = [{x:0, y:0}, {x:320, y:320}, {x:0, y:640}, {x:-320, y:320},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
+           }
        //new tweening
        var progress = [0.166,0.25,0.333,0.667,0.75,0.833];
        var duration = 3,  //duration (in seconds)
-           path = [{x:0, y:0}, {x:320, y:320}, {x:0, y:640}, {x:-320, y:320},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
+        //check the window size before setting this
+        path = path_obj;
        var tl = new TimelineMax({repeat:10, yoyo:true});       
             <?php
             $i = 0;

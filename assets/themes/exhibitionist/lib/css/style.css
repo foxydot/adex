@@ -7615,6 +7615,9 @@ Site Footer
   color: #ffffff;
   background: #d6b293;
 }
+.footer-widgets .wrap.row {
+  position: relative;
+}
 .footer-widgets .connected-text {
   text-align: center;
   color: #ffffff;
@@ -7664,8 +7667,9 @@ Site Footer
   text-transform: uppercase;
   font-size: 14px;
   font-size: 1.4rem;
-  position: relative;
-  top: 23rem;
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
 }
 .footer-widgets .align-right .connected-bizname {
   font-weight: 700;
@@ -7826,7 +7830,7 @@ Site Footer
 /* Responsive Design Custom Styles
 ------------------------------------------------------------ */
 /* Smaller screens */
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 992px) {
   /* Enter Your Custom Styles Here */
   div.wrap {
     padding: 0 15px;
@@ -7848,6 +7852,11 @@ Site Footer
   .header-image .site-header .nav-primary {
     margin: 0 auto;
     float: none;
+  }
+  .footer-widgets .align-right {
+    position: relative;
+    bottom: auto;
+    right: auto;
   }
 }
 /* Mobile */
@@ -7872,7 +7881,7 @@ Site Footer
     display: inline-block;
     width: 100%;
     text-indent: 20px;
-    background: #31b3d5;
+    background: #532a44;
     min-height: 46px;
     padding-top: 14px;
     position: relative;
@@ -7893,7 +7902,7 @@ Site Footer
     padding: 0;
   }
   .nav-responsive a#pull ul#mobile_menu li a {
-    background: #31b3d5;
+    background: #532a44;
     color: #ffffff;
     display: block;
     width: 100%;
@@ -7905,7 +7914,7 @@ Site Footer
     right: 15px;
   }
   .nav-responsive a#pull ul#mobile_menu li a:hover {
-    background: #5bc3de;
+    background: #753b60;
   }
   .nav-responsive a#pull ul#mobile_menu li .toggle-switch {
     margin-right: 12px;
@@ -7935,7 +7944,7 @@ Site Footer
     display: none;
   }
   .nav-responsive a#pull ul#mobile_menu li.current-menu-item a {
-    background: #71cae2;
+    background: #86446e;
   }
   .nav-responsive a#pull:hover {
     text-decoration: none;
@@ -7945,7 +7954,7 @@ Site Footer
     font-family: 'FontAwesome';
     font-size: 2.2rem;
     text-indent: 0;
-    color: #31b3d5;
+    color: #532a44;
     text-align: center;
     width: 30px;
     height: 30px;
@@ -7961,6 +7970,35 @@ Site Footer
     right: 15px;
     top: 10px;
   }
+  .billboard_nav {
+    min-height: 200px;
+    font-size: 1.2rem;
+  }
+  .billboard_nav .fuzzybubble {
+    height: 300px;
+    width: 300px;
+    font-size: 0.8em;
+  }
+  .billboard_nav .fuzzybubble .entry-subtitle {
+    margin-top: 1.5rem;
+    font-size: 2.4rem;
+  }
+  .billboard_nav .fuzzybubble .widget-content .widget_sp_image-description {
+    display: none;
+  }
+  .billboard_nav .nav-icons-wrapper {
+    height: 450px;
+    width: 450px;
+    top: -450px;
+  }
+  .floating_nav {
+    height: 115px;
+  }
+  .floating_nav a {
+    font-size: 0.8rem;
+    min-height: 7.5rem;
+    min-width: 7.5rem;
+  }
 }
 @media only screen and (max-width: 479px) {
   /* Enter Your Custom Styles Here */
@@ -7975,6 +8013,17 @@ Site Footer
   }
   .pre-header .wrap .header-widget-area .msd-connected {
     margin-top: -1.5rem;
+  }
+  .image-widget-background .fuzzybubble {
+    height: 300px;
+    width: 300px;
+  }
+  .image-widget-background .fuzzybubble .widget-title {
+    margin-top: 1.5rem;
+    font-size: 2.4rem;
+  }
+  .image-widget-background .fuzzybubble .widget-content .widget_sp_image-description {
+    display: none;
   }
   .tablepress td,
   .tablepress th {
