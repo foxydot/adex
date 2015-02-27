@@ -27,7 +27,8 @@ jQuery(document).ready(function($) {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;
-      if($('#floating_nav').length > 0){
+      var windowsize = $(window).width();
+      if($('#floating_nav').length > 0 && windowsize > 786){
           my_offset = 139;
       } else {
           my_offset = 0;

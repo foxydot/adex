@@ -7992,6 +7992,7 @@ Site Footer
     top: -450px;
   }
   .floating_nav {
+    display: none;
     height: 115px;
   }
   .floating_nav a {
