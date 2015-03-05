@@ -14,15 +14,17 @@ jQuery(document).ready(function($) {
         };
       });
 	$('.layerslider_widget .ls-slide').one('show',function(){
+	    console.log('run it');
 	    var windowsize = $(window).width();
         var fb = $(this).find('.fuzzybubble');
-        if(windowsize < 786){
+        console.log(windowsize);
+        if(windowsize < 992){
             var h = $(this).height();
-            fb.css('height',h*.7 + 'px').css('width',h*.7 + 'px').css('padding',h*.1 + 'px').css('font-size',h*0.075 + 'px').css('margin-top',0);
+            fb.css('height',h*.6 + 'px').css('width',h*.6 + 'px').css('padding',h*.1 + 'px').css('font-size',h*0.05 + 'px').css('margin-top',0);
             var h1 = fb.find('h1');
             var h3 = fb.find('h3');
-            h1.css('margin-top',h*0.05 + 'px').css('font-size',h*0.1 + 'px');
-            h3.css('font-size',h*0.075 + 'px');
+            h1.css('margin-top',h*0.045 + 'px').css('font-size',h*0.05 + 'px');
+            h3.css('font-size',h*0.07 + 'px');
         }
         var img = $(this).find('.ls-bg');
        fb.layersliderblur({
@@ -30,6 +32,7 @@ jQuery(document).ready(function($) {
             source: img, 
             });
               
+        console.log('ran it');
 	});
     $('#billboard_nav a[href*=#]:not([href=#]),#floating_nav a[href*=#]:not([href=#]),#filters a[href*=#]:not([href=#]),a[href=#filters]').click(function() {
         console.log($(this));
