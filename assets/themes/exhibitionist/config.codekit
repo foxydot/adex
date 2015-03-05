@@ -1603,22 +1603,11 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/lib\/img\/home-location-big-map-1.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 267813,
-		"inputAbbreviatedPath": "\/lib\/img\/home-location-big-map-1.png",
-		"outputAbbreviatedPath": "\/lib\/img\/home-location-big-map-1.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/lib\/img\/home-location-big-map.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 542992,
+		"initialSize": 267813,
 		"inputAbbreviatedPath": "\/lib\/img\/home-location-big-map.png",
 		"outputAbbreviatedPath": "\/lib\/img\/home-location-big-map.png",
 		"outputPathIsOutsideProject": 0,

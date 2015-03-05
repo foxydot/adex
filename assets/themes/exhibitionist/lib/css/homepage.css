@@ -52,7 +52,7 @@
   z-index: 10;
 }
 .section-location .section-body {
-  background: url('../img/mapForMath2.png') no-repeat center center #cccccc;
+  background: url('../img/home-location-big-map.png') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;

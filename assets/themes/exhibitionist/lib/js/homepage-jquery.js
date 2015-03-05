@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
         var heightdiff = imgHeight - $('#location .section-body').height();
         var windowsize = $(window).width();
         if(windowsize > 768){
-            $('#locations_popovers').css('left', '50%').css('top',(imgHeight-heightdiff)/2 + 'px').css('border','1px solid red');
+            $('#locations_popovers').css('left', '50%').css('top',(imgHeight-heightdiff)/2 + 'px');
             for(var i = 0, l = location_positions.length; i < l; ++i){
                 var elem = location_positions[i].elem;
                 var posstr = location_positions[i].position;
@@ -103,7 +103,7 @@ jQuery(document).ready(function($) {
         }
     }
     var testbox = '<div style="height: 100px; width: 100px; background-color: red; opacity: 0.5;position: absolute;top: 50%; left: 50%;"></div>';
-    $('#locations_popovers').append(testbox);
+    //$('#locations_popovers').append(testbox);
     position_it();
     $('a.map-marker').hover(function(e){
     });
