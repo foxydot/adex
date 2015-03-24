@@ -42,7 +42,7 @@ $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>
         <div class="cell">
             <label>Entry Type</label>
             <div class="input_container">
-                <?php $mb->the_field('case_study'); ?>
+                <?php $mb->the_field('case_study');  ?>
                <select name="<?php $mb->the_name(); ?>">
                 <option value="0"<?php $mb->the_select_state('0'); ?>>Sample</option>
                 <option value="100"<?php $mb->the_select_state('100'); ?>>Gallery</option>

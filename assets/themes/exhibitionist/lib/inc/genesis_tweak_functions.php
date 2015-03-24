@@ -362,15 +362,21 @@ function msdlab_do_project_info(){
         global $project_info;
         $project_info->the_meta();
         $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>'Result');
+        $contents = false;
         $ret = '<div class="project-widgets row">';
         foreach($containers AS $c => $t){
-            $ret .= '<section class="widget '.$c.' col-md-4">
-                <h4 class="widget-title">'.ucfirst($t).'</h4>
-                <div>'.apply_filters('the_content',$project_info->get_the_value($c)).'</div>
-            </section>';
+            if($project_info->get_the_value($c) != ''){
+                $contents = true;
+                $ret .= '<section class="widget '.$c.' col-md-4">
+                    <h4 class="widget-title">'.ucfirst($t).'</h4>
+                    <div>'.apply_filters('the_content',$project_info->get_the_value($c)).'</div>
+                </section>';
+            }
         }
         $ret .= '</div>';
-        print $ret;
+        if($contents){
+            print $ret;
+        } 
     }
 }
 

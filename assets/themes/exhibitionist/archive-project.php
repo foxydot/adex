@@ -144,12 +144,13 @@ function msdlab_project_close_entry(){
     </div>';
 }
 function msdlab_do_post_permalink() {
-
     //* Don't show on singular views, or if the entry has a title
     if ( is_singular() )
         return;
+    global $project_info,$post;
     $permalink = get_permalink();
-    if(get_the_content()){
+    $meta = $project_info->the_meta($post->ID);
+    if(((int) $meta['case_study']) > 1){
         echo apply_filters( 'genesis_post_permalink', sprintf( '<p class="entry-permalink"><a href="%s" rel="bookmark">%s</a></p>', esc_url( $permalink ), __('View More') ) );
     }
 }
