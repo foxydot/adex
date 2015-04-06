@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
     var cols = 12/numwidgets;
     $('#homepage-widgets section.widget').addClass('col-sm-'+cols);
     $('#homepage-widgets section.widget').addClass('col-xs-12');
+    $(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>');
     //$(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>').append($('#the-hand'));
     //$(".section-location .section-body .wrap").before($('#locations_popovers'));
     
