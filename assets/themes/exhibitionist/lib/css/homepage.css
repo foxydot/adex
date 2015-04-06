@@ -52,7 +52,7 @@
   z-index: 10;
 }
 .section-location .section-body {
-  background: url('../img/home-location-big-map.png') no-repeat center center #cccccc;
+  background: url('../img/home-location-alt-bkg.jpg') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;
@@ -152,15 +152,15 @@
 .section-location .section-body .wrap {
   position: relative;
   display: table;
-  min-height: 780px;
-  min-height: 78rem;
+  min-height: 380px;
+  min-height: 38rem;
   z-index: 100;
   top: -26px;
 }
 .section-location .section-body .wrap .inner-wrap {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 2rem;
-  margin-top: 40rem;
+  margin-top: 8rem;
   margin-right: 40rem;
   margin-bottom: 4rem;
 }
