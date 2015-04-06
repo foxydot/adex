@@ -6,14 +6,14 @@ jQuery(document).ready(function($) {
     var cols = 12/numwidgets;
     $('#homepage-widgets section.widget').addClass('col-sm-'+cols);
     $('#homepage-widgets section.widget').addClass('col-xs-12');
-    $(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>').append($('#the-hand'));
-    $(".section-location .section-body .wrap").before($('#locations_popovers'));
+    //$(".section-location .section-body .wrap").wrapInner('<div class="inner-wrap"></div>').append($('#the-hand'));
+    //$(".section-location .section-body .wrap").before($('#locations_popovers'));
     
     $(".section-testimonials .quote").equalHeightColumns();
     $(".section-testimonials .attribution").equalHeightColumns();
       
       // init controller
-    controller = new ScrollMagic();
+    /*controller = new ScrollMagic();
     // build tween
     var phoneTween = TweenMax.fromTo("#the-hand", 0.5, 
             {css:{bottom:"-516px"}},
@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
     var phoneScene = new ScrollScene({triggerElement: "#location.section", duration: 700})
                     .setTween(phoneTween)
                     .addTo(controller);
-
+*/
     // show indicators (requires debug extension)
     //scene.addIndicators();
     
@@ -104,7 +104,7 @@ jQuery(document).ready(function($) {
     }
     var testbox = '<div style="height: 100px; width: 100px; background-color: red; opacity: 0.5;position: absolute;top: 50%; left: 50%;"></div>';
     //$('#locations_popovers').append(testbox);
-    position_it();
+    /*position_it();
     $('a.map-marker').hover(function(e){
     });
     $('a.map-marker').click(function(e){
@@ -115,5 +115,5 @@ jQuery(document).ready(function($) {
     });
     $( window ).resize(function() {
         position_it();
-    });
+    });*/
 });
