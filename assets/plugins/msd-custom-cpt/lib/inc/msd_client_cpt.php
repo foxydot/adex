@@ -163,7 +163,8 @@ if (!class_exists('MSDClientCPT')) {
                 'rows' => 4,
                 'columns' => 4,
                 'fade_in' => 'random',
-                'animate' => false
+                'animate' => false,
+                'item_height' => '120px',
             ), $atts ) );
             
             $args = array(
@@ -206,7 +207,7 @@ if (!class_exists('MSDClientCPT')) {
             $ret .= '
             <style>
                 .msdlab_logo_gallery .item-wrapper {
-                    height:120px;
+                    height:'.$item_height.';
                     opacity: 0;
                     padding: 2rem 4rem;
                     /* For Safari 3.1 to 6.0 */
