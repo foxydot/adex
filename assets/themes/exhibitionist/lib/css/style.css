@@ -1,10 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 /*
 HTML5 Reset
 ---------------------------------------------------------------------------------------------------- */
 /* Baseline Normalize
   normalize.css v2.1.2 | MIT License | git.io/normalize
 --------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 article,
 aside,
 details,
@@ -179,6 +179,42 @@ input[type="search"] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+/* Float Clearing
+--------------------------------------------- 
+
+.archive-pagination:before,
+.clearfix:before,
+.entry:before,
+.entry-pagination:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.wrap:before {
+  content: " ";
+  display: table;
+}
+
+.archive-pagination:after,
+.clearfix:after,
+.entry:after,
+.entry-pagination:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.wrap:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+*/
 /*!
  * Bootstrap v3.0.0
  *
@@ -7227,6 +7263,7 @@ Site Footer
   white-space: normal;
   text-transform: uppercase;
   font-size: 2.4rem;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -7249,7 +7286,6 @@ Site Footer
   color: #ffffff;
   text-align: center;
   width: 80%;
-  font-size: 1.2rem;
   text-transform: none;
 }
 .layerslider_widget .ls-slide .fuzzybubble p .link {
