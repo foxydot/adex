@@ -2,7 +2,7 @@
 /*
 Plugin Name: MSD Site Settings
 Description: Provides settings panel for several social/address options and widgets/shortcodes/functions for display.
-Version: 0.8.2
+Version: 0.9.2
 Author: Catherine M OBrien Sandrick (CMOS)
 Author URI: http://msdlab.com/biological-assets/catherine-obrien-sandrick/
 GitHub Plugin URI: https://github.com/msdlab/msd_site_settings
@@ -350,6 +350,49 @@ function social_media($atts = array()){
     }
     $ret .= '</div>';
     return $ret;
+}
+
+function get_hours_deux(){ ///why are there two of these?
+    $days = array(
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+        );
+        foreach ($days as $day) {
+            $open = get_option('msdsocial_hours_'.strtolower($day).'_open');
+            $close = get_option('msdsocial_hours_'.strtolower($day).'_close');
+            $closed = $open==''||$close==''?FALSE:TRUE;
+            $hours[$day] = $closed?$open . ' to ' . $close:'CLOSED';
+        }
+        $prev = array();
+        foreach ($days as $day) {
+            if($hours[$day] != $prev['hours']){
+                if(isset($prev['hours'])){
+                    if(isset($prev['day'])){
+                        $ret .= ' - '.$prev['day'];
+                    }
+                    $ret .= '</span><span class="hours">'.$prev['hours'].'</span></div>
+';
+                }
+                $ret .= '<div class="hours '.$day.'"><span class="day">'.$day;
+                unset($prev['day']);
+            } else {
+                $prev['day'] = $day;
+            }
+            if($day == 'Saturday'){
+                if($hours[$day] == $prev['hours'] && isset($prev['day'])){
+                    $ret .= ' - '.$prev['day'];
+                }
+                $ret .= '</span><span class="hours">'.$hours[$day].'</span></div>
+';
+            }
+            $prev['hours'] = $hours[$day];
+        }
+        return '<div class="business-hours">'.$ret.'</div>';
 }
 
 function requireDir($dir){
