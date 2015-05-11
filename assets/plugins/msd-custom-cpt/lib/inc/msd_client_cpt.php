@@ -201,7 +201,12 @@ if (!class_exists('MSDClientCPT')) {
                         $fade = '1ms';
                         break;
                 }
-                $ret .= '<div class="col-md-'. 12/$columns .' col-sm-1 item-wrapper" style="-webkit-transition-delay: '.$fade.';-moz-transition-delay: '.$fade.';-ms-transition-delay: '.$fade.';-o-transition-delay: '.$fade.';transition-delay: '.$fade.';"><div class="item" style="background-image:url('.$logo_url.');"></div></div>';
+                if($i < $rows * $columns){
+                    $ret .= '<div class="col-md-'. 12/$columns .' col-sm-1 item-wrapper" style="-webkit-transition-delay: '.$fade.';-moz-transition-delay: '.$fade.';-ms-transition-delay: '.$fade.';-o-transition-delay: '.$fade.';transition-delay: '.$fade.';"><div class="item" style="background-image:url('.$logo_url.');"></div></div>';
+                } else {
+                    
+                }
+                $i++;
             }
             $ret = '<div class="msdlab_logo_gallery">'.$ret.'</div>';
             $ret .= '
