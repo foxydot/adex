@@ -26,7 +26,7 @@ if (!class_exists('MSDTestimonialCPT')) {
 			add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
 			
 			//Filters
-			//add_filter( 'pre_get_posts', array(&$this,'custom_query') );
+			add_filter( 'pre_get_posts', array(&$this,'custom_query') );
             add_shortcode('testimonial',array(&$this,'testimonial_shortcode_handler'));
             add_shortcode('testimonials',array(&$this,'testimonial_shortcode_handler'));
 		}
@@ -122,13 +122,15 @@ if (!class_exists('MSDTestimonialCPT')) {
 				if($query->is_main_query() && $query->is_search){
 					$searchterm = $query->query_vars['s'];
 					// we have to remove the "s" parameter from the query, because it will prtestimonial the posts from being found
-					$query->query_vars['s'] = "";
+					//$query->query_vars['s'] = "";
 					
 					if ($searchterm != "") {
 						$query->set('meta_value',$searchterm);
 						$query->set('meta_compare','LIKE');
 					};
-					$query->set( 'post_type', array('post','page',$this->cpt) );
+                    $posttypes = $query->query_vars['post_type'];
+                    $posttypes[] = $this->cpt;
+                    $query->set( 'post_type', $posttypes );
 				}
 			}
 		}	

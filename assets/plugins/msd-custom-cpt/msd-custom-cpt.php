@@ -109,6 +109,8 @@ if (!class_exists('MSDCustomCPT')) {
         	register_activation_hook(__FILE__, array(&$this,'check_requirements'));
         	//get sub-packages
         	requireDir(plugin_dir_path(__FILE__).'/lib/inc');
+            add_filter( 'pre_get_posts', array(&$this,'custom_query') );
+            
            
             //here are some examples to get started with
             if(class_exists('MSDLocationCPT')){
@@ -191,6 +193,18 @@ if (!class_exists('MSDCustomCPT')) {
         function is_plugin_active($plugin) {
         	return in_array($plugin, (array) get_option('active_plugins', array()));
         }
+        
+        
+        function custom_query( $query ) {
+            if(!is_admin()){
+                if($query->is_main_query() && $query->is_search){
+                    $posttypes = $query->query_vars['post_type'];
+                    $posttypes[] = 'page';
+                    $posttypes[] = 'post';
+                    $query->set( 'post_type', $posttypes );
+                }
+            }
+        }   
         /***************************/
   } //End Class
 } //End if class exists statement

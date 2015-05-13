@@ -27,7 +27,7 @@ if (!class_exists('MSDClientCPT')) {
             add_action('print_footer_scripts',array(&$this,'print_footer_scripts'),99);
             
             //Filters
-            //add_filter( 'pre_get_posts', array(&$this,'custom_query') );
+            add_filter( 'pre_get_posts', array(&$this,'custom_query') );
             add_filter( 'enter_title_here', array(&$this,'change_default_title') );
             
             add_shortcode('logo_gallery', array(&$this,'logo_gallery_js'));
@@ -171,13 +171,15 @@ if (!class_exists('MSDClientCPT')) {
                 if($query->is_main_query() && $query->is_search){
                     $searchterm = $query->query_vars['s'];
                     // we have to remove the "s" parameter from the query, because it will prevent the posts from being found
-                    $query->query_vars['s'] = "";
+                    //$query->query_vars['s'] = "";
                     
                     if ($searchterm != "") {
                         $query->set('meta_value',$searchterm);
                         $query->set('meta_compare','LIKE');
                     };
-                    $query->set( 'post_type', array('post','page',$this->cpt) );
+                    $posttypes = $query->query_vars['post_type'];
+                    $posttypes[] = $this->cpt;
+                    $query->set( 'post_type', $posttypes );
                 }
             }
         }      
