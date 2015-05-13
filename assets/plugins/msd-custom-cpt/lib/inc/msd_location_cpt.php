@@ -157,18 +157,20 @@ if (!class_exists('MSDLocationCPT')) {
                 $ret .= '
                 <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker" map-data="'.$location_info->get_the_value('google_map_string').'">
                 <div class="location-photo" style="background-image:url('.$image.');"></div>
-                <div class="marker-text">'.$location->post_title.'</div>
+                <div class="marker-text">&nbsp;</div>
                 </a>';
                 $script .= '{elem:"#'.sanitize_title_for_query($location->post_title).'_popover", position:"'.$location_info->get_the_value('homepage_map_position').'"},';
                 $i++;
             }
-            $ret .= '</locations>
+            $ret .= '</locations>';
+            $ret .= '
             <script>
                 var location_positions = ['.$script.'];
-            </script>
+            </script>';
+            /*$ret .= '
 <div id="the-hand" class="the-hand">
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3089.450363011913!2d-84.452986!3d39.255347!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x23eba871ce630456!2sAD-EX+International!5e0!3m2!1sen!2sus!4v1421896457550" frameborder="0" style="border:0"></iframe>
-</div>';
+</div>';*/
 //ts_data(get_intermediate_image_sizes());
            return $ret;
         }
