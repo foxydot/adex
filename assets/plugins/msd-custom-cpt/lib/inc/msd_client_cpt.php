@@ -24,13 +24,13 @@ if (!class_exists('MSDClientCPT')) {
             add_action('admin_print_styles', array(&$this,'add_admin_styles') );
             add_action('admin_footer',array(&$this,'info_footer_hook') );
             // important: note the priority of 99, the js needs to be placed after tinymce loads
-            add_action('admin_print_footer_scripts',array(&$this,'print_footer_scripts'),99);
+            add_action('print_footer_scripts',array(&$this,'print_footer_scripts'),99);
             
             //Filters
             //add_filter( 'pre_get_posts', array(&$this,'custom_query') );
             add_filter( 'enter_title_here', array(&$this,'change_default_title') );
             
-            add_shortcode('logo_gallery', array(&$this,'logo_gallery'));
+            add_shortcode('logo_gallery', array(&$this,'logo_gallery_js'));
             add_image_size('logo',300,400,false);
         }
 
@@ -103,9 +103,33 @@ if (!class_exists('MSDClientCPT')) {
             
         function print_footer_scripts()
         {
-            global $current_screen;
-            if($current_screen->post_type == $this->cpt){
-            }
+                print '<script>
+                (function($) {
+                    $.fn.load_bkg = function(opts) {
+                        // default configuration
+                        var config = $.extend({}, {
+                            opt1: null
+                        }, opts);
+                    
+                        // main function
+                        function loadit(e) {
+                      var bkg = img_array[0];
+                      img_array.shift();
+                      e.css(\'background-image\',\'url("\'+bkg+\'")\').fadeIn(1000).delay(5000).fadeOut(1000,function(){
+                        e.trigger(\'click\');
+                      });
+                      img_array.push(bkg);
+                        }
+                
+                        // initialize every element
+                        this.each(function() {
+                            loadit($(this));
+                        });
+                
+                        return this;
+                    };
+                })(jQuery);
+                </script>';
         }
         function change_default_title( $title ){
             global $current_screen;
@@ -158,6 +182,88 @@ if (!class_exists('MSDClientCPT')) {
             }
         }      
         
+              /**
+         * Logo gallery JS: Support for anaimating logos displaying on a randomized timeline. Replaces logo_gallery.
+         * @param array $atts WordPress shortcode attributes
+         * @return string $ret Display string
+         */
+        function logo_gallery_js($atts){
+            extract( shortcode_atts( array(
+                'rows' => 4,
+                'columns' => 4,
+                'fade_in' => 'random',
+                'animate' => false,
+                'item_height' => '120px',
+            ), $atts ) );
+            
+            $args = array(
+                'post_type' => $this->cpt,
+                'orderby' => rand,
+            );
+            $grid_cells_count = $rows * $columns;
+            $i = 1;
+            while($i <= $grid_cells_count){
+                $grid .= '<div class="col-md-'. 12/$columns .' col-sm-1 item-wrapper"><div class="item item-'.$i.'"></div></div>';
+                $i++;
+            }
+            
+            
+            
+            switch($animate){
+                case true:
+                case 'random':
+                    $args['posts_per_page'] = -1;
+                    break;
+                case false:
+                    $args['posts_per_page'] = $grid_cells_count;
+                    break;
+            }
+            $clients = get_posts($args);
+            $ret = false;
+            foreach($clients AS $client){
+                $logo_image = wp_get_attachment_image_src( get_post_thumbnail_id($client->ID), 'logo' );
+                $logo_array[] = $logo_image[0];
+            }
+            $ret = '<div class="msdlab_logo_gallery">'.$grid.'</div>';
+            $ret .= '
+            <style>
+                .msdlab_logo_gallery .item-wrapper {
+                    height: 120px;
+                    padding: 2rem 4rem;
+                }
+                .msdlab_logo_gallery .item-wrapper .item {
+                    display: none;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    height: 100%;
+                    width: 100%;
+                }
+            </style>
+            <script>
+                var img_array = '.json_encode($logo_array).';
+                console.log(img_array);
+                jQuery(document).ready(function($) {
+                  //initial load
+                  $(".msdlab_logo_gallery .item-wrapper .item").each(function(){
+                    var faderate = Math.floor(Math.random() * 5000) + 1000;
+                    $(this).delay(faderate).load_bkg();
+                  });
+                  $(".msdlab_logo_gallery .item-wrapper .item").click(function(){
+                    $(this).load_bkg();
+                  });
+                });
+            </script>';
+            return $ret;
+        }     
+        
+        
+        
+        /**
+         * Logo gallery CSS: Support for non-naimating logos displaying on a randomized timeline. Legacy function supplanted by logo_gallery_js.
+         * @param array $atts WordPress shortcode attributes
+         * @return string $ret Display string
+         */
         function logo_gallery($atts){
             extract( shortcode_atts( array(
                 'rows' => 4,

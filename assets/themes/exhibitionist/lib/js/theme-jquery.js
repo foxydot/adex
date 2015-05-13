@@ -14,10 +14,10 @@ jQuery(document).ready(function($) {
         };
       });
 	$('.layerslider_widget .ls-slide').one('show',function(){
-	    console.log('run it');
+	    //console.log('run it');
 	    var windowsize = $(window).width();
         var fb = $(this).find('.fuzzybubble');
-        console.log(windowsize);
+        //console.log(windowsize);
         if(windowsize < 992){
             var h = $(this).height();
             fb.css('height',h*.6 + 'px').css('width',h*.6 + 'px').css('padding',h*.1 + 'px').css('font-size',h*0.05 + 'px').css('margin-top',0);
@@ -32,10 +32,10 @@ jQuery(document).ready(function($) {
             source: img, 
             });
               
-        console.log('ran it');
+        //console.log('ran it');
 	});
     $('#billboard_nav a[href*=#]:not([href=#]),#floating_nav a[href*=#]:not([href=#]),#filters a[href*=#]:not([href=#]),a[href=#filters]').click(function() {
-        console.log($(this));
+        //console.log($(this));
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       var my_offset;

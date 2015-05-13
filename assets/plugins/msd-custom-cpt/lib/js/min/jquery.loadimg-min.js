@@ -1,0 +1,1 @@
+!function($){$.fn.load_bkg=function(n){function a(n){var a=img_array[0];img_array.shift(),n.css("background-image",'url("'+a+'")').fadeIn(1e3).delay(5e3).fadeOut(1e3,function(){n.trigger("click")}),img_array.push(a)}var i=$.extend({},{opt1:null},n);return this.each(function(){a($(this))}),this}}(jQuery);
