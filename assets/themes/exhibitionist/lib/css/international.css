@@ -113,6 +113,7 @@
 .section-map-area .wrap #locations_popovers .map-marker:active,
 .section-map-area .wrap #locations_popovers .map-marker:focus {
   text-decoration: none;
+  width: 300px;
 }
 .section-map-area .wrap #locations_popovers .map-marker:hover,
 .section-map-area .wrap #locations_popovers .map-marker:active {
