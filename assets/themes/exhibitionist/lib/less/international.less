@@ -4,7 +4,7 @@
   background: #343233;
     .wrap{
     //background: url('../img/home-location-big-map.png') no-repeat center center @vltgrey;
-    background: url('../img/world-map.jpg') no-repeat center center @vltgrey;
+    background: url('../img/world-map2.jpg') no-repeat center center @vltgrey;
     background-size: cover;
     padding: 0;
     position: relative;
@@ -37,13 +37,13 @@
           -ms-transition: all 500ms ease-in-out;
           -o-transition: all 500ms ease-in-out;
           transition: all 500ms ease-in-out;
-          border-radius: 0.6rem 0.6rem 0 0;
+          border-radius: 0.6rem;
         }
         .marker-text{
           background-color: fade(@wine,0%);
           color: @dkgrey;
           font-size: 1.2rem;
-          text-transform: uppercase;
+          font-weight: bold;
           padding: .5em 2em;
           border-radius: 0.6rem;
           position: relative;
@@ -75,13 +75,9 @@
         box-shadow: 0 -2px 4px 4px rgba(0,0,0,0.25);
         }
         .marker-text{
-          background-color: fade(@wine,80%);
-          color: @white;
           border-radius: 0 0 0.6rem 0.6rem;
           width: 300px;
           display: block;
-        -webkit-box-shadow: 0 2px 4px 4px rgba(0,0,0,0.25);
-        box-shadow: 0 2px 4px 4px rgba(0,0,0,0.25);
         }
       }
     }

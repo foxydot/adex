@@ -53,7 +53,7 @@
   background: #343233;
 }
 .section-map-area .wrap {
-  background: url('../img/world-map.jpg') no-repeat center center #cccccc;
+  background: url('../img/world-map2.jpg') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;
@@ -89,13 +89,13 @@
   -ms-transition: all 500ms ease-in-out;
   -o-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
-  border-radius: 0.6rem 0.6rem 0 0;
+  border-radius: 0.6rem;
 }
 .section-map-area .wrap #locations_popovers .map-marker .marker-text {
   background-color: rgba(83, 42, 68, 0);
   color: #1a1a1a;
   font-size: 1.2rem;
-  text-transform: uppercase;
+  font-weight: bold;
   padding: .5em 2em;
   border-radius: 0.6rem;
   position: relative;
@@ -129,13 +129,9 @@
 }
 .section-map-area .wrap #locations_popovers .map-marker:hover .marker-text,
 .section-map-area .wrap #locations_popovers .map-marker:active .marker-text {
-  background-color: rgba(83, 42, 68, 0.8);
-  color: #ffffff;
   border-radius: 0 0 0.6rem 0.6rem;
   width: 300px;
   display: block;
-  -webkit-box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .section-map-area .wrap .wrap {
   position: relative;

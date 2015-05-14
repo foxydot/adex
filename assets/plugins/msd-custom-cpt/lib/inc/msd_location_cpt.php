@@ -157,7 +157,7 @@ if (!class_exists('MSDLocationCPT')) {
                 $ret .= '
                 <a href="#" id="'.sanitize_title_for_query($location->post_title).'_popover" class="map-marker" map-data="'.$location_info->get_the_value('google_map_string').'">
                 <div class="location-photo" style="background-image:url('.$image.');"></div>
-                <div class="marker-text">&nbsp;</div>
+                <div class="marker-text">'.$location->post_title.'</div>
                 </a>';
                 $script .= '{elem:"#'.sanitize_title_for_query($location->post_title).'_popover", position:"'.$location_info->get_the_value('homepage_map_position').'"},';
                 $i++;
