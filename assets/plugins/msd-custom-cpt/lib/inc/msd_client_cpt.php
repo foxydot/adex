@@ -131,6 +131,8 @@ if (!class_exists('MSDClientCPT')) {
                     };
                 })(jQuery);
                 </script>';
+              } else {
+                  print "NOTHING TO SEE HERE, MOVE ALONG";
               }
         }
         function change_default_title( $title ){
