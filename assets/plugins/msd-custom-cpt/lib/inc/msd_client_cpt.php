@@ -24,8 +24,9 @@ if (!class_exists('MSDClientCPT')) {
             add_action('admin_print_styles', array(&$this,'add_admin_styles') );
             add_action('admin_footer',array(&$this,'info_footer_hook') );
             // important: note the priority of 99, the js needs to be placed after tinymce loads
-            add_action('print_footer_scripts',array(&$this,'print_footer_scripts'), 99);
+            //add_action('print_footer_scripts',array(&$this,'print_footer_scripts'), 99);
             
+            add_action('wp_enqueue_scripts', array(&$this,'add_scripts') );
             //Filters
             add_filter( 'pre_get_posts', array(&$this,'custom_query') );
             add_filter( 'enter_title_here', array(&$this,'change_default_title') );
@@ -92,6 +93,11 @@ if (!class_exists('MSDClientCPT')) {
                 wp_enqueue_script('my-upload');
             }
         }
+        function add_scripts() {
+            if(is_front_page()){
+                wp_enqueue_script('msd-img-loader',plugin_dir_url(dirname(__FILE__)).'/js/jquery.loadimg.js',array('jquery'),1,TRUE);
+            }
+        }
         
         function add_admin_styles() {
             global $current_screen;
@@ -131,8 +137,6 @@ if (!class_exists('MSDClientCPT')) {
                     };
                 })(jQuery);
                 </script>';
-              } else {
-                  print "NOTHING TO SEE HERE, MOVE ALONG";
               }
         }
         function change_default_title( $title ){
