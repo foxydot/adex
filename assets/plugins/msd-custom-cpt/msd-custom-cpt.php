@@ -126,7 +126,7 @@ if (!class_exists('MSDCustomCPT')) {
                 $this->flushrules = TRUE;
             }
             if(class_exists('MSDClientCPT')){
-                //$this->client_class = new MSDClientCPT();
+                $this->client_class = new MSDClientCPT();
                 $this->flushrules = TRUE;
             }
             if(class_exists('MSDTestimonialCPT')){

@@ -24,7 +24,7 @@ if (!class_exists('MSDClientCPT')) {
             add_action('admin_print_styles', array(&$this,'add_admin_styles') );
             add_action('admin_footer',array(&$this,'info_footer_hook') );
             // important: note the priority of 99, the js needs to be placed after tinymce loads
-            add_action('print_footer_scripts',array(&$this,'print_footer_scripts'));
+            //add_action('print_footer_scripts',array(&$this,'print_footer_scripts'));
             
             //Filters
             add_filter( 'pre_get_posts', array(&$this,'custom_query') );
