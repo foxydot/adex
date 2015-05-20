@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 /* Import Fonts
 ------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
@@ -48,23 +48,27 @@
   clear: both;
   visibility: hidden;
 }
-.section-location {
+.section-location,
+.section-locations {
   z-index: 10;
 }
-.section-location .section-body {
+.section-location .section-body,
+.section-locations .section-body {
   background: url('../img/home-location-alt-bkg.jpg') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;
   display: block;
 }
-.section-location .section-body #locations_popovers {
+.section-location .section-body #locations_popovers,
+.section-locations .section-body #locations_popovers {
   position: relative;
   z-index: 900;
   left: 50%;
   top: 50%;
 }
-.section-location .section-body #locations_popovers .map-marker {
+.section-location .section-body #locations_popovers .map-marker,
+.section-locations .section-body #locations_popovers .map-marker {
   z-index: auto;
   position: absolute;
   display: table;
@@ -78,7 +82,8 @@
   -o-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
 }
-.section-location .section-body #locations_popovers .map-marker .location-photo {
+.section-location .section-body #locations_popovers .map-marker .location-photo,
+.section-locations .section-body #locations_popovers .map-marker .location-photo {
   height: 0;
   width: 300px;
   display: inline-block;
@@ -91,7 +96,8 @@
   transition: all 500ms ease-in-out;
   border-radius: 0.6rem 0.6rem 0 0;
 }
-.section-location .section-body #locations_popovers .map-marker .marker-text {
+.section-location .section-body #locations_popovers .map-marker .marker-text,
+.section-locations .section-body #locations_popovers .map-marker .marker-text {
   background-color: #532a44;
   color: #ffffff;
   font-size: 1.2rem;
@@ -109,7 +115,8 @@
   transition: all 500ms ease-in-out;
   white-space: nowrap;
 }
-.section-location .section-body #locations_popovers .map-marker .marker-text:after {
+.section-location .section-body #locations_popovers .map-marker .marker-text:after,
+.section-locations .section-body #locations_popovers .map-marker .marker-text:after {
   top: 100%;
   left: 50%;
   border: solid transparent;
@@ -124,17 +131,24 @@
   margin-left: -6px;
 }
 .section-location .section-body #locations_popovers .map-marker:hover,
+.section-locations .section-body #locations_popovers .map-marker:hover,
 .section-location .section-body #locations_popovers .map-marker:active,
-.section-location .section-body #locations_popovers .map-marker:focus {
+.section-locations .section-body #locations_popovers .map-marker:active,
+.section-location .section-body #locations_popovers .map-marker:focus,
+.section-locations .section-body #locations_popovers .map-marker:focus {
   text-decoration: none;
 }
 .section-location .section-body #locations_popovers .map-marker:hover,
-.section-location .section-body #locations_popovers .map-marker:active {
+.section-locations .section-body #locations_popovers .map-marker:hover,
+.section-location .section-body #locations_popovers .map-marker:active,
+.section-locations .section-body #locations_popovers .map-marker:active {
   z-index: 1000;
   border-radius: 0.6rem;
 }
 .section-location .section-body #locations_popovers .map-marker:hover .location-photo,
-.section-location .section-body #locations_popovers .map-marker:active .location-photo {
+.section-locations .section-body #locations_popovers .map-marker:hover .location-photo,
+.section-location .section-body #locations_popovers .map-marker:active .location-photo,
+.section-locations .section-body #locations_popovers .map-marker:active .location-photo {
   width: 300px;
   height: 200px;
   display: block;
@@ -142,14 +156,17 @@
   box-shadow: 0 -2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .section-location .section-body #locations_popovers .map-marker:hover .marker-text,
-.section-location .section-body #locations_popovers .map-marker:active .marker-text {
+.section-locations .section-body #locations_popovers .map-marker:hover .marker-text,
+.section-location .section-body #locations_popovers .map-marker:active .marker-text,
+.section-locations .section-body #locations_popovers .map-marker:active .marker-text {
   border-radius: 0 0 0.6rem 0.6rem;
   width: 300px;
   display: block;
   -webkit-box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.section-location .section-body .wrap {
+.section-location .section-body .wrap,
+.section-locations .section-body .wrap {
   position: relative;
   display: table;
   min-height: 380px;
@@ -157,21 +174,24 @@
   z-index: 100;
   top: -26px;
 }
-.section-location .section-body .wrap .inner-wrap {
+.section-location .section-body .wrap .inner-wrap,
+.section-locations .section-body .wrap .inner-wrap {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 2rem;
   margin-top: 8rem;
   margin-right: 40rem;
   margin-bottom: 4rem;
 }
-.section-location .section-body .wrap .the-hand {
+.section-location .section-body .wrap .the-hand,
+.section-locations .section-body .wrap .the-hand {
   background: url('../img/home-location-phone.png') no-repeat left top transparent;
   padding: 5.7rem 24rem 24rem 6.5rem;
   position: absolute;
   right: 0;
   bottom: -2rem;
 }
-.section-location .section-body .wrap .the-hand iframe {
+.section-location .section-body .wrap .the-hand iframe,
+.section-locations .section-body .wrap .the-hand iframe {
   width: 15.8rem;
   height: 27.6rem;
   border: 0;
