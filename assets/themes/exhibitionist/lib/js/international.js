@@ -69,16 +69,19 @@ jQuery(document).ready(function($) {
                 var pos = posstr.split("|");
                 var left = ((pos[0]*widthMultiplier)-($(elem).width()/2));
                 var top = ((pos[1]*heightMultiplier)-($(elem).height())+20);
-                
                 $(elem).css("left",left + "px").css("top",top + "px");
+                var offset = $(elem).offset();
                 var btm = $(elem).css("bottom");
+                if(btm == "auto"){
+                    btm = $(window).height() - offset.top - ($(elem).height());
+                }
                 $(elem).css("bottom",btm).css("top","auto");
             }
         }
     }
     var testbox = '<div style="height: 100px; width: 100px; background-color: red; opacity: 0.5;position: absolute;top: 50%; left: 50%;"></div>';
     //$('#locations_popovers').append(testbox);
-    position_it();
+        position_it();
     $('a.map-marker').hover(function(e){
     });
     $('a.map-marker').click(function(e){
@@ -90,4 +93,6 @@ jQuery(document).ready(function($) {
     $( window ).resize(function() {
         position_it();
     });
+    
+        position_it();
 });
