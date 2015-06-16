@@ -1,7 +1,7 @@
 <?php
 add_action('genesis_before_footer','msdlab_do_footer_widget', 1);
-add_action('genesis_before_content','msd_international_map', 0);
-add_action('wp_enqueue_scripts','msd_international_style');
+//add_action('genesis_before_content','msd_international_map', 0);
+//add_action('wp_enqueue_scripts','msd_international_style');
 
 genesis();
 
