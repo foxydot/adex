@@ -60,6 +60,11 @@
   position: relative;
   display: block;
 }
+.section-location .section-body ul,
+.section-locations .section-body ul {
+  list-style: none outside disc;
+  margin-left: 3em;
+}
 .section-location .section-body #locations_popovers,
 .section-locations .section-body #locations_popovers {
   position: relative;

@@ -52,7 +52,7 @@ if (!class_exists('MSDTestimonialCPT')) {
 		        'labels' => $labels,
 		        'hierarchical' => false,
 		        'description' => 'Testimonial',
-		        'supports' => array( 'author' ,'genesis-cpt-archives-settings'),
+		        'supports' => array( 'title','author' ,'genesis-cpt-archives-settings'),
 		        'taxonomies' => array(),
 		        'public' => true,
 		        'show_ui' => true,
