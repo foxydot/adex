@@ -7107,6 +7107,8 @@ Site Footer
   padding-right: 15px;
   float: left;
   width: 8.33333333%;
+  padding: 0 0.2rem;
+  margin: 0.2rem 0;
 }
 .page .project-widgets,
 .single-project .project-widgets {
