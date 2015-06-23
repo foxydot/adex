@@ -7092,12 +7092,25 @@ Site Footer
   float: left;
   width: 33.33333333%;
   padding: 0 0.2rem;
-  margn: 0.2rem 0;
+  margin: 0.2rem 0;
 }
 .page .project-gallery .gallery .gallery-item .gallery-icon a img.attachment-thumbnail,
 .single-project .project-gallery .gallery .gallery-item .gallery-icon a img.attachment-thumbnail {
   border: 0;
   margin: 0.2rem 0;
+}
+.page .project-gallery.project-gallery-full .gallery .gallery-item,
+.single-project .project-gallery.project-gallery-full .gallery .gallery-item {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  width: 8.33333333%;
+}
+.page .project-widgets,
+.single-project .project-widgets {
+  clear: both;
 }
 .page .jp-carousel-wrap .jp-carousel-overlay,
 .single-project .jp-carousel-wrap .jp-carousel-overlay {

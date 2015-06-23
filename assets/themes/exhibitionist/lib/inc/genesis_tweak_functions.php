@@ -309,14 +309,23 @@ function msdlab_prev_next_post_nav() {
 /****PROJECTS***/
 function msdlab_project_gallery(){
     if(is_cpt('project') ){
-        global $gallery_info;
+        global $gallery_info,$project_info;
         $gallery_info->the_meta();
+        $project_info->the_meta();
             $ret = FALSE;
             if($gallery_info->have_fields('gallery')){
-                $ret = msdlab_gallery_shortcode();
+                if($project_info->get_the_value('case_study')>100){
+                    $ret = msdlab_gallery_shortcode();
+                } else {
+                    $ret = msdlab_gallery_shortcode(array('columns' => 12));
+                }
             }
             if($ret){
-                print '<div class="project-gallery col-md-4 pull-right">'.$ret.'</div>';
+                if($project_info->get_the_value('case_study')>100){
+                    print '<div class="project-gallery col-md-4 pull-right">'.$ret.'</div>';
+                } else {
+                    print '<div class="project-gallery project-gallery-full col-md-12">'.$ret.'</div>';
+                }
             }
     }
 }
@@ -364,15 +373,19 @@ function msdlab_do_project_info(){
         $containers = array('challenge'=>'Challenge','solutions'=>'Solution','results'=>'Result');
         $contents = false;
         $ret = '<div class="project-widgets row">';
+        $i = 0;
         foreach($containers AS $c => $t){
             if($project_info->get_the_value($c) != ''){
+                $i++;
                 $contents = true;
-                $ret .= '<section class="widget '.$c.' col-md-4">
+                $ret .= '<section class="widget '.$c.' col-md-thenumber">
                     <h4 class="widget-title">'.ucfirst($t).'</h4>
                     <div>'.apply_filters('the_content',$project_info->get_the_value($c)).'</div>
                 </section>';
             }
         }
+        $thenumber = floor(12/$i);
+        $ret = str_replace('-thenumber', '-'.$thenumber, $ret); //cheat to prevent having to count twice.
         $ret .= '</div>';
         if($contents){
             print $ret;
@@ -499,7 +512,7 @@ function msdlab_gallery_shortcode( $attr ) {
         'exclude'    => '',
         'link'       => ''
     ), $attr, 'gallery' );
-
+    
     $id = intval( $atts['id'] );
 
     $attachments = msdlab_get_project_gallery( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby'] ) );
