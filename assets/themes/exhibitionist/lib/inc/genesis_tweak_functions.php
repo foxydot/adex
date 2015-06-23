@@ -309,7 +309,7 @@ function msdlab_prev_next_post_nav() {
 /****PROJECTS***/
 function msdlab_project_gallery(){
     if(is_cpt('project') ){
-        global $gallery_info,$project_info;
+        global $gallery_info,$project_info,$gallery;
         $gallery_info->the_meta();
         $project_info->the_meta();
             $ret = FALSE;
@@ -323,11 +323,18 @@ function msdlab_project_gallery(){
             if($ret){
                 if($project_info->get_the_value('case_study')>100){
                     print '<div class="project-gallery col-md-4 pull-right">'.$ret.'</div>';
+                    $gallery = false;
                 } else {
-                    print '<div class="project-gallery project-gallery-full col-md-12">'.$ret.'</div>';
+                    add_action( 'genesis_entry_content', 'msdlab_project_content' );
+                    $gallery = '<div class="project-gallery project-gallery-full col-md-12">'.$ret.'</div>';
                 }
             }
     }
+}
+
+function msdlab_project_content(){
+    global $gallery;
+    print $gallery;
 }
 
 function msdlab_project_header_info(){
