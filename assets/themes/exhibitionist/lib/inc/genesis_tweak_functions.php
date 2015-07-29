@@ -28,7 +28,7 @@ function msdlab_alter_loop_params($query){
             $query->set('numposts',-1);
         }
         if($query->is_post_type_archive('project')){
-           $query->set('orderby',array('meta_value_num'=>'DESC','rand'));
+           $query->set('orderby',array('meta_value_num'=>'DESC', 'menu_order'));
            $query->set('meta_key','_project_case_study');
         }
     }

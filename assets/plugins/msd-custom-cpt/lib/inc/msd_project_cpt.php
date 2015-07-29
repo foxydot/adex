@@ -124,7 +124,7 @@ if (!class_exists('MSDProjectCPT')) {
                 'labels' => $labels,
                 'hierarchical' => false,
                 'description' => 'Portfolio',
-                'supports' => array( 'title', 'editor', 'author', 'thumbnail','genesis-cpt-archives-settings' ),
+                'supports' => array( 'title', 'editor', 'author', 'thumbnail','genesis-cpt-archives-settings','page-attributes' ),
                 'taxonomies' => array( 'project_type', 'market_sector' ),
                 'public' => true,
                 'show_ui' => true,
