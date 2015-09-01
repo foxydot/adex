@@ -124,7 +124,7 @@ class MSDSectionedPage{
                path_obj = [{x:0, y:0}, {x:320, y:320}, {x:0, y:640}, {x:-320, y:320},{x:0, y:0}]; //points on the path (BezierPlugin will plot a Bezier through these). Adjust however you please.
            }
        //new tweening
-       var progress = [0.166,0.25,0.333,0.667,0.75,0.833];
+       var progress = [0.166,0.25,0.345,0.656,0.75,0.833];
        var duration = 3,  //duration (in seconds)
         //check the window size before setting this
         path = path_obj;
