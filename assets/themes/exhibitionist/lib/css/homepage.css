@@ -54,121 +54,17 @@
 }
 .section-location .section-body,
 .section-locations .section-body {
-  background: url('../img/home-location-alt-bkg.jpg') no-repeat center center #cccccc;
+  background: url('../img/ADEX_Location_Web2-01.jpg') no-repeat center center #cccccc;
   background-size: cover;
   padding: 0;
   position: relative;
   display: block;
+  min-height: 800px;
 }
 .section-location .section-body ul,
 .section-locations .section-body ul {
   list-style: none outside disc;
   margin-left: 3em;
-}
-.section-location .section-body #locations_popovers,
-.section-locations .section-body #locations_popovers {
-  position: relative;
-  z-index: 900;
-  left: 50%;
-  top: 50%;
-}
-.section-location .section-body #locations_popovers .map-marker,
-.section-locations .section-body #locations_popovers .map-marker {
-  z-index: auto;
-  position: absolute;
-  display: table;
-  width: 300px;
-  background: url(../img/pin-shadow.png) no-repeat center bottom;
-  padding-bottom: 1.6rem;
-  text-align: center;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-}
-.section-location .section-body #locations_popovers .map-marker .location-photo,
-.section-locations .section-body #locations_popovers .map-marker .location-photo {
-  height: 0;
-  width: 300px;
-  display: inline-block;
-  background-position: center center;
-  background-size: cover;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-  border-radius: 0.6rem 0.6rem 0 0;
-}
-.section-location .section-body #locations_popovers .map-marker .marker-text,
-.section-locations .section-body #locations_popovers .map-marker .marker-text {
-  background-color: #532a44;
-  color: #ffffff;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  padding: .5em 2em;
-  border-radius: 0.6rem;
-  position: relative;
-  text-align: center;
-  width: auto;
-  display: inline;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-  white-space: nowrap;
-}
-.section-location .section-body #locations_popovers .map-marker .marker-text:after,
-.section-locations .section-body #locations_popovers .map-marker .marker-text:after {
-  top: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-color: rgba(136, 183, 213, 0);
-  border-top-color: #532a44;
-  border-width: 6px;
-  margin-left: -6px;
-}
-.section-location .section-body #locations_popovers .map-marker:hover,
-.section-locations .section-body #locations_popovers .map-marker:hover,
-.section-location .section-body #locations_popovers .map-marker:active,
-.section-locations .section-body #locations_popovers .map-marker:active,
-.section-location .section-body #locations_popovers .map-marker:focus,
-.section-locations .section-body #locations_popovers .map-marker:focus {
-  text-decoration: none;
-}
-.section-location .section-body #locations_popovers .map-marker:hover,
-.section-locations .section-body #locations_popovers .map-marker:hover,
-.section-location .section-body #locations_popovers .map-marker:active,
-.section-locations .section-body #locations_popovers .map-marker:active {
-  z-index: 1000;
-  border-radius: 0.6rem;
-}
-.section-location .section-body #locations_popovers .map-marker:hover .location-photo,
-.section-locations .section-body #locations_popovers .map-marker:hover .location-photo,
-.section-location .section-body #locations_popovers .map-marker:active .location-photo,
-.section-locations .section-body #locations_popovers .map-marker:active .location-photo {
-  width: 300px;
-  height: 200px;
-  display: block;
-  -webkit-box-shadow: 0 -2px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 -2px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.section-location .section-body #locations_popovers .map-marker:hover .marker-text,
-.section-locations .section-body #locations_popovers .map-marker:hover .marker-text,
-.section-location .section-body #locations_popovers .map-marker:active .marker-text,
-.section-locations .section-body #locations_popovers .map-marker:active .marker-text {
-  border-radius: 0 0 0.6rem 0.6rem;
-  width: 300px;
-  display: block;
-  -webkit-box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .section-location .section-body .wrap,
 .section-locations .section-body .wrap {
@@ -181,79 +77,39 @@
 }
 .section-location .section-body .wrap .inner-wrap,
 .section-locations .section-body .wrap .inner-wrap {
+  display: none;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 2rem;
   margin-top: 8rem;
   margin-right: 40rem;
   margin-bottom: 4rem;
 }
-.section-location .section-body .wrap .the-hand,
-.section-locations .section-body .wrap .the-hand {
-  background: url('../img/home-location-phone.png') no-repeat left top transparent;
-  padding: 5.7rem 24rem 24rem 6.5rem;
-  position: absolute;
-  right: 0;
-  bottom: -2rem;
-}
-.section-location .section-body .wrap .the-hand iframe,
-.section-locations .section-body .wrap .the-hand iframe {
-  width: 15.8rem;
-  height: 27.6rem;
-  border: 0;
-}
 .section-some-of-the-businesses-we-work-with {
   z-index: 1000;
   background-color: #ffffff;
 }
-@media only screen and (max-width: 767px) {
-  .section-location .section-body #locations_popovers {
-    display: none;
-    position: static;
-    left: 0;
-    top: 0;
+@media only screen and (max-width: 1200px) {
+  .section-locations .section-body {
+    min-height: 700px;
   }
-  .section-location .section-body #locations_popovers .map-marker {
-    position: static;
-    width: 100%;
-    background-image: none;
-    padding: 0;
+}
+@media only screen and (max-width: 1000px) {
+  .section-locations .section-body {
+    min-height: 500px;
   }
-  .section-location .section-body #locations_popovers .map-marker .location-photo {
-    display: none;
-    height: 0;
-    width: 0;
+}
+@media only screen and (max-width: 800px) {
+  .section-locations .section-body {
+    min-height: 400px;
   }
-  .section-location .section-body #locations_popovers .map-marker .marker-text {
-    width: 100%;
-    display: block;
-    border-radius: 0;
+}
+@media only screen and (max-width: 600px) {
+  .section-locations .section-body {
+    min-height: 300px;
   }
-  .section-location .section-body #locations_popovers .map-marker .marker-text:after {
-    border: 0;
-    display: none;
-  }
-  .section-location .section-body #locations_popovers .map-marker:hover .location-photo,
-  .section-location .section-body #locations_popovers .map-marker:active .location-photo {
-    display: none;
-    height: 0;
-    width: 0;
-  }
-  .section-location .section-body #locations_popovers .map-marker:hover .marker-text,
-  .section-location .section-body #locations_popovers .map-marker:active .marker-text {
-    width: 100%;
-    border-radius: 0;
-  }
-  .section-location .section-body .wrap {
-    top: 0;
-    min-height: auto;
-    padding: 0;
-  }
-  .section-location .section-body .wrap .inner-wrap {
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  .section-location .section-body .wrap .the-hand {
-    display: none;
+}
+@media only screen and (max-width: 479px) {
+  .section-locations .section-body {
+    min-height: 200px;
   }
 }

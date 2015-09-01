@@ -5,94 +5,18 @@
   z-index: 10;
   .section-body{
     //background: url('../img/home-location-big-map.png') no-repeat center center @vltgrey;
-    background: url('../img/home-location-alt-bkg.jpg') no-repeat center center @vltgrey;
+    //background: url('../img/home-location-alt-bkg.jpg') no-repeat center center @vltgrey;
+    background: url('../img/ADEX_Location_Web2-01.jpg') no-repeat center center @vltgrey;
     background-size: cover;
     padding: 0;
     position: relative;
     display: block;
+    min-height: 800px;
     ul{
       list-style: none outside disc;
       margin-left: 3em;
       li{
         
-      }
-    }
-    #locations_popovers{
-      position: relative;
-      z-index: 900;
-      left: 50%;
-      top: 50%;
-      .map-marker{
-        z-index: auto;
-        position: absolute;
-        display: table;
-        width: 300px;
-        background: url(../img/pin-shadow.png) no-repeat center bottom;
-        padding-bottom: 1.6rem;
-        text-align: center;
-        -webkit-transition: all 500ms ease-in-out;
-        -moz-transition: all 500ms ease-in-out;
-        -ms-transition: all 500ms ease-in-out;
-        -o-transition: all 500ms ease-in-out;
-        transition: all 500ms ease-in-out;
-        .location-photo{
-          height: 0;
-          width: 300px;
-          display: inline-block;
-          background-position: center center;
-          background-size: cover;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
-          border-radius: 0.6rem 0.6rem 0 0;
-        }
-        .marker-text{
-          background-color: @wine;
-          color: @white;
-          font-size: 1.2rem;
-          text-transform: uppercase;
-          padding: .5em 2em;
-          border-radius: 0.6rem;
-          position: relative;
-          text-align: center;
-          width: auto;
-          display: inline;
-          -webkit-transition: all 500ms ease-in-out;
-          -moz-transition: all 500ms ease-in-out;
-          -ms-transition: all 500ms ease-in-out;
-          -o-transition: all 500ms ease-in-out;
-          transition: all 500ms ease-in-out;
-          white-space: nowrap;
-        }
-        .marker-text:after{
-          top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-color: rgba(136, 183, 213, 0); border-top-color: @wine; border-width: 6px; margin-left: -6px;
-        }
-      }
-      .map-marker:hover,
-      .map-marker:active,
-      .map-marker:focus{
-        text-decoration: none;
-      }
-      .map-marker:hover,
-      .map-marker:active{
-        z-index: 1000;
-        border-radius: 0.6rem;
-        .location-photo{
-          width: 300px;
-          height: 200px;
-          display: block;
-        -webkit-box-shadow: 0 -2px 4px 4px rgba(0,0,0,0.25);
-        box-shadow: 0 -2px 4px 4px rgba(0,0,0,0.25);
-        }
-        .marker-text{
-          border-radius: 0 0 0.6rem 0.6rem;
-          width: 300px;
-          display: block;
-        -webkit-box-shadow: 0 2px 4px 4px rgba(0,0,0,0.25);
-        box-shadow: 0 2px 4px 4px rgba(0,0,0,0.25);
-        }
       }
     }
     .wrap{
@@ -103,23 +27,12 @@
       z-index: 100;
       top: -26px;
       .inner-wrap{
+        display: none;
         background-color: rgba(255,255,255,0.7);
         padding: 2rem;
         margin-top: 8rem;
         margin-right: 40rem;
         margin-bottom: 4rem;
-      }
-      .the-hand{
-        background: url('../img/home-location-phone.png') no-repeat left top transparent;
-        padding: 5.7rem 24rem 24rem 6.5rem;
-        position: absolute;
-        right: 0;
-        bottom: -2rem;
-        iframe{
-          width: 15.8rem;
-          height: 27.6rem;
-          border: 0;
-        }
       }
     }
   }
@@ -128,62 +41,41 @@
   z-index: 1000;
   background-color: @white;
 }
-@media only screen and (max-width: 992px) {}
-@media only screen and (max-width: 767px) {
-  .section-location{
+@media only screen and (max-width: 1200px) {
+  .section-locations{
     .section-body{
-     #locations_popovers{
-       display: none;
-       position: static;
-       left: 0;
-       top: 0;
-       .map-marker{
-         position: static;
-         width: 100%;
-         background-image: none;
-         padding: 0;
-         .location-photo{
-           display: none;
-           height: 0;
-           width:0;
-         }
-         .marker-text{
-           width: 100%;
-           display: block;
-           border-radius: 0;
-         }
-         .marker-text:after{
-           border: 0;
-           display: none;
-         }
-       }
-      .map-marker:hover,
-      .map-marker:active{
-         .location-photo{
-           display: none;
-           height: 0;
-           width:0;
-         }
-         .marker-text{
-           width: 100%;
-           border-radius: 0;
-         }
-       }
-     }
-     .wrap{
-       top:0;
-       min-height: auto;
-       padding: 0;
-       .inner-wrap{
-         margin-top: 0;
-         margin-right: 0;
-         margin-bottom: 0;
-       }
-       .the-hand{
-         display: none;
-       }
-     }
+    min-height: 700px;
     }
   }
 }
-@media only screen and (max-width : 479px) {}
+@media only screen and (max-width: 1000px) {
+  .section-locations{
+    .section-body{
+    min-height: 500px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .section-locations{
+    .section-body{
+    min-height: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .section-locations{
+    .section-body{
+    min-height: 300px;
+    }
+  }
+}
+
+@media only screen and (max-width : 479px) {
+  .section-locations{
+    .section-body{
+    min-height: 200px;
+    }
+  }
+}

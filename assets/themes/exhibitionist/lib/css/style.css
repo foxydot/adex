@@ -7363,6 +7363,7 @@ Site Footer
   opacity: 0;
   top: 0;
   left: 50%;
+  line-height: 1;
 }
 .billboard_nav .nav-icons-wrapper a .round-wrap {
   border: 1px solid #ffffff;
