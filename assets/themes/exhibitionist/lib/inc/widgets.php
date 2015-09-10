@@ -18,7 +18,7 @@ class KohlerConnected extends MSDConnected {
         }
         if ( $form_id > 0 ){
             print '<div class="connected-form">';
-            print do_shortcode('[gravityform id="'.$form_id.'" title="true" description="false" ajax="true"]');
+            print do_shortcode('[gravityform id="'.$form_id.'" title="true" description="false" ajax="false"]');
             print '</div>';
             //add_action( 'wp_footer', array(&$this,'tabindex_javascript'), 60);
         }
