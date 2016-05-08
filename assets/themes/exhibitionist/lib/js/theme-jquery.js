@@ -23,8 +23,10 @@ jQuery(document).ready(function($) {
             fb.css('height',h*.6 + 'px').css('width',h*.6 + 'px').css('padding',h*.1 + 'px').css('font-size',h*0.05 + 'px').css('margin-top',0);
             var h1 = fb.find('h1');
             var h3 = fb.find('h3');
+            var p = fb.find('p');
             h1.css('margin-top',h*0.045 + 'px').css('font-size',h*0.05 + 'px');
             h3.css('font-size',h*0.07 + 'px');
+            p.css('font-size',h*0.07 + 'px');
         }
         var img = $(this).find('.ls-bg');
        fb.layersliderblur({
