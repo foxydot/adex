@@ -90,13 +90,14 @@ article.entry {
 }
 
 .entry-header{
-  .entry-title{
+  .entry-title, .entry-title a{
     .customheader(2.8);
-    text-transform: uppercase;
     font-weight: 500;
-    color: @dkgrey;
     line-height: 1.25;
     margin: 0;
+    color: @blue;
+    text-transform: uppercase;
+    border-bottom: 1px dotted @medgrey;
   }
   .entry-subtitle{
     .customheader(2.2);
