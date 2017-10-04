@@ -145,6 +145,14 @@ function msdlab_add_extra_theme_sidebars(){
             ));
 }
 
+function msdlab_select_sidebars(){
+    global $post;
+    if((is_home() || is_archive() || is_single()) && $post->post_type == "post" ){
+        remove_action('genesis_sidebar', 'genesis_do_sidebar');
+        add_action('genesis_sidebar', 'msdlab_do_blog_sidebar');
+    }
+}
+
 function msdlab_do_blog_sidebar(){
     if(is_active_sidebar('blog')){
         dynamic_sidebar('blog');
@@ -244,11 +252,11 @@ function msdlab_breadcrumb_args($args) {
     return $args;
 }
 function sp_post_info_filter($post_info) {
-    $post_info = 'Posted [post_date]';
+    $post_info = '<i class="fa fa-user"></i> [post_author_posts_link] | <i class="fa fa-calendar"></i> [post_date] | <i class="fa fa-folder"></i> [post_categories]';
     return $post_info;
 }
 function sp_read_more_link() {
-    return '&hellip;&nbsp;<a class="more-link" href="' . get_permalink() . '">Read More <i class="fa fa-angle-right"></i></a>';
+    return '&hellip;&nbsp;<a class="button" href="' . get_permalink() . '">Read More <i class="fa fa-angle-right"></i></a>';
 }
 function msdlab_older_link_text($content) {
         $olderlink = 'Older Posts &raquo;';
@@ -957,4 +965,14 @@ if(!function_exists('msdlab_custom_hooks_management')){
         if($actions !=''){ts_data($actions);}
         if(get_option('site_lockout')){print '<div style="width: 100%; position: fixed; top: 0; z-index: 100000; background-color: red; padding: 12px; color: white; font-weight: bold; font-size: 24px;text-align: center;">'.get_option('site_lockout').'</div>';}
     }
+}
+
+add_filter('genesis_pre_get_option_site_layout', 'msdlab_force_layout', 110);
+
+function msdlab_force_layout($layout){
+    global $section;
+    if($section == 'section-blog'){
+        $layout = 'content_sidebar';
+    }
+    return $layout;
 }

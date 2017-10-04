@@ -20,9 +20,7 @@ class MSDConnected extends WP_Widget {
         if ( !empty( $text )){ print '<div class="connected-text">'.$text.'</div>'; }
         if ( $form_id > 0 ){
             print '<div class="connected-form">';
-            print 'this is a test.';
-            gravity_form( $form_id, true, true, false, null, false, 1000, true );
-            //print do_shortcode('[gravityform id="'.$form_id.'" title="true" description="true" tabindex=1000]');
+            print do_shortcode('[gravityform id="'.$form_id.'" title="true" description="true" ajax="true" tabindex=1000]');
             print '</div>';
         }
         

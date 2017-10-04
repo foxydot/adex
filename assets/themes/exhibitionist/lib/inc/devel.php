@@ -18,3 +18,13 @@ if(!function_exists('ts_var')){
 		ts_data(var_export( $var , true ));
 	}
 }
+
+
+//add_action('genesis_footer','my_msdlab_trace_actions');
+if(!function_exists('my_msdlab_trace_actions')) {
+    function my_msdlab_trace_actions()
+    {
+        global $wp_filter;
+        ts_var($wp_filter['genesis_pre_get_option_site_layout']);
+    }
+}

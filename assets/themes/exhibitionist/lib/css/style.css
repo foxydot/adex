@@ -6531,7 +6531,7 @@ Site Navigation
 .nav-primary li.menu-item a {
   color: #163559;
   text-transform: uppercase;
-  padding: 1rem 1.2rem;
+  padding: 1rem;
 }
 .nav-primary li.menu-item .sub-menu {
   background-color: #FFF;
@@ -7041,6 +7041,47 @@ Site Footer
 }
 .site-footer a {
   color: #CCC;
+}
+.content-sidebar.section-blog .content-sidebar-wrap {
+  margin: 0 auto;
+  max-width: 1140px;
+  display: flex;
+  padding: 1em 0;
+}
+.content-sidebar.section-blog .content-sidebar-wrap .content,
+.content-sidebar.section-blog .content-sidebar-wrap .sidebar.sidebar-primary {
+  float: left;
+}
+.section-blog .content .entry .entry-header .entry-title {
+  border-bottom: 3px solid #31B3D5;
+  margin-bottom: 0.5em;
+}
+.section-blog .content .entry .entry-header .entry-title a {
+  border: 0;
+}
+.section-blog .content .entry .entry-header .entry-categories {
+  display: inline;
+}
+.section-blog .content .entry a.button {
+  margin-left: 0;
+}
+.section-blog .sidebar-primary {
+  border-left: 1px solid rgba(204, 153, 102, 0.4);
+  padding: 0 1em;
+}
+.section-blog .sidebar-primary .widget {
+  margin-bottom: 2em;
+}
+.section-blog .sidebar-primary .widget .widget-title {
+  background: #c96;
+  color: #FFF;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+.section-blog .sidebar-primary .widget.featured-content .entry .entry-header .entry-title,
+.section-blog .sidebar-primary .widget.featured-content .entry .entry-header .entry-title a {
+  font-size: 1em;
+  color: #31B3D5;
 }
 .page-title-area {
   background: #532A44;

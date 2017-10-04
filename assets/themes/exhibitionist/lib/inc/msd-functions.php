@@ -60,8 +60,12 @@ function pagename_body_class($classes) {
 add_filter('body_class','section_body_class');
 function section_body_class($classes) {
 	global $post;
-	$post_data = get_post(get_topmost_parent($post->ID));
-	$classes[] = 'section-'.$post_data->post_name;
+	if(is_cpt('post')){
+        $classes[] = 'section-blog';
+    } else {
+        $post_data = get_post(get_topmost_parent($post->ID));
+        $classes[] = 'section-'.$post_data->post_name;
+    }
 	return $classes;
 }
 add_filter('body_class','category_body_class');
@@ -99,8 +103,12 @@ function set_section(){
 
 function get_section(){
     global $post;
-    $post_data = get_post(get_topmost_parent($post->ID));
-    $section = $post_data->post_name;
+    if(is_cpt('post')){
+        $section = 'section-blog';
+    } else {
+        $post_data = get_post(get_topmost_parent($post->ID));
+        $section = $post_data->post_name;
+    }
     return $section;
 }
 

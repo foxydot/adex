@@ -25,12 +25,16 @@ function msdlab_bootstrap_content_sidebar_wrap( $attributes ){
 }
 
 function msdlab_bootstrap_content( $attributes ){
+    global $section;
+
     $layout = genesis_site_layout();
     $template = get_page_template();
     switch($layout){
         case 'content-sidebar':
         case 'sidebar-content':
-            //$attributes['class'] .= ' col-md-12';
+            if($section == 'section-blog'){
+                $attributes['class'] .= ' col-md-9 col-sm-12';
+            }
             break;
         case 'content-sidebar-sidebar':
         case 'sidebar-sidebar-content':
@@ -44,12 +48,17 @@ function msdlab_bootstrap_content( $attributes ){
 }
 
 function msdlab_bootstrap_sidebar( $attributes ){
+    global $section;
     $layout = genesis_site_layout();
     $template = get_page_template();
     switch($layout){
         case 'content-sidebar':
         case 'sidebar-content':
-            $attributes['class'] .= ' col-md-12';
+            if($section == 'section-blog'){
+                $attributes['class'] .= ' col-md-3 hidden-sm';
+            } else {
+                $attributes['class'] .= ' col-md-12';
+            }
             break;
         case 'content-sidebar-sidebar':
         case 'sidebar-sidebar-content':
