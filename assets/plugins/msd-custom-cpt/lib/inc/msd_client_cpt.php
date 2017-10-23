@@ -33,6 +33,9 @@ if (!class_exists('MSDClientCPT')) {
             
             add_shortcode('logo_gallery', array(&$this,'logo_gallery_js'));
             add_image_size('logo',300,400,false);
+            add_filter( 'manage_edit-client_columns', array(&$this,'my_edit_columns' ));
+
+            add_action( 'manage_client_posts_custom_column', array(&$this,'my_manage_columns'), 10, 2 );
         }
 
 
@@ -76,6 +79,43 @@ if (!class_exists('MSDClientCPT')) {
             );
         
             register_post_type( $this->cpt, $args );
+        }
+
+        function my_edit_columns( $columns ) {
+
+            $columns = array(
+                'cb' => '<input type="checkbox" />',
+                'title' => __( 'Title' ),
+                'logo' => __( 'Logo' ),
+                'date' => __( 'Date' )
+            );
+
+            return $columns;
+        }
+
+        function my_manage_columns( $column, $post_id ) {
+            global $post;
+
+            switch( $column ) {
+                /* If displaying the 'logo' column. */
+                case 'logo' :
+
+                    /* Get the post thumbnail. */
+                    $logo = get_the_post_thumbnail( $post_id );
+
+                    /* If no duration is found, output a default message. */
+                    if ( empty( $logo ) )
+                        echo __( 'No logo installed' );
+
+                    /* If there is a duration, append 'minutes' to the text string. */
+                    else
+                        print $logo;
+
+                    break;
+                /* Just break out of the switch statement for everything else. */
+                default :
+                    break;
+            }
         }
         
         function plugin_header() {
