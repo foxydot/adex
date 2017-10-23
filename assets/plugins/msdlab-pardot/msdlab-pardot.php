@@ -37,22 +37,24 @@ if(!class_exists('MSDLab_Pardot')){
         function add_pardot_footer_scripts(){
             //print the script
             $ret = '<script name="pardot" type="text/javascript">
-var hash = window.location.hash;
-piAId = \'319401\';
-switch(hash){
-    case \'enviroments\':
+var piAId = \'319401\';
+var piCId = null;
+switch(window.location.hash){
+    case \'#environments\':
         piCId = \'4577\';
         break;
-    case \'exhibits\':
+    case \'#exhibits\':
         piCId = \'4579\';
         break;
-    case \'events\':
+    case \'#events\':
         piCId = \'4581\';
         break;
-    case \'fulfillment\':
+    case \'#fulfillment\':
         piCId = \'4583\';
         break;
 }
+console.log(\'hash: \' + window.location.hash);
+console.log(\'piCId: \' + piCId);
 
 (function() {
 	function async_load(){
