@@ -28,7 +28,8 @@ function msdlab_alter_loop_params($query){
             $query->set('numposts',-1);
         }
         if($query->is_post_type_archive('project')){
-           $query->set('orderby',array('meta_value_num'=>'DESC', 'menu_order'));
+           $query->set('orderby','post_date');
+           $query->set('order','DESC');
            $query->set('meta_key','_project_case_study');
         }
     }
@@ -280,7 +281,7 @@ function msdlab_prev_next_post_nav() {
     if ( ! is_singular() || is_page() )
         return;
 	
-    $in_same_term = false;
+    $in_same_term = true;
     $excluded_terms = false; 
     $previous_post_link = get_previous_post_link('&laquo; %link', '%title', $in_same_term, $excluded_terms, 'category');
     $next_post_link = get_next_post_link('%link &raquo;', '%title', $in_same_term, $excluded_terms, 'category');
